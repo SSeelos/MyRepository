@@ -3,32 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyWPF.MVVM"
         mc:Ignorable="d"
         Title="AdvancedWindow" 
         SizeToContent="WidthAndHeight">
-    <Window.Resources>
-        <DataTemplate x:Key="CommandsTemplate">
-
-            <ItemsControl ItemsSource="{Binding Path=Commands}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock>
-                            <Hyperlink Command="{Binding Path=MyCommand}">
-                                <TextBlock Text="{Binding Path=DisplayName}"/>
-                            </Hyperlink>
-                        </TextBlock>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            
-        </DataTemplate>
-    </Window.Resources>
+    <Border Padding="40">
+        <StackPanel>
             <Menu>
 
                 <MenuItem Header="Header">
-                    <MenuItem Header="Command" Command="{Binding Path= MyCommand}"/>
+                    <MenuItem Header="Command" Command="{Binding Path= RelayCommand}"/>
+
                 </MenuItem>
 
             </Menu>
+            <Button Content="RelayCommand" Command="{Binding Path= RelayCommand}"/>
+            <TextBox Text="{Binding MyProperty}"/>
+            <TextBox Text="{Binding myString, Mode=OneWay}" Background="LightGray" IsReadOnly="True"/>
+
+        </StackPanel>
+        
+    </Border>
+
 </Window>

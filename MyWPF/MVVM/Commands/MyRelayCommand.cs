@@ -20,15 +20,11 @@ namespace MyWPF.MVVM
         readonly Action<object> execute;
         readonly Predicate<object> canExecute;
 
-        public MyRelayCommand(Action<object> execute)
-            : this(execute, null)
-        {
 
-        }
-        public MyRelayCommand(Action<object> execute, Predicate<object> canExecute)
+        public MyRelayCommand(Action<object> execute, Predicate<object> canExecute = null)
         {
             this.execute = execute ?? throw new ArgumentNullException("execute");
-            this.canExecute = canExecute ?? throw new ArgumentNullException("canExecute");
+            this.canExecute = canExecute;
         }
 
 
@@ -45,9 +41,10 @@ namespace MyWPF.MVVM
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-        public void Execute(object parameter)
+        public void Execute(object parameter = null)
         {
             execute(parameter);
+
         }
     }
 }

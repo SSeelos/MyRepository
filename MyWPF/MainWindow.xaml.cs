@@ -80,7 +80,7 @@ namespace MyWPF
 
         private void MVVM_Click(object sender, RoutedEventArgs e)
         {
-            new MyMVVMWindow().ShowDialog();
+            new MyView().ShowDialog();
         }
     }
 }

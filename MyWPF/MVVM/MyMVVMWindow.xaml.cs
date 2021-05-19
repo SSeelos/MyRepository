@@ -1,18 +1,17 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace MyWPF.MVVM
 {
     /// <summary>
     /// Interaction logic for MyMVVMWindow.xaml
     /// </summary>
-    public partial class MyMVVMWindow : Window
+    public partial class MyView : Window
     {
 
-        public MyMVVMWindow()
+        public MyView()
         {
-
-            MyViewModel viewModel = new MyViewModel();
-            this.DataContext = viewModel;
+            this.DataContext = new MyViewModel();
 
             InitializeComponent();
         }
@@ -22,5 +21,21 @@ namespace MyWPF.MVVM
             new AdvancedWindow()
                 .ShowDialog();
         }
+    }
+    public class MyViewModel : MyViewModelBase
+    {
+        private int myProperty = 0;
+        public int MyProperty
+        {
+            get { return myProperty; }
+
+            set
+            {
+                this.myProperty = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand MyCommand => new MyCommand(this);
     }
 }

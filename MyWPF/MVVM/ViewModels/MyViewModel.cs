@@ -1,7 +1,5 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
 
 namespace MyWPF.MVVM
 {
@@ -42,49 +40,12 @@ namespace MyWPF.MVVM
 
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        public string DisplayName { get; set; }
     }
 
-    public class MyViewModel : MyViewModelBase
-    {
-        private int myProperty = 0;
-        public int MyProperty
-        {
-            get { return myProperty; }
-
-            set
-            {
-                this.myProperty = value;
-                OnPropertyChanged();
-            }
-        }
 
 
-        public ICommand MyCommand => new MyCommand(this);
-    }
-    public class MyCommandViewModel : MyViewModelBase
-    {
-        MyRelayCommand relayCommand;
-        bool Check;
-        public ICommand RelayCommand
-        {
-            get => relayCommand = new MyRelayCommand(param => this.Execute(), param => this.Check) ?? null;
-        }
-        private void Execute() { }
-        public MyCommandViewModel(string name, ICommand command)
-        {
-            if (command == null)
-                throw new ArgumentNullException("command");
-
-            base.DisplayName = name;
-            this.MyCommand = command;
-        }
-
-
-
-        public ICommand MyCommand { get; private set; }
-    }
 
 
 }
+
+
