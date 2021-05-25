@@ -1,27 +1,29 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace MyWPF.MVVM
 {
     /// <summary>
-    /// Interaction logic for MyMVVMWindow.xaml
+    /// Interaction logic for MyBindedPropertyWindow.xaml
     /// </summary>
     public partial class MyView : Window
     {
-
         public MyView()
         {
             this.DataContext = new MyViewModel();
-
             InitializeComponent();
         }
-
-        private void Advanced_Click(object sender, RoutedEventArgs e)
-        {
-            new AdvancedWindow()
-                .ShowDialog();
-        }
     }
+
     public class MyViewModel : MyViewModelBase
     {
         private int myProperty = 0;
@@ -37,5 +39,20 @@ namespace MyWPF.MVVM
         }
 
         public ICommand MyCommand => new MyCommand(this);
+    }
+
+    public class MyCommand : MyCommandBase<MyViewModel>
+    {
+
+        public MyCommand(MyViewModel viewModel)
+            : base(viewModel)
+        {
+        }
+
+
+        public override void Execute(object parameter)
+        {
+            this.viewModel.MyProperty = 100;
+        }
     }
 }

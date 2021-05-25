@@ -36,5 +36,21 @@ namespace MyWPF.MVVM
         {
             this.myString = myProperty;
         }
+
+    }
+    public class CreateListItem : MyCommandBase<MyViewModelAdvanced>
+    {
+
+        public CreateListItem(MyViewModelAdvanced viewModel)
+            : base(viewModel)
+        {
+            this.viewModel = viewModel;
+        }
+
+
+        public override void Execute(object parameter)
+        {
+            this.viewModel.List.Add(1);
+        }
     }
 }

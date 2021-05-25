@@ -75,12 +75,14 @@ namespace MyWPF
 
         private void OpenWindow_Click(object sender, RoutedEventArgs e)
         {
-            new MyWindow().Show();
+            new MyWindow()
+                .Show();
         }
 
         private void MVVM_Click(object sender, RoutedEventArgs e)
         {
-            new MyView().ShowDialog();
+            new MyMVVMWindow()
+                .ShowDialog();
         }
     }
 }

@@ -1,0 +1,19 @@
+﻿<Window x:Class="MyWPF.MVVM.MyView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MyBindedPropertyWindow" 
+        SizeToContent="WidthAndHeight">
+    <Border Padding="40">
+        <StackPanel>
+
+        <TextBlock Text="BindedProperty"/>
+        <TextBox Text="{Binding Path=MyProperty, Mode=TwoWay}"/>
+        <TextBox Text="{Binding Path=MyProperty}" IsReadOnly="True" Background="#eee"/>
+        <Button Content="MyCommand" Command="{Binding MyCommand}"/>
+            
+        </StackPanel>
+    </Border>
+</Window>

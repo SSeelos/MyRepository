@@ -1,0 +1,44 @@
+﻿<Window x:Class="MyWPF.MVVM.ObservableCollectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+  xmlns:c="clr-namespace:MyWPF.MVVM"
+        mc:Ignorable="d"
+        Title="ObservableCollectionWindow" 
+        SizeToContent="WidthAndHeight">
+    <Window.Resources>
+
+        <DataTemplate x:Key="MyListBoxTemplate">
+            <Button Command="{Binding MyDataCommand}">
+                <StackPanel>
+                    <TextBlock Text="{Binding Path=MyField}"/>
+                    <TextBlock Text="{Binding Path=MyField2}"/>
+                </StackPanel>
+            </Button>
+        </DataTemplate>
+
+        <!--<ItemsControl x:Key="MyItemsControl" ItemsSource="{Binding myDatas}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=MyField}"/>
+                        <TextBlock Text="{Binding Path=MyField2}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>-->
+        
+    </Window.Resources>
+    <Border Padding="40">
+                
+        <StackPanel>
+            <Button Content="Command" Command="{Binding MyObservableCollectionCommand}"/>
+            <ListBox
+                ItemsSource="{Binding Path=myDatas}"
+                ItemTemplate="{StaticResource MyListBoxTemplate}"
+                IsSynchronizedWithCurrentItem="True"/>
+
+        </StackPanel>
+    </Border>
+</Window>
