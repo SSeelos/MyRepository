@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace MyProject.MyEventsAndDelegates
+namespace MyConsoleAppProject.MyEventsAndDelegates
 {
     public class MySubscriber
     {

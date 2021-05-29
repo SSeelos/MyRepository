@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyUnitTestProject;
-using MyProject;
+using MyConsoleAppProject;
 
 namespace MyUnitTestProject
 {

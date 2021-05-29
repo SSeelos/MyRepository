@@ -1,8 +1,8 @@
-﻿using MyProject.MyEventsAndDelegates;
+﻿using MyConsoleAppProject.MyEventsAndDelegates;
 using System;
 using System.Linq;
 
-namespace MyProject
+namespace MyConsoleAppProject
 {
     public class MyProgram
     {
@@ -177,9 +177,12 @@ namespace MyProject
             #endregion
 
             #region EventsAndDelegates
-            new EventsProgram()
+            new MyEventsProgram()
                 .Run();
             #endregion
+
+            new MyAnonymousFunctionsProgram()
+                .Run();
         }
 
         public static int MyMethod(int myArgument)

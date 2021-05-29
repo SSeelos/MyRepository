@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyProject.MyEventsAndDelegates
+namespace MyConsoleAppProject.MyEventsAndDelegates
 {
     public class MyPublisherArgs : MyPublisher
     {

@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace MyProject.MyEventsAndDelegates
+namespace MyConsoleAppProject.MyEventsAndDelegates
 {
-    public class EventsProgram
+    public class MyEventsProgram
     {
-        public EventsProgram()
+        public MyEventsProgram()
         {
             Console.WriteLine();
             Console.WriteLine("#");
             Console.WriteLine(this.GetType().Name);
             Console.Read();
         }
-        public void Run() {
+        public void Run()
+        {
 
             var myClass = new MyClass();
             var publisher = new MyPublisher();

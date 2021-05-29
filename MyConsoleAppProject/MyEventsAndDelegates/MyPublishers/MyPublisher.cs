@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace MyProject.MyEventsAndDelegates
+namespace MyConsoleAppProject.MyEventsAndDelegates
 {
 
     //Delegate: agreement between publisher and subscriber

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyProject
+namespace MyConsoleAppProject
 {
     class MyGenericClass
     {
