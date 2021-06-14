@@ -5,14 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWPF"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="MyTitle" 
         SizeToContent="WidthAndHeight">
-    <Border Padding="50" Background ="Green">
-        <StackPanel>
+    <Border Padding="10" Background ="Green">
+    <StackPanel>
+        <TextBlock Text="Buttons" FontWeight="Bold" Margin="0 10"/>
+        <Button Content="MyButton0" Click="MyButton_Click"/>
+            
+        <Button Content="MyButton1"/>
 
-            <Button Content="Basics" Click="Basics_Click"/>
+        <Button Content="MyButton2"/>
+
+        <TextBlock Text="Grids" FontWeight="Bold" Margin="0 10"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Margin="0 0 10 0" Grid.Column="0" Content="GridBtn" Click="MyButton_Click"/>
+                <Button Grid.Column="1" Content="OpenPage" Click="OpenPage_Click"/>
+                <Button Margin="10 0 0 0" Grid.Column="2" Content="OpenWindow" Click="OpenWindow_Click"/>
+            </Grid>
+
+            <TextBlock Text="Text" FontWeight="Bold" Margin="0 10"/>
+            <TextBlock Text="MyTextBlock"/>
+            
+            <!--comment-->
+
+            <TextBlock Text="TextBoxes" FontWeight="Bold" Margin="0 10"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="TxtBlock"/>
+                <TextBox x:Name="MyTextBlock" TextChanged="MyTextBlock_TextChanged" Padding="2"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="ReadOnly"/>
+                    <TextBox x:Name="MyTextBoxReadOnly" Text="MyTextBoxReadOnly" IsReadOnly="True" Background="#eee" Padding="2"/>
+            </StackPanel>
+        </Grid>
+        <TextBlock Text="Dropdown" FontWeight="Bold" Margin="0 10"/>
+        <ComboBox SelectionChanged="ComboBox_SelectionChanged"></ComboBox>
+        <TextBlock Text="CheckBoxes" FontWeight="Bold" Margin="0 10"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Boxes"/>
+                    <CheckBox Content="MyCheckBox0" Checked ="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                    <CheckBox Content="MyCheckBox1" Checked ="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                    <CheckBox Content="MyCheckBox2" Checked ="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                    <TextBlock Text="MoreBoxes"/>
+                    <CheckBox Content="AnotherBox0" Checked ="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                <CheckBox Content="AnotherBox1" Checked ="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                <CheckBox Content="AnotherBox2" Checked ="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+            </StackPanel>
+        </Grid>
+        <TextBlock Text="DropdownValues" FontWeight="Bold" Margin="0 10"/>
+        <ComboBox Padding="2" SelectionChanged="MyComboBox_SelectionChanged">
+            <ComboBoxItem>Item0</ComboBoxItem>
+            <ComboBoxItem>Item1</ComboBoxItem>
+            <ComboBoxItem>Item2</ComboBoxItem>
+        </ComboBox>
+            
+        <TextBox x:Name="Log" TextWrapping="Wrap" Margin="10 10 10 10" Height="60"/>
+
             <Button Content="MVVM" Click="MVVM_Click"/>
-            <Button Content="UseLibrary" Click="UseLibrary_Click"/>
 
 
         </StackPanel>
