@@ -17,7 +17,7 @@ namespace MyConsoleAppProject.MyEventsAndDelegates
         public delegate void MyEventHandler(object source, EventArgs args);
         public event MyEventHandler EventTriggered;
 
-        protected virtual void OnEventTriggered()
+        protected virtual void OnEventTriggerd()
         {
             Console.WriteLine(this.GetType().Name +": "+ MethodBase.GetCurrentMethod().Name);
 
@@ -30,7 +30,7 @@ namespace MyConsoleAppProject.MyEventsAndDelegates
 
             myClass.SetField(MethodBase.GetCurrentMethod().Name);
 
-            OnEventTriggered();
+            OnEventTriggerd();
         }
     }
 
