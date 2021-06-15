@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MyWPF.MVVM.MyMVVMToolkit;
+using System.Windows;
 
 namespace MyWPF.MVVM
 {
@@ -29,6 +30,12 @@ namespace MyWPF.MVVM
         {
             new ObservableCollectionWindow()
                 .Show();
+        }
+
+        private void MyMVVMToolkit_Click(object sender, RoutedEventArgs e)
+        {
+            new MyMVVMToolkitWindow()
+                .ShowDialog();
         }
     }
 }
