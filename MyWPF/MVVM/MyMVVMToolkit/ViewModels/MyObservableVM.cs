@@ -4,9 +4,9 @@ using System.Windows.Input;
 
 namespace MyWPF.MVVM.MyMVVMToolkit
 {
-    public class MyObservableViewModel : ObservableObject
+    public class MyObservableVM : ObservableObject
     {
-        public MyObservableViewModel()
+        public MyObservableVM()
         {
             MyCommand = new RelayCommand(myAction);
         }
