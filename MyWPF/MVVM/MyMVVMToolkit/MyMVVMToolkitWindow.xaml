@@ -8,7 +8,7 @@
         SizeToContent="WidthAndHeight">
     <Border Padding="20">
         <StackPanel>
-            <Button Content="ObservableViewModel"/>
+            <Button Content="ObservableViewModel" Click="ObservableVM_Click"/>
         </StackPanel>
     </Border>
 </Window>

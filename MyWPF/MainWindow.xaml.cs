@@ -1,4 +1,5 @@
-﻿using MyWPF.MVVM;
+﻿using MyMachineLearning;
+using MyWPF.MVVM;
 using System.Windows;
 
 namespace MyWPF
@@ -33,6 +34,10 @@ namespace MyWPF
         {
             new UseLibraryWindow()
                 .ShowDialog();
+        }
+
+        private void MyMachineLearning_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

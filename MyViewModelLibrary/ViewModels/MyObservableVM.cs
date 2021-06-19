@@ -2,28 +2,28 @@
 using Microsoft.Toolkit.Mvvm.Input;
 using System.Windows.Input;
 
-namespace MyWPF.MVVM.MyMVVMToolkit
+namespace MyViewModelLibrary.ViewModels
 {
     public class MyObservableVM : ObservableObject
     {
         public MyObservableVM()
         {
-            MyCommand = new RelayCommand(myAction);
+            MyRelayCommand = new RelayCommand(myAction);
         }
 
-        public ICommand MyCommand { get; }
+        public ICommand MyRelayCommand { get; }
 
         private int myProperty;
         public int MyProperty
         {
             get => myProperty;
-            private set => SetProperty(ref myProperty, value);
+            set => SetProperty(ref myProperty, value);
         }
 
 
         private void myAction()
         {
-            //use myProperty
+            MyProperty = 100;
         }
     }
 }

@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyConsoleAppProject", "MyCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyWPF", "MyWPF\MyWPF.csproj", "{CD94C212-A85B-416F-A113-78293A03735D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyMachineLearning", "MyMachineLearning\MyMachineLearning.csproj", "{C22BF8F6-7FF3-450D-B73B-16A0EC2C4576}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyViewModelLibrary", "MyViewModelLibrary\MyViewModelLibrary.csproj", "{106B56A6-EE7C-4CEB-9D25-DBDD5E012C4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{CD94C212-A85B-416F-A113-78293A03735D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD94C212-A85B-416F-A113-78293A03735D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD94C212-A85B-416F-A113-78293A03735D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C22BF8F6-7FF3-450D-B73B-16A0EC2C4576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C22BF8F6-7FF3-450D-B73B-16A0EC2C4576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C22BF8F6-7FF3-450D-B73B-16A0EC2C4576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C22BF8F6-7FF3-450D-B73B-16A0EC2C4576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{106B56A6-EE7C-4CEB-9D25-DBDD5E012C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{106B56A6-EE7C-4CEB-9D25-DBDD5E012C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{106B56A6-EE7C-4CEB-9D25-DBDD5E012C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{106B56A6-EE7C-4CEB-9D25-DBDD5E012C4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

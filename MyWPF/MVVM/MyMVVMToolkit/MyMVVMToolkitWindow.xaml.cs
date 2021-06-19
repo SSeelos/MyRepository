@@ -21,5 +21,12 @@ namespace MyWPF.MVVM.MyMVVMToolkit
         {
             InitializeComponent();
         }
+
+
+        private void ObservableVM_Click(object sender, RoutedEventArgs e)
+        {
+            new MyObservableView()
+                .Show();
+        }
     }
 }

@@ -1,15 +1,16 @@
-﻿using System.Windows;
+﻿using MyViewModelLibrary.ViewModels;
+using System.Windows;
 
 namespace MyWPF.MVVM.MyMVVMToolkit
 {
     /// <summary>
     /// Interaction logic for MyMVVMToolkitWindow.xaml
     /// </summary>
-    public partial class MyObservableVMView : Window
+    public partial class MyObservableView : Window
     {
-        public MyObservableVMView()
+        public MyObservableView()
         {
-            DataContext = new MyObservableVM();
+            //DataContext = new MyObservableVM();
             InitializeComponent();
         }
 
