@@ -13,4 +13,8 @@
     <ProjectReference Include="..\MyViewModelLibrary\MyViewModelLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyLibrary\MyLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
