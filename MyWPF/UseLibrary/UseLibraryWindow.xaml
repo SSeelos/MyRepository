@@ -7,6 +7,6 @@
         Title="UseLibraryWindow" 
         SizeToContent="WidthAndHeight">
     <Border Padding="40">
-        
+        <Button Content="SOLID" Click="SOLID_Click"/>
     </Border>
 </Window>
