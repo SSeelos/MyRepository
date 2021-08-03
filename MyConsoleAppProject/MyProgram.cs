@@ -12,8 +12,11 @@ namespace MyConsoleAppProject
             second,
             third
         }
-
-        static void Main(string[] args)
+        public MyProgram()
+        {
+            Main();
+        }
+        public static void Main()
         {
             //method /function)
             int myArgument = 0;

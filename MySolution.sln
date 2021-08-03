@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyWPF", "MyWPF\MyWPF.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyMachineLearning", "MyMachineLearning\MyMachineLearning.csproj", "{C22BF8F6-7FF3-450D-B73B-16A0EC2C4576}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyViewModelLibrary", "MyViewModelLibrary\MyViewModelLibrary.csproj", "{106B56A6-EE7C-4CEB-9D25-DBDD5E012C4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyViewModelLibrary", "MyViewModelLibrary\MyViewModelLibrary.csproj", "{106B56A6-EE7C-4CEB-9D25-DBDD5E012C4D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MLModel1_ConsoleApp1", "MLModel1_ConsoleApp1\MLModel1_ConsoleApp1.csproj", "{96FE7DCC-1FE1-41C5-A92A-D583BA88AB46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{106B56A6-EE7C-4CEB-9D25-DBDD5E012C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{106B56A6-EE7C-4CEB-9D25-DBDD5E012C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{106B56A6-EE7C-4CEB-9D25-DBDD5E012C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96FE7DCC-1FE1-41C5-A92A-D583BA88AB46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96FE7DCC-1FE1-41C5-A92A-D583BA88AB46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96FE7DCC-1FE1-41C5-A92A-D583BA88AB46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96FE7DCC-1FE1-41C5-A92A-D583BA88AB46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

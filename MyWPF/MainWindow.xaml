@@ -14,7 +14,7 @@
             <Button Content="MVVM" Click="MVVM_Click"/>
             <TextBlock Text="MyProjects"/>
             <Button Content="UseLibrary" Click="UseLibrary_Click"/>
-            <Button Content="MyMachineLearning" Click="MyMachineLearning_Click"/>
+            <Button Content="MyConsoleApp" Click="MyConsoleApp_Click"/>
 
 
         </StackPanel>

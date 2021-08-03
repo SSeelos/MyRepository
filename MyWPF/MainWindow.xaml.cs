@@ -1,5 +1,6 @@
-﻿using MyMachineLearning;
+﻿using MyConsoleAppProject;
 using MyWPF.MVVM;
+using System.Runtime.InteropServices;
 using System.Windows;
 
 namespace MyWPF
@@ -36,8 +37,15 @@ namespace MyWPF
                 .ShowDialog();
         }
 
-        private void MyMachineLearning_Click(object sender, RoutedEventArgs e)
+        private void MyConsoleApp_Click(object sender, RoutedEventArgs e)
         {
+            AllocConsole();
+            new MyProgram();
         }
+
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
     }
 }
