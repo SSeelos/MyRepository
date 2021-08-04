@@ -7,6 +7,10 @@
         Title="UseLibraryWindow" 
         SizeToContent="WidthAndHeight">
     <Border Padding="40">
+        <StackPanel>
         <Button Content="SOLID" Click="SOLID_Click"/>
+        <Button Content="UnitValues" Click="UnitValues_Click"/>
+            
+        </StackPanel>
     </Border>
 </Window>

@@ -25,7 +25,11 @@ namespace MyWPF
             SolidProgram solidProgram = new SolidProgram();
         }
 
+        private void UnitValues_Click(object sender, RoutedEventArgs e)
+        {
 
-
+            AllocConsole();
+            UnitValuesProgram solidProgram = new UnitValuesProgram();
+        }
     }
 }
