@@ -14,12 +14,20 @@
             var hollowCircle = new HollowCircle(2, 1);
             var cube = new Cube(2);
 
-            var calc = new AreaCalculator(square, circle, hollowCircle, cube);
+            var areaCalc = new AreaCalculator(square, circle, hollowCircle, cube);
 
 
-            var outputter = new AreaCalculatorOutputter(calc);
-            outputter.OutputVariant_1();
-            outputter.OutputVariant_2();
+            var areaOutputter = new CalculatorOutputter(areaCalc);
+            areaOutputter.OutputVariant_1();
+            areaOutputter.OutputVariant_2();
+
+
+            var volumeCalc = new VolumeCalculator(cube);
+
+
+            var volOutputter = new CalculatorOutputter(volumeCalc);
+            volOutputter.OutputVariant_1();
+            volOutputter.OutputVariant_2();
 
         }
     }

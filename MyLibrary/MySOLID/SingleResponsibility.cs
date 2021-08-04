@@ -4,20 +4,26 @@ using System.Reflection;
 
 namespace MyLibrary
 {
-    //Single Responsibility Principle (S-RP)
+    //Single Responsibility Principle   (S-RP)
     //modules should have only one reason to change
     //-> separate concerns
 
-    //Open closed Principle (O-CP)
+    //Open closed Principle             (O-CP)
     //module/class is open for extension and closed for modification
     //-> introduce interfaces (or abstract class)
 
-    //Liskov Substitution Principle (L-SP)
+    //Liskov Substitution Principle     (L-SP)
     //be able to use any derived class instead of a parent class
 
-    //Interface Segregation Principle (ISP)
+    //Interface Segregation Principle   (I-SP)
     //clients should not be forced to implement interfaces they don't use
     //-> many small interfaces based on groups of methods
+
+    //Dependency Inversion Principle    (D-IP)
+    //high-level modules/classes should not depend on low-level modules/classes
+    //-> both dependant on abstractions, avoid coupling
+    //abstractions should not depend on details
+    //-> details dependant on abstractions
 
     public interface IShape1D
     {
@@ -123,7 +129,13 @@ namespace MyLibrary
         }
     }
 
-    public class AreaCalculator             //(SRP)
+
+    public interface ICalculator                        //(DIP)
+    {
+        List<double> Sum();
+        double Output();
+    }
+    public class AreaCalculator : ICalculator            //(SRP)
     {
         protected IShape2D[] shapes;
 
@@ -137,7 +149,39 @@ namespace MyLibrary
             var area = new List<double>();
             foreach (var shape in shapes)
             {
-                area.Add(shape.Area());     //(OCP) removes the need for a switch statement, that would have to be extendet
+                area.Add(shape.Area());         //(OCP) removes the need for a switch statement, that would have to be extendet
+            }
+            return area;
+
+        }
+
+        public double Output()
+        {
+            double sum = 0;
+
+            foreach (var item in Sum())
+            {
+                sum += item;
+            }
+
+            return sum;
+        }
+    }
+    public class VolumeCalculator : ICalculator            //(SRP)
+    {
+        protected IShape3D[] shapes;
+
+        public VolumeCalculator(params IShape3D[] shapes)
+        {
+            this.shapes = shapes;
+        }
+
+        public List<double> Sum()
+        {
+            var area = new List<double>();
+            foreach (var shape in shapes)
+            {
+                area.Add(shape.Volume());         //(OCP)
             }
             return area;
 
@@ -156,32 +200,32 @@ namespace MyLibrary
         }
     }
 
-    public class AreaCalculatorOutputter    //(SRP)
+    public class CalculatorOutputter        //(SRP)
     {
-        protected AreaCalculator areaCalculator;
-        public AreaCalculatorOutputter(AreaCalculator areaCalculator)
+        protected ICalculator calculator;   //(DIP)
+        public CalculatorOutputter(ICalculator calculator)
         {
-            this.areaCalculator = areaCalculator;
+            this.calculator = calculator;
         }
 
         public void OutputVariant_1()
         {
             Console.WriteLine(MethodBase.GetCurrentMethod().Name);
-            foreach (var item in areaCalculator.Sum())
+            foreach (var item in calculator.Sum())
             {
                 Console.WriteLine(item);
             }
-            Console.WriteLine(areaCalculator.Output());
+            Console.WriteLine(calculator.Output());
         }
         public void OutputVariant_2()
         {
             Console.WriteLine(MethodBase.GetCurrentMethod().Name);
-            foreach (var item in areaCalculator.Sum())
+            foreach (var item in calculator.Sum())
             {
                 Console.Write(item + " ");
             }
             Console.WriteLine();
-            Console.WriteLine("Sum: " + areaCalculator.Output());
+            Console.WriteLine("Sum: " + calculator.Output());
         }
     }
 }
