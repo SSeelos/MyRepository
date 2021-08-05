@@ -22,7 +22,10 @@ namespace MyLibrary
 
         Celcius,
         Fahrenheit,
-        Kelvin
+        Kelvin,
+
+        Degree,
+        Radians
 
 
 
@@ -70,33 +73,33 @@ namespace MyLibrary
         }
     }
 
-    public static class UnitProcessor
-    {
-        public static Dictionary<Units, Dictionary<Units, Func<Units>>> unitsDict = new Dictionary<Units, Dictionary<Units, Func<Units>>>();
+    //public static class UnitProcessor
+    //{
+    //    public static Dictionary<Units, Dictionary<Units, Func<Units>>> unitsDict = new Dictionary<Units, Dictionary<Units, Func<Units>>>();
 
-        public static void Init()
-        {
-            Func<double, UnitValue> convert = Convert_mm;
-            var mmDict = new Dictionary<Units, Func<double, UnitValue>>();
-            mmDict.Add(Units.m, Convert_mm(1));
-            unitsDict.Add(Units.mm)
-        }
+    //    public static void Init()
+    //    {
+    //        Func<double, UnitValue> convert = Convert_mm;
+    //        var mmDict = new Dictionary<Units, Func<double, UnitValue>>();
+    //        mmDict.Add(Units.m, Convert_mm(1));
+    //        unitsDict.Add(Units.mm)
+    //    }
 
-        public delegate Units Convert();
+    //    public delegate Units Convert();
 
-        public static UnitValue Convert_mm(double b)
-        {
-            var uv = new UnitValue()
-            {
-                Unit = Units.mm,
-                Value = b * 1000
+    //    public static UnitValue Convert_mm(double b)
+    //    {
+    //        var uv = new UnitValue()
+    //        {
+    //            Unit = Units.mm,
+    //            Value = b * 1000
 
-            };
+    //        };
 
-            return uv;
-        }
+    //        return uv;
+    //    }
 
-    }
+    //}
 
     public static class UnitConverter
     {
@@ -183,37 +186,56 @@ namespace MyLibrary
             {
                 case Units.none:
                     break;
+
                 case Units.mm:
                     break;
                 case Units.cm:
+                    this.Unit = Units.mm;
                     value *= 10;
                     break;
                 case Units.m:
+                    this.Unit = Units.mm;
                     value *= 1000;
                     break;
+
                 case Units.s:
                     break;
                 case Units.min:
+                    this.Unit = Units.s;
                     value *= 60;
                     break;
                 case Units.h:
+                    this.Unit = Units.s;
                     value *= 1440;
                     break;
                 case Units.d:
+                    this.Unit = Units.s;
                     value *= 86400;
                     break;
+
                 case Units.EU:
                     break;
                 case Units.Cent:
+                    this.Unit = Units.EU;
                     value *= 0.01;
                     break;
+
                 case Units.Celcius:
                     break;
                 case Units.Fahrenheit:
+                    this.Unit = Units.Celcius;
                     value += 32;
                     break;
                 case Units.Kelvin:
+                    this.Unit = Units.Celcius;
                     value += 273.15;
+                    break;
+
+                case Units.Degree:
+                    break;
+                case Units.Radians:
+                    this.Unit = Units.Degree;
+                    value *= 180 / Math.PI;
                     break;
 
                 default:
@@ -226,7 +248,7 @@ namespace MyLibrary
 
         public override string ToString()
         {
-            return Value.ToString() + Unit.ToString();
+            return Value.ToString() + " " + Unit.ToString();
         }
 
     }
