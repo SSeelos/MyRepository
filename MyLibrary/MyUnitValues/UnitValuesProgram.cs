@@ -33,6 +33,10 @@ namespace MyLibrary
 
 
             Console.WriteLine(valueA + valueB);
+
+
+            var valueAClass = new Meter(2);
+            valueAClass.va
         }
     }
 }
