@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace MyLibrary
 {
@@ -11,6 +12,16 @@ namespace MyLibrary
 
         private void Run()
         {
+            RunUnitValue();
+
+            RunUnitValueT();
+        }
+
+        private void RunUnitValue()
+        {
+            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+            Console.WriteLine();
+
             var valueA = new UnitValue(2, Units.m);
             var valueB = new UnitValue(3, Units.m);
 
@@ -34,9 +45,43 @@ namespace MyLibrary
 
             Console.WriteLine(valueA + valueB);
 
+        }
+        private void RunUnitValueT()
+        {
+            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+            Console.WriteLine();
 
-            var valueAClass = new Meter(2);
-            valueAClass.va
+            Meter meter = new Meter(2);
+            Centimeter centimeter = new Centimeter(100);
+
+
+
+            Meter add = meter + centimeter;
+
+            var hour = new Hour(1);
+
+            var mps = new MeterPerSecond(meter, hour);
+
+            Console.WriteLine(string.Format("MPS: {0} BaseValue= {1} DisplayValue{2}",
+                mps.GetType().Name,
+                mps.BaseValue,
+                mps.DisplayValue));
+
+            var kmph = new KilometerPerHour(meter, hour);
+
+            Console.WriteLine(string.Format("MPS: {0} BaseValue= {1} DisplayValue{2}",
+                kmph.GetType().Name,
+                kmph.BaseValue,
+                kmph.DisplayValue));
+
+            var kmphFromMps = new KilometerPerHour(mps);
+
+            Console.WriteLine(string.Format("MPS: {0} BaseValue= {1} DisplayValue{2}",
+                kmph.GetType().Name,
+                kmph.BaseValue,
+                kmph.DisplayValue));
+
+
         }
     }
 }

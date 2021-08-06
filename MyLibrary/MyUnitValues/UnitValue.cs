@@ -6,7 +6,7 @@ namespace MyLibrary
     {
         public Units Unit;
 
-        public UnitType UnitType;
+        //public UnitType UnitType;
         public double Value;
 
         //public UnitValue(double value, Units unit = Units.none)
@@ -15,10 +15,10 @@ namespace MyLibrary
         //    Value = value;
         //}
 
-        public UnitValue(double value, UnitType unit)
+        public UnitValue(double value, Units unit)
         {
-            Unit = unit.Unit;
-            UnitType = unit;
+            Unit = unit;
+            //UnitType = unit;
             Value = value;
         }
 

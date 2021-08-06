@@ -31,10 +31,7 @@ namespace MyLibrary
 
     }
 
-    public static class UnitTypes
-    {
-        public Meter Meter = new Meter();
-    }
+
     public class DerivedUnitType
     {
         List<Units> top;
@@ -81,10 +78,19 @@ namespace MyLibrary
     {
         public static UnitValue Add(UnitValue a, UnitValue b)
         {
-            if (a.Unit != b.Unit)
-                throw new Exception("cant add values of different units");
+            try
+            {
+                if (a.Unit != b.Unit)
+                    throw new Exception("cant add values of different units");
 
-            return new UnitValue() { Unit = a.Unit, Value = a.Value + b.Value };
+                return new UnitValue() { Unit = a.Unit, Value = a.Value + b.Value };
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return a;
+            }
         }
         public static UnitValue Substract(UnitValue a, UnitValue b)
         {
@@ -112,78 +118,74 @@ namespace MyLibrary
 
         protected abstract Units GetUnits();
 
-        public abstract double ConvertToBaseUnit();
+        public abstract double ConvertToBaseUnit(double value);
     }
-    public abstract class LengthUnit : UnitType
-    {
-        /// <summary>
-        /// Value of the base unit type
-        /// </summary>
-        public double BaseValue { get; protected set; }
-        /// <summary>
-        /// Value of this unit type
-        /// </summary>
-        public double DisplayValue { get { return this.DisplayValue; } set => OnSet(); }
+    //public abstract class LengthUnit : UnitType
+    //{
+    //    /// <summary>
+    //    /// Value of the base unit type
+    //    /// </summary>
+    //    public double BaseValue { get; protected set; }
+    //    /// <summary>
+    //    /// Value of this unit type
+    //    /// </summary>
+    //    public double DisplayValue { get { return this.DisplayValue; } set => OnSet(); }
 
-        private void OnSet()
-        {
-            ConvertToBaseUnit();
-        }
+    //    private void OnSet()
+    //    {
+    //        BaseValue = ConvertToBaseUnit(DisplayValue);
+    //    }
 
-        protected override abstract Units GetUnits();
 
-        public override double ConvertToBaseUnit()
-        {
-            throw new NotImplementedException();
-        }
 
-        public LengthUnit(double displayValue)
-        {
-            this.DisplayValue = displayValue;
-        }
-        public static LengthUnit operator +(LengthUnit a, LengthUnit b)
-        {
-            return new LengthUnit(a.DisplayValue + b.DisplayValue);
-        }
-    }
-    public class Meter : LengthUnit
-    {
-        public Meter(double displayValue)
-            : base(displayValue)
-        {
-        }
-        public override double ConvertToBaseUnit(double value)
-        {
-            return value;
-        }
 
-        protected override Units GetUnits()
-        {
-            return Units.m;
-        }
-    }
-    public class MilliMeter : LengthUnit
-    {
-        public MilliMeter(double displayValue)
-            : base(displayValue)
-        {
-        }
-        public override void ConvertToBaseUnit()
-        {
-            this.BaseValue = DisplayValue * 0.01;
-        }
+    //    public LengthUnit(double displayValue)
+    //    {
+    //        this.DisplayValue = displayValue;
+    //    }
+    //    public static LengthUnit operator +(LengthUnit a, LengthUnit b)
+    //    {
+    //        return new Meter(a.DisplayValue + b.DisplayValue);
+    //    }
+    //}
+    //public class Meter : LengthUnit
+    //{
+    //    public Meter(double displayValue)
+    //        : base(displayValue)
+    //    {
+    //    }
+    //    public override double ConvertToBaseUnit(double value)
+    //    {
+    //        return value;
+    //    }
 
-        protected override Units GetUnits()
-        {
-            return Units.mm;
-        }
-    }
-    public class SquareMeter
-    {
-        double Value;
-        public SquareMeter(LengthUnit lengthA, LengthUnit lengthB)
-        {
-            this.Value = lengthA.BaseValue * lengthB.BaseValue;
-        }
-    }
+    //    protected override Units GetUnits()
+    //    {
+    //        return Units.m;
+    //    }
+    //}
+    //public class MilliMeter : LengthUnit
+    //{
+    //    public MilliMeter(double displayValue)
+    //        : base(displayValue)
+    //    {
+    //    }
+    //    public override double ConvertToBaseUnit()
+    //    {
+    //        this.BaseValue = DisplayValue / 100;
+    //    }
+
+    //    protected override Units GetUnits()
+    //    {
+    //        return Units.mm;
+    //    }
+    //}
+    //public class SquareMeter
+    //{
+    //    double Value;
+    //    public SquareMeter(LengthUnit lengthA, LengthUnit lengthB)
+    //    {
+    //        this.Value = lengthA.BaseValue * lengthB.BaseValue;
+    //    }
+    //}
 }
