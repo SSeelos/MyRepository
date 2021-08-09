@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyViewModelLibrary", "MyVie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MLModel1_ConsoleApp1", "MLModel1_ConsoleApp1\MLModel1_ConsoleApp1.csproj", "{96FE7DCC-1FE1-41C5-A92A-D583BA88AB46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibraryTests", "MyLibraryTests\MyLibraryTests.csproj", "{2006E06B-2E38-4941-ADB0-2FD05E2FC2AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{96FE7DCC-1FE1-41C5-A92A-D583BA88AB46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96FE7DCC-1FE1-41C5-A92A-D583BA88AB46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96FE7DCC-1FE1-41C5-A92A-D583BA88AB46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2006E06B-2E38-4941-ADB0-2FD05E2FC2AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2006E06B-2E38-4941-ADB0-2FD05E2FC2AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2006E06B-2E38-4941-ADB0-2FD05E2FC2AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2006E06B-2E38-4941-ADB0-2FD05E2FC2AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

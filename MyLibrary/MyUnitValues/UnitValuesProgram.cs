@@ -62,24 +62,24 @@ namespace MyLibrary
 
             var mps = new MeterPerSecond(meter, hour);
 
-            Console.WriteLine(string.Format("MPS: {0} BaseValue= {1} DisplayValue{2}",
+            Console.WriteLine(string.Format("{0}: BaseValue= {1} DisplayValue{2}",
                 mps.GetType().Name,
                 mps.BaseValue,
                 mps.DisplayValue));
 
             var kmph = new KilometerPerHour(meter, hour);
 
-            Console.WriteLine(string.Format("MPS: {0} BaseValue= {1} DisplayValue{2}",
+            Console.WriteLine(string.Format("{0}: BaseValue= {1} DisplayValue{2}",
                 kmph.GetType().Name,
                 kmph.BaseValue,
                 kmph.DisplayValue));
 
             var kmphFromMps = new KilometerPerHour(mps);
 
-            Console.WriteLine(string.Format("MPS: {0} BaseValue= {1} DisplayValue{2}",
-                kmph.GetType().Name,
-                kmph.BaseValue,
-                kmph.DisplayValue));
+            Console.WriteLine(string.Format("{0}: BaseValue= {1} DisplayValue{2}",
+                kmphFromMps.GetType().Name,
+                kmphFromMps.BaseValue,
+                kmphFromMps.DisplayValue));
 
 
         }
