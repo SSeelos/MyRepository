@@ -1,4 +1,5 @@
 ﻿using MyLibrary;
+using MyLibrary.MyDesignPrinciples;
 using System.Runtime.InteropServices;
 using System.Windows;
 
@@ -29,7 +30,14 @@ namespace MyWPF
         {
 
             AllocConsole();
-            UnitValuesProgram solidProgram = new UnitValuesProgram();
+            UnitValuesProgram unitValuesProgram = new UnitValuesProgram();
+        }
+
+        private void TemplateMethod_Click(object sender, RoutedEventArgs e)
+        {
+
+            AllocConsole();
+            var templateMethod = new MyDesignPrinciplesProgram();
         }
     }
 }

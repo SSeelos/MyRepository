@@ -9,8 +9,12 @@
     <Border Padding="40">
         <StackPanel>
         <Button Content="SOLID" Click="SOLID_Click"/>
-        <Button Content="UnitValues" Click="UnitValues_Click"/>
-            
+            <Button Content="UnitValues" Click="UnitValues_Click"/>
+            <StackPanel>
+                <Button Content="TemplateMethod" Click="TemplateMethod_Click"/>
+                
+            </StackPanel>
+
         </StackPanel>
     </Border>
 </Window>
