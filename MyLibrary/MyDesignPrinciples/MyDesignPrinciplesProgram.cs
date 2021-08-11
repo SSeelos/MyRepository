@@ -37,14 +37,14 @@ namespace MyLibrary.MyDesignPrinciples
             Console.WriteLine(MethodBase.GetCurrentMethod().Name);
             Console.WriteLine();
 
-            var factoryDef = new MyFactoryDefault();
-            factoryDef.Operation();
+            var creatorDef = new MyCreatorDefault();
+            creatorDef.Operation();
 
-            var factoryA = new MyFactoryA();
-            factoryA.Operation();
+            var creatorA = new MyCreatorA();
+            creatorA.Operation();
 
-            var factoryB = new MyFactoryB();
-            factoryB.Operation();
+            var creatorB = new MyCreatorB();
+            creatorB.Operation();
 
 
         }

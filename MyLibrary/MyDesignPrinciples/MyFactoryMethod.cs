@@ -3,33 +3,33 @@ using System.Reflection;
 
 namespace MyLibrary.MyDesignPrinciples
 {
-    public abstract class MyFactoryBase
+    public abstract class MyCreatorBase
     {
         public virtual void Operation()
         {
-            IProduct product = createProduct();
+            IProduct product = myFactoryMethod();
             product.doSomething();
         }
 
         //Factory Method: can be abstract or virtual (default implementation)
         //public abstract IProduct createProduct();
-        public virtual IProduct createProduct()
+        public virtual IProduct myFactoryMethod()
         {
             return new DefaultProduct();
         }
     }
 
-    public class MyFactoryDefault : MyFactoryBase
+    public class MyCreatorDefault : MyCreatorBase
     {
     }
-    public class MyFactoryA : MyFactoryBase
+    public class MyCreatorA : MyCreatorBase
     {
         public override IProduct createProduct()
         {
             return new ProductA();
         }
     }
-    public class MyFactoryB : MyFactoryBase
+    public class MyCreatorB : MyCreatorBase
     {
         public override IProduct createProduct()
         {
