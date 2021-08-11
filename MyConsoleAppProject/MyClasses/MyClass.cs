@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace MyConsoleAppProject
 {
-    public class MyClass : IMyInterface, IMyInteface2
+    public class MyClass : MyAbstractClass, IMyInterface, IMyInteface2
     {
         //fields        (private :accessibility within the same class)
         private string myField;
@@ -35,6 +35,7 @@ namespace MyConsoleAppProject
 
         //constructor
         public MyClass(string myField = "myValue")
+            : base("input for abstract class")
         {
             this.myField = myField;
         }
@@ -44,5 +45,9 @@ namespace MyConsoleAppProject
             this.myField = value;
         }
 
+        public override void MyAbstractMethod()
+        {
+            //concrete implementation
+        }
     }
 }

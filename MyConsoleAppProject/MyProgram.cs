@@ -118,6 +118,8 @@ namespace MyConsoleAppProject
             myObject.MyMethod();
             myObject.MyInterfaceFunction();
             myObject.MyInterface2Function();
+            myObject.MyVirtualMethod();
+            myObject.MyAbstractMethod();
 
             //set property
             myObject.myProperty = 5;
