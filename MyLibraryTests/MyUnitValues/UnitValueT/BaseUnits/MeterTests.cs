@@ -45,9 +45,9 @@ namespace MyLibrary.Tests
         [TestMethod()]
         public void BuildOperate()
         {
-            var given = Given();
+            Meter given = Given();
 
-            var result = When(given);
+            Meter result = When(given);
 
             Then(result);
         }
