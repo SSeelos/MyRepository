@@ -13,12 +13,15 @@ namespace MyLibrary.MyDesignPrinciples
         public void Run()
         {
             TemplateMethodProgram();
+
+            FactoryMethod();
         }
 
         public void TemplateMethodProgram()
         {
             Console.WriteLine();
             Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+            Console.WriteLine();
 
             var defaultClass = new DefaultClass();
             defaultClass.TemplateMethod1();
@@ -26,6 +29,24 @@ namespace MyLibrary.MyDesignPrinciples
 
             var concreteCLass = new ConcreteClass();
             concreteCLass.TemplateMethod1();
+        }
+
+        public void FactoryMethod()
+        {
+            Console.WriteLine();
+            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+            Console.WriteLine();
+
+            var factoryDef = new MyFactoryDefault();
+            factoryDef.Operation();
+
+            var factoryA = new MyFactoryA();
+            factoryA.Operation();
+
+            var factoryB = new MyFactoryB();
+            factoryB.Operation();
+
+
         }
     }
 

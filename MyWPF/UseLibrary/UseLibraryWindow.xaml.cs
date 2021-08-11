@@ -33,11 +33,11 @@ namespace MyWPF
             UnitValuesProgram unitValuesProgram = new UnitValuesProgram();
         }
 
-        private void TemplateMethod_Click(object sender, RoutedEventArgs e)
+        private void DesignPrinciples_Click(object sender, RoutedEventArgs e)
         {
-
             AllocConsole();
             var templateMethod = new MyDesignPrinciplesProgram();
         }
+
     }
 }
