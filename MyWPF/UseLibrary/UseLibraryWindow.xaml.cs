@@ -1,6 +1,5 @@
 ﻿using MyLibrary;
 using MyLibrary.MyDesignPrinciples;
-using System.Runtime.InteropServices;
 using System.Windows;
 
 namespace MyWPF
@@ -10,11 +9,6 @@ namespace MyWPF
     /// </summary>
     public partial class UseLibraryWindow : Window
     {
-        [DllImport("Kernel32")]
-        public static extern void AllocConsole();
-
-        [DllImport("Kernel32")]
-        public static extern void FreeConsole();
         public UseLibraryWindow()
         {
             InitializeComponent();
@@ -22,20 +16,17 @@ namespace MyWPF
 
         private void SOLID_Click(object sender, RoutedEventArgs e)
         {
-            AllocConsole();
-            SolidProgram solidProgram = new SolidProgram();
+            var solidProgram = new SolidProgram();
         }
 
         private void UnitValues_Click(object sender, RoutedEventArgs e)
         {
 
-            AllocConsole();
-            UnitValuesProgram unitValuesProgram = new UnitValuesProgram();
+            var unitValuesProgram = new UnitValuesProgram();
         }
 
         private void DesignPrinciples_Click(object sender, RoutedEventArgs e)
         {
-            AllocConsole();
             var templateMethod = new MyDesignPrinciplesProgram();
         }
 

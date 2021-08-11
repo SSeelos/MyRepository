@@ -12,7 +12,7 @@ namespace MyLibrary.MyDesignPrinciples
         }
 
         //Factory Method: can be abstract or virtual (default implementation)
-        //public abstract IProduct createProduct();
+        //public abstract IProduct myFactoryMethod();
         public virtual IProduct myFactoryMethod()
         {
             return new DefaultProduct();
@@ -24,14 +24,14 @@ namespace MyLibrary.MyDesignPrinciples
     }
     public class MyCreatorA : MyCreatorBase
     {
-        public override IProduct createProduct()
+        public override IProduct myFactoryMethod()
         {
             return new ProductA();
         }
     }
     public class MyCreatorB : MyCreatorBase
     {
-        public override IProduct createProduct()
+        public override IProduct myFactoryMethod()
         {
             return new ProductB();
         }

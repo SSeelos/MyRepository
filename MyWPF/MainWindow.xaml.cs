@@ -33,6 +33,8 @@ namespace MyWPF
 
         private void UseLibrary_Click(object sender, RoutedEventArgs e)
         {
+            AllocConsole();
+
             new UseLibraryWindow()
                 .ShowDialog();
         }
