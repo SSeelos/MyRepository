@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyLibrary.MyDesignPrinciples.MyBuilderPattern
+﻿namespace MyLibrary.MyDesignPrinciples.MyBuilderPattern
 {
     public interface IBuildPartA
     {
@@ -10,28 +6,29 @@ namespace MyLibrary.MyDesignPrinciples.MyBuilderPattern
     }
     public interface IBuildPartOptional
     {
-        IBuildPartC BuildPartB(string partB);
+        IBuildPartC BuildPartB_Optional(string partB);
+        IGetProduct BuildPartC(string partC);
     }
     public interface IBuildPartC
     {
-        IBuildProduct BuildPartC(string partC);
+        IGetProduct BuildPartC(string partC);
     }
-    public interface IBuildProduct
+    public interface IGetProduct
     {
-        MySequentialProduct GetProduct();
+        MyFluentProduct GetProduct();
     }
 
-    public class MySequentialBuilder : IBuildPartA, IBuildPartOptional, IBuildPartC, IBuildProduct
+    public class MyFluentBuilder : IBuildPartA, IBuildPartOptional, IBuildPartC, IGetProduct
     {
-        private MySequentialProduct product;
+        private MyFluentProduct product;
 
-        public MySequentialBuilder()
+        public MyFluentBuilder()
         {
             Reset();
         }
         public void Reset()
         {
-            this.product = new MySequentialProduct();
+            this.product = new MyFluentProduct();
         }
         public IBuildPartA Start()
         {
@@ -43,19 +40,19 @@ namespace MyLibrary.MyDesignPrinciples.MyBuilderPattern
             return this;
         }
 
-        public IBuildPartC BuildPartB(string partB)
+        public IBuildPartC BuildPartB_Optional(string partB)
         {
-            product.SetPartB(partB);
+            product.SetPartB_Optional(partB);
             return this;
         }
 
-        public IBuildProduct BuildPartC(string partC)
+        public IGetProduct BuildPartC(string partC)
         {
             product.SetPartC(partC);
             return this;
         }
 
-        public MySequentialProduct GetProduct()
+        public MyFluentProduct GetProduct()
         {
             var result = this.product;
             Reset();
