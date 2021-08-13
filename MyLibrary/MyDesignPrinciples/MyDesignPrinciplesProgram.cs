@@ -24,7 +24,11 @@ namespace MyLibrary.MyDesignPrinciples
             AbstractFactory();
 
             BuilderPattern();
+
+            Prototype();
         }
+
+
 
         private void Singleton()
         {
@@ -157,6 +161,20 @@ namespace MyLibrary.MyDesignPrinciples
 
             Console.WriteLine(prod2.OutputParts());
 
+        }
+        private void Prototype()
+        {
+            MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
+
+            var protoTypeA = new MyConcretePrototypeA("field", "fieldA");
+            MyPrototype cloneA = protoTypeA.Clone();
+
+            Console.WriteLine(cloneA.Output());
+
+            var protoTypeB = new MyConcretePrototypeB("field", "fieldB");
+            MyPrototype cloneB = protoTypeB.Clone();
+
+            Console.WriteLine(cloneB.Output());
         }
     }
 }
