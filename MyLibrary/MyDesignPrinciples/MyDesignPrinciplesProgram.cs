@@ -95,7 +95,7 @@ namespace MyLibrary.MyDesignPrinciples
 
             BuildWithPartBuilder();
 
-            BuildWithSequentialBuilder();
+            BuildWithFluentBuilder();
 
         }
 
@@ -137,17 +137,25 @@ namespace MyLibrary.MyDesignPrinciples
             Console.WriteLine(parts);
         }
 
-        private void BuildWithSequentialBuilder()
+        private void BuildWithFluentBuilder()
         {
-            var builder = new MySequentialBuilder();
+            var builder = new MyFluentBuilder();
             IBuildPartA start = builder.Start();
             IBuildPartOptional A = start.BuildPartA("A");
-            IBuildPartC B = A.BuildPartB("B");
-            IBuildProduct C = B.BuildPartC("C");
+            IBuildPartC B = A.BuildPartB_Optional("B (optional)");
+            IGetProduct C = B.BuildPartC("C");
 
-            MySequentialProduct prod = C.GetProduct();
+            MyFluentProduct prod = C.GetProduct();
             var parts = prod.OutputParts();
             Console.WriteLine(parts);
+
+
+            MyFluentProduct prod2 = builder.Start()
+                .BuildPartA("A2")
+                .BuildPartC("C2")
+                .GetProduct();
+
+            Console.WriteLine(prod2.OutputParts());
 
         }
     }
