@@ -39,7 +39,7 @@ namespace MyLibrary.MyUtilities
 
             }
 
-            Console.WriteLine(classType.GetType().Name + " ");
+            Console.WriteLine(classType.Name + " ");
             Console.WriteLine();
         }
 
@@ -55,7 +55,7 @@ namespace MyLibrary.MyUtilities
                 default:
                     break;
             }
-            Console.WriteLine(classType.GetType().Name + ": " + method.Name);
+            Console.WriteLine(classType.Name + ": " + method.Name);
             Console.WriteLine();
         }
 
