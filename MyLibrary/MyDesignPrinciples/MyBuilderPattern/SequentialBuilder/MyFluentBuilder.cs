@@ -1,10 +1,12 @@
 ﻿namespace MyLibrary.MyDesignPrinciples.MyBuilderPattern
 {
+    #region builder interfaces
+
     public interface IBuildPartA
     {
-        IBuildPartOptional BuildPartA(string partA);
+        IBuildPartBOrPartC BuildPartA(string partA);
     }
-    public interface IBuildPartOptional
+    public interface IBuildPartBOrPartC
     {
         IBuildPartC BuildPartB_Optional(string partB);
         IGetProduct BuildPartC(string partC);
@@ -18,7 +20,9 @@
         MyFluentProduct GetProduct();
     }
 
-    public class MyFluentBuilder : IBuildPartA, IBuildPartOptional, IBuildPartC, IGetProduct
+    #endregion
+
+    public class MyFluentBuilder : IBuildPartA, IBuildPartBOrPartC, IBuildPartC, IGetProduct
     {
         private MyFluentProduct product;
 
@@ -30,11 +34,14 @@
         {
             this.product = new MyFluentProduct();
         }
+
+        #region steps
+
         public IBuildPartA Start()
         {
             return this;
         }
-        public IBuildPartOptional BuildPartA(string partA)
+        public IBuildPartBOrPartC BuildPartA(string partA)
         {
             product.SetPartA(partA);
             return this;
@@ -51,6 +58,8 @@
             product.SetPartC(partC);
             return this;
         }
+
+        #endregion
 
         public MyFluentProduct GetProduct()
         {

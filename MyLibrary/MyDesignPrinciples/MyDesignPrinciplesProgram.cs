@@ -145,7 +145,7 @@ namespace MyLibrary.MyDesignPrinciples
         {
             var builder = new MyFluentBuilder();
             IBuildPartA start = builder.Start();
-            IBuildPartOptional A = start.BuildPartA("A");
+            IBuildPartBOrPartC A = start.BuildPartA("A");
             IBuildPartC B = A.BuildPartB_Optional("B (optional)");
             IGetProduct C = B.BuildPartC("C");
 
