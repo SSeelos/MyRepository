@@ -23,12 +23,7 @@ namespace MyLibrary.MyUtilities
 
         private static MyConsoleLogger GetInstance()
         {
-            //if (instance == null)
-            //    instance = new MyConsoleLogger();
-
-            //return instance;
-
-            return instance == null ? new MyConsoleLogger() : instance;
+            return instance != null ? instance : new MyConsoleLogger();
         }
         public void ClassLog(Type classType, Hirarchy hirarchy = Hirarchy.Line)
         {
