@@ -50,6 +50,7 @@ namespace MyLibrary.MyDesignPrinciples
     }
     public class ProductA : IProduct
     {
+        public string property;
         public void doSomething()
         {
             Console.WriteLine(this.GetType().Name + ": " + MethodBase.GetCurrentMethod().Name);

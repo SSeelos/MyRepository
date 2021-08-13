@@ -1,4 +1,6 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary.MyDesignPrinciples.MyBuilderPattern;
+using MyLibrary.MyUtilities;
+using System;
 using System.Reflection;
 
 namespace MyLibrary.MyDesignPrinciples
@@ -20,6 +22,8 @@ namespace MyLibrary.MyDesignPrinciples
             FactoryMethod();
 
             AbstractFactory();
+
+            BuilderPattern();
         }
 
         private void Singleton()
@@ -76,6 +80,75 @@ namespace MyLibrary.MyDesignPrinciples
             productB1.doSomething();
 
         }
-    }
 
+        public void BuilderPattern()
+        {
+            MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
+
+            var builder = new MyBuilder("initPart", "firstPart");
+            var director = new MyDirector() { Builder = builder };
+
+            BuildProductWithBuilder(builder);
+
+            BuildWithDirector(director);
+
+
+            BuildWithPartBuilder();
+
+            BuildWithSequentialBuilder();
+
+        }
+
+        private void BuildProductWithBuilder(MyBuilder builder)
+        {
+
+            builder.BuildPartA()
+                .BuildPartB()
+                .BuildPartC("partC");
+
+            MyProduct product = builder.GetProduct();
+            var parts = product.OutputParts();
+            Console.WriteLine(parts);
+
+
+            builder.newProduct("secondPart");
+            builder.BuildPartA();
+
+            MyProduct newProd = builder.GetProduct();
+            parts = newProd.OutputParts();
+            Console.WriteLine(parts);
+        }
+
+        private void BuildWithDirector(MyDirector director)
+        {
+            director.buildVariableProduct();
+            director.buildFullProduct("part C");
+        }
+
+        private void BuildWithPartBuilder()
+        {
+            var builder = new MyPartBuilder("initPart");
+            var director = new MyPartDirector() { Builder = builder };
+
+            director.buildFullPartProduct("partC");
+
+            var prod = builder.GetProduct();
+            var parts = prod.OutputParts();
+            Console.WriteLine(parts);
+        }
+
+        private void BuildWithSequentialBuilder()
+        {
+            var builder = new MySequentialBuilder();
+            IBuildPartA start = builder.Start();
+            IBuildPartOptional A = start.BuildPartA("A");
+            IBuildPartC B = A.BuildPartB("B");
+            IBuildProduct C = B.BuildPartC("C");
+
+            MySequentialProduct prod = C.GetProduct();
+            var parts = prod.OutputParts();
+            Console.WriteLine(parts);
+
+        }
+    }
 }
