@@ -1,4 +1,6 @@
-﻿using MyLibrary.MyDesignPrinciples.MyBuilderPattern;
+﻿using MyLibrary.MyDesignPrinciples.MyBridge;
+using MyLibrary.MyDesignPrinciples.MyBuilderPattern;
+using MyLibrary.MyDesignPrinciples.MyStrategy;
 using MyLibrary.MyUtilities;
 using System;
 using System.Reflection;
@@ -26,6 +28,10 @@ namespace MyLibrary.MyDesignPrinciples
             BuilderPattern();
 
             Prototype();
+
+            Strategy();
+
+            Bridge();
         }
 
 
@@ -175,6 +181,38 @@ namespace MyLibrary.MyDesignPrinciples
             MyPrototype cloneB = protoTypeB.Clone();
 
             Console.WriteLine(cloneB.Output());
+        }
+
+        private void Strategy()
+        {
+            MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
+
+            var context = new MyContext();
+            var str = new MyStrategyA();
+            context.Strategy = str;
+
+            context.ExecuteStrategy("MyData1");
+
+            var strB = new MyStrategyB();
+            context.Strategy = strB;
+
+            context.ExecuteStrategy("MyData2");
+        }
+
+        private void Bridge()
+        {
+            MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
+
+            var implementationA = new MyImplementationA();
+            var abstraction = new MyAbstraction(implementationA);
+            abstraction.FeatureA();
+            abstraction.FeatureB();
+
+            var implementationB = new MyImplementationB();
+            var subAbstraction = new MySubAbstraction(implementationB);
+            subAbstraction.FeatureA();
+            subAbstraction.FeatureB();
+            subAbstraction.SubFeature();
         }
     }
 }
