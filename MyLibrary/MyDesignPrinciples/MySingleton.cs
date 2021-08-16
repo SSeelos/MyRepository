@@ -5,14 +5,14 @@ namespace MyLibrary.MyDesignPrinciples
 {
     public class MySingleton
     {
-        private static MySingleton instance;
+        private static MySingleton _instance;
         public static MySingleton Instance => GetInstance();
 
         private MySingleton() { }
 
         private static MySingleton GetInstance()
         {
-            return instance != null ? instance : new MySingleton();
+            return _instance != null ? _instance : new MySingleton();
         }
 
         public void DoSomething()

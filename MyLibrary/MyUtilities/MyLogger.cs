@@ -40,7 +40,6 @@ namespace MyLibrary.MyUtilities
             }
 
             Console.WriteLine(classType.Name + " ");
-            Console.WriteLine();
         }
 
         public void ClassMethodLog(Type classType, MethodBase method, Hirarchy hirarchy = Hirarchy.Line)
@@ -56,7 +55,6 @@ namespace MyLibrary.MyUtilities
                     break;
             }
             Console.WriteLine(classType.Name + ": " + method.Name);
-            Console.WriteLine();
         }
 
         public void MethodLog(MethodBase method, Hirarchy hirarchy = Hirarchy.Line)
