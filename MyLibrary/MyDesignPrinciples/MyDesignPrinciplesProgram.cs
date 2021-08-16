@@ -173,13 +173,15 @@ namespace MyLibrary.MyDesignPrinciples
             MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
 
             var protoTypeA = new MyConcretePrototypeA("field", "fieldA");
-            MyPrototype cloneA = protoTypeA.Clone();
+            Console.WriteLine(protoTypeA.Output());
 
+            MyPrototype cloneA = protoTypeA.Clone();
             Console.WriteLine(cloneA.Output());
 
             var protoTypeB = new MyConcretePrototypeB("field", "fieldB");
-            MyPrototype cloneB = protoTypeB.Clone();
+            Console.WriteLine(protoTypeB.Output());
 
+            MyPrototype cloneB = protoTypeB.Clone();
             Console.WriteLine(cloneB.Output());
         }
 
