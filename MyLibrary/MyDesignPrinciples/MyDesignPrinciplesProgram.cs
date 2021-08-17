@@ -1,12 +1,13 @@
 ﻿
 using MyLibrary.MyDesignPrinciples.Adapter;
+using MyLibrary.MyDesignPrinciples.Bridge;
 using MyLibrary.MyDesignPrinciples.BuilderPattern;
+using MyLibrary.MyDesignPrinciples.Composite;
 using MyLibrary.MyDesignPrinciples.Decorator;
 using MyLibrary.MyDesignPrinciples.Strategy;
 using MyLibrary.MyUtilities;
 using System;
 using System.Reflection;
-using MyLibrary.MyDesignPrinciples.Bridge;
 
 namespace MyLibrary.MyDesignPrinciples
 {
@@ -39,6 +40,8 @@ namespace MyLibrary.MyDesignPrinciples
             Adapter();
 
             Decorator();
+
+            Composite();
         }
 
 
@@ -252,6 +255,34 @@ namespace MyLibrary.MyDesignPrinciples
 
             var manager = new MyManager(decoratorA);
             manager.UseComponent();
+        }
+
+        private void Composite()
+        {
+            MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
+
+            var composite = new MyComposite();
+            var leaf = new MyLeaf();
+            var leaf2 = new MyLeaf();
+            composite.Add(leaf);
+            composite.Add(leaf2);
+            var composite2 = new MyComposite();
+            composite.Add(composite2);
+            var leaf3 = new MyLeaf();
+            var leaf4 = new MyLeaf();
+            composite2.Add(leaf3);
+            composite2.Add(leaf4);
+            composite2.Remove(leaf4);
+
+            composite.Execute();
+
+            var children = composite.GetChildren();
+            Console.WriteLine("children: ");
+            foreach (var child in children)
+            {
+                Console.WriteLine(child.GetType().Name);
+
+            }
         }
     }
 }

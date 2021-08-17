@@ -24,34 +24,6 @@ namespace MyLibrary.MyDesignPrinciples.Adapter
             return service.IncompatibleServiceMethod().ToString();
         }
     }
-    public class MyIncompatibleService
-    {
-        private double field;
-        public MyIncompatibleService(double field)
-        {
-            this.field = field;
-        }
-        public double IncompatibleServiceMethod()
-        {
-            MyConsoleLogger.Instance.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod());
-
-            return field;
-        }
-    }
-    public class MyCompatibleService:IClientInterface
-    {
-        private string field;
-        public MyCompatibleService(string field)
-        {
-            this.field = field;
-        }
-        public string CompatibleMethod()
-        {
-            MyConsoleLogger.Instance.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod());
-
-            return field;
-        }
-    }
     public class MyServiceReceiver
     {
         public void UseService(IClientInterface service)
