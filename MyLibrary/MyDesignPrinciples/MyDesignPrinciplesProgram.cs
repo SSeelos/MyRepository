@@ -1,4 +1,5 @@
-﻿using MyLibrary.MyDesignPrinciples.MyBridge;
+﻿
+using MyLibrary.MyDesignPrinciples.MyBridge;
 using MyLibrary.MyDesignPrinciples.MyBuilderPattern;
 using MyLibrary.MyDesignPrinciples.MyStrategy;
 using MyLibrary.MyUtilities;
@@ -32,6 +33,8 @@ namespace MyLibrary.MyDesignPrinciples
             Strategy();
 
             Bridge();
+
+            Adapter();
         }
 
 
@@ -215,6 +218,22 @@ namespace MyLibrary.MyDesignPrinciples
             subAbstraction.FeatureA();
             subAbstraction.FeatureB();
             subAbstraction.SubFeature();
+        }
+
+        private void Adapter()
+        {
+            MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
+
+            var compatibleService = new MyCompatibleService("compatible");
+            var service = new MyIncompatibleService(5);
+            var adapter = new MyAdapter(service);
+
+            var receiver = new MyServiceReceiver();
+            receiver.UseService(compatibleService);
+            receiver.UseService(adapter);
+
+
+
         }
     }
 }
