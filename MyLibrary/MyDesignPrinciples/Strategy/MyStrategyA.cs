@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.MyStrategy
+namespace MyLibrary.MyDesignPrinciples.Strategy
 {
     public interface IStrategy
     {

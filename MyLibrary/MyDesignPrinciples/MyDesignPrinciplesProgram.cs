@@ -1,11 +1,12 @@
 ﻿
-using MyLibrary.MyDesignPrinciples.MyBridge;
-using MyLibrary.MyDesignPrinciples.MyBuilderPattern;
-using MyLibrary.MyDesignPrinciples.MyDecorator;
-using MyLibrary.MyDesignPrinciples.MyStrategy;
+using MyLibrary.MyDesignPrinciples.Adapter;
+using MyLibrary.MyDesignPrinciples.BuilderPattern;
+using MyLibrary.MyDesignPrinciples.Decorator;
+using MyLibrary.MyDesignPrinciples.Strategy;
 using MyLibrary.MyUtilities;
 using System;
 using System.Reflection;
+using MyLibrary.MyDesignPrinciples.Bridge;
 
 namespace MyLibrary.MyDesignPrinciples
 {

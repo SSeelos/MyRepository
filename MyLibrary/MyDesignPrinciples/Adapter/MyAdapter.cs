@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples
+namespace MyLibrary.MyDesignPrinciples.Adapter
 {
     public interface IClientInterface
     {

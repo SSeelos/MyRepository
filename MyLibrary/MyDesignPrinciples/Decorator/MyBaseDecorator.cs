@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.MyDecorator
+namespace MyLibrary.MyDesignPrinciples.Decorator
 {
     //defines operations that can be altered by decorators
     public interface IComponent

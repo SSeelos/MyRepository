@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace MyLibrary.MyDesignPrinciples.MyBridge
+namespace MyLibrary.MyDesignPrinciples.Bridge
 {
     public interface IImplementation
     {

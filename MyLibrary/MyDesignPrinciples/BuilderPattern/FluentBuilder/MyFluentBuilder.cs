@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.MyDesignPrinciples.MyBuilderPattern
+﻿namespace MyLibrary.MyDesignPrinciples.BuilderPattern
 {
     #region builder interfaces
 

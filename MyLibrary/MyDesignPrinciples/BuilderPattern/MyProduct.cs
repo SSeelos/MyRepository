@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MyLibrary.MyDesignPrinciples.MyBuilderPattern
+namespace MyLibrary.MyDesignPrinciples.BuilderPattern
 {
     public interface IProduct
     {

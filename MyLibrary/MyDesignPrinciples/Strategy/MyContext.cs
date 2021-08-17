@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyLibrary.MyDesignPrinciples.MyStrategy
+namespace MyLibrary.MyDesignPrinciples.Strategy
 {
     public class MyContext
     {
