@@ -1,6 +1,7 @@
 ﻿
 using MyLibrary.MyDesignPrinciples.MyBridge;
 using MyLibrary.MyDesignPrinciples.MyBuilderPattern;
+using MyLibrary.MyDesignPrinciples.MyDecorator;
 using MyLibrary.MyDesignPrinciples.MyStrategy;
 using MyLibrary.MyUtilities;
 using System;
@@ -35,6 +36,8 @@ namespace MyLibrary.MyDesignPrinciples
             Bridge();
 
             Adapter();
+
+            Decorator();
         }
 
 
@@ -234,6 +237,20 @@ namespace MyLibrary.MyDesignPrinciples
 
 
 
+        }
+
+        private void Decorator()
+        {
+            MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
+
+            var comp = new MyComponent("data");
+            var decoratorA = new MyDecoratorA(comp);
+            decoratorA.Execute();
+            var decoratorB = new MyDecoratorB(comp);
+            decoratorB.Execute();
+
+            var manager = new MyManager(decoratorA);
+            manager.UseComponent();
         }
     }
 }
