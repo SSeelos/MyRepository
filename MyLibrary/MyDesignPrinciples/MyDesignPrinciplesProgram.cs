@@ -4,6 +4,7 @@ using MyLibrary.MyDesignPrinciples.Bridge;
 using MyLibrary.MyDesignPrinciples.BuilderPattern;
 using MyLibrary.MyDesignPrinciples.Composite;
 using MyLibrary.MyDesignPrinciples.Decorator;
+using MyLibrary.MyDesignPrinciples.Facade;
 using MyLibrary.MyDesignPrinciples.Strategy;
 using MyLibrary.MyUtilities;
 using System;
@@ -42,6 +43,9 @@ namespace MyLibrary.MyDesignPrinciples
             Decorator();
 
             Composite();
+
+            Facade();
+
         }
 
 
@@ -283,6 +287,19 @@ namespace MyLibrary.MyDesignPrinciples
                 Console.WriteLine(child.GetType().Name);
 
             }
+        }
+
+        private void Facade()
+        {
+            MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
+
+            var facade = new MyFacade();
+
+            var ab = facade.ConvenientMethodAB();
+            Console.WriteLine(ab);
+            var ac = facade.ConvenientMethodAC();
+            Console.WriteLine(ac);
+
         }
     }
 }
