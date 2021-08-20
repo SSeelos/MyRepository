@@ -135,6 +135,38 @@ namespace MyLibrary
         List<double> Sum();
         double Output();
     }
+    public class LengthCalculator : ICalculator            //(SRP)
+    {
+        protected IShape1D[] shapes;
+
+        public LengthCalculator(params IShape1D[] shapes)
+        {
+            this.shapes = shapes;
+        }
+
+        public List<double> Sum()
+        {
+            var area = new List<double>();
+            foreach (var shape in shapes)
+            {
+                area.Add(shape.DimX());         //(OCP) removes the need for a switch statement, that would have to be extendet
+            }
+            return area;
+
+        }
+
+        public double Output()
+        {
+            double sum = 0;
+
+            foreach (var item in Sum())
+            {
+                sum += item;
+            }
+
+            return sum;
+        }
+    }
     public class AreaCalculator : ICalculator            //(SRP)
     {
         protected IShape2D[] shapes;
@@ -149,7 +181,7 @@ namespace MyLibrary
             var area = new List<double>();
             foreach (var shape in shapes)
             {
-                area.Add(shape.Area());         //(OCP) removes the need for a switch statement, that would have to be extendet
+                area.Add(shape.Area());         //(OCP)
             }
             return area;
 
