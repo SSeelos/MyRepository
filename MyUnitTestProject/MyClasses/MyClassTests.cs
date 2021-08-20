@@ -5,8 +5,6 @@ namespace MyConsoleAppProject.Tests
     [TestClass()]
     public class MyClassTests
     {
-        private MyClass _myClass;
-        private MyClass MyClass => _myClass != null ? _myClass : MyClassTest();
 
         [TestMethod()]
         public MyClass MyClassTest()
@@ -21,28 +19,29 @@ namespace MyConsoleAppProject.Tests
         [TestMethod()]
         public void MyMethodTest()
         {
-            MyClass.myProperty = 2;
-
-            var myClass = MyClass;
+            //build
+            var myClass = new MyClass("value");
             myClass.myProperty += 2;
 
+            //operate
+            var result = myClass.MyMethod();
 
-
-            var result = MyClass.MyMethod();
-
+            //check
             Assert.AreEqual(2, result);
         }
 
         [TestMethod()]
         public void MyInterfaceFunctionTest()
         {
-            MyClass.MyInterfaceFunction();
+            var myClass = new MyClass("value");
+            myClass.MyInterfaceFunction();
         }
 
         [TestMethod()]
         public void MyInterface2FunctionTest()
         {
-            MyClass.MyInterfaceFunction();
+            var myClass = new MyClass("value");
+            myClass.MyInterfaceFunction();
         }
     }
 }
