@@ -4,24 +4,24 @@ using System.Reflection;
 
 namespace MyLibrary.MyDesignPrinciples.Strategy
 {
-    public interface IStrategyA
+    public interface IStrategyB
     {
         void Execute(string data);
     }
-    public class MyStrategyA1 : IStrategyA
+    public class MyStrategyB1 : IStrategyB
     {
         public void Execute(string data)
         {
-            data += " A1";
+            data += " B1";
             MyConsoleLogger.Instance.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod());
             Console.WriteLine(data);
         }
     }
-    public class MyStrategyA2 : IStrategyA
+    public class MyStrategyB2 : IStrategyB
     {
         public void Execute(string data)
         {
-            data += " A2";
+            data += " B2";
             MyConsoleLogger.Instance.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod());
             Console.WriteLine(data);
         }

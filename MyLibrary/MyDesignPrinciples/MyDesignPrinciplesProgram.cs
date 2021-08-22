@@ -203,16 +203,20 @@ namespace MyLibrary.MyDesignPrinciples
         {
             MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
 
-            var context = new MyContext();
-            var str = new MyStrategyA();
-            context.Strategy = str;
+            var context = new MyContext()
+            {
+                StrategyA = new MyStrategyA1(),
+                StrategyB = new MyStrategyB1()
+            };
 
-            context.ExecuteStrategy("MyData1");
+            context.ExecuteStrategyA("MyDataA1");
+            context.ExecuteStrategyB("MyDataB1");
 
-            var strB = new MyStrategyB();
-            context.Strategy = strB;
+            context.StrategyA = new MyStrategyA2();
+            context.StrategyB = new MyStrategyB2();
 
-            context.ExecuteStrategy("MyData2");
+            context.ExecuteStrategyA("MyDataA2");
+            context.ExecuteStrategyB("MyDataB2");
         }
 
         private void Bridge()
@@ -235,13 +239,8 @@ namespace MyLibrary.MyDesignPrinciples
         {
             MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
 
-            var compatibleService = new MyCompatibleService("compatible");
-            var service = new MyIncompatibleService(5);
-            var adapter = new MyAdapter(service);
-
-            var receiver = new MyServiceReceiver();
-            receiver.UseService(compatibleService);
-            receiver.UseService(adapter);
+            var client = new MyAdapterClient();
+            client.Run();
 
 
 

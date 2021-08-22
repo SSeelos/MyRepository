@@ -1,32 +1,38 @@
-﻿using System;
-
-namespace MyLibrary.MyDesignPrinciples.Strategy
+﻿namespace MyLibrary.MyDesignPrinciples.Strategy
 {
     public class MyContext
     {
-        private IStrategy _strategy;
-        public IStrategy Strategy
-        {
-            get => this._strategy;
-            set => this._strategy = value;
-        }
+        //private IStrategyA _strategyA;
+        public IStrategyA StrategyA { get; set; }
+        //{
+        //    get => this._strategyA;
+        //    set => this._strategyA = value;
+        //}
+        //private IStrategyB _strategyB;
+        public IStrategyB StrategyB { get; set; }
+        //{
+        //    get => this._strategyB;
+        //    set => this._strategyB = value;
+        //}
+
         public MyContext() { }
-        public MyContext(IStrategy strategy)
+        public MyContext(IStrategyA strategyA, IStrategyB strategyB)
         {
-            this.Strategy = strategy;
+            this.StrategyA = strategyA;
+            this.StrategyB = strategyB;
         }
 
-        public void ExecuteStrategy(string data)
+        public void ExecuteStrategyA(string data)
         {
-            try
-            {
-                this._strategy.Execute(data);
 
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            this.StrategyA.Execute(data);
+
+        }
+        public void ExecuteStrategyB(string data)
+        {
+
+            this.StrategyB.Execute(data);
+
         }
     }
 }
