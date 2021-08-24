@@ -1,5 +1,6 @@
 ﻿using MyConsoleAppProject.MyEventsAndDelegates;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MyConsoleAppProject
@@ -188,6 +189,8 @@ namespace MyConsoleAppProject
 
             new MyAnonymousFunctionsProgram()
                 .Run();
+
+            YieldReturn();
         }
 
         public static int MyMethod(int myArgument)
@@ -214,6 +217,24 @@ namespace MyConsoleAppProject
             myResult = (int)myDouble;
 
             Console.WriteLine($"Res: {myResult}");
+        }
+
+        public static void YieldReturn()
+        {
+            Console.WriteLine();
+            Console.WriteLine("YieldReturn:");
+            foreach (var item in GetEnumerable(1, 10))
+            {
+                Console.WriteLine(item);
+            }
+        }
+        private static IEnumerable<int> GetEnumerable(int a, int b)
+        {
+
+            for (int i = a; i <= b; i++)
+            {
+                yield return i;
+            }
         }
     }
 }
