@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MyLibrary.MyUtilities;
 
 namespace MyLibrary.MyDesignPrinciples.Proxy
 {
@@ -8,15 +6,37 @@ namespace MyLibrary.MyDesignPrinciples.Proxy
     {
         public static void Run()
         {
-            var proxy = new MyProxy();
             var service = new MyService();
+            var proxy = new MyProxy(service);
 
-            UseService(proxy);
-            UseService(service);
+
+            var manager = new MyManager(proxy);
+            manager.UseService_Operation();
+
+            var data = new MyPlainOldObject()
+            {
+                MyPropertyA = "A",
+                MyPropertyB = "B"
+            };
+            manager.UseService_Data(data);
+
         }
-        private static void UseService(IService service)
+    }
+    class MyManager
+    {
+        protected IService Service;
+        public MyManager(IService service)
         {
-            service.Operation();
+            this.Service = service;
         }
+        public void UseService_Operation()
+        {
+            Service.Operation();
+        }
+        public void UseService_Data(MyPlainOldObject data)
+        {
+            Service.Operation(data);
+        }
+
     }
 }

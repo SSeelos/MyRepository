@@ -9,12 +9,18 @@ namespace MyLibrary.MyDesignPrinciples.Proxy
     public interface IService
     {
         void Operation();
+        void Operation(MyPlainOldObject data);
     }
     class MyService : IService
     {
         public void Operation()
         {
             MyConsoleLogger.Instance.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod());
+        }
+
+        public void Operation(MyPlainOldObject data)
+        {
+            Console.WriteLine(data.MyPropertyA + ", " + data.MyPropertyB);
         }
     }
 }
