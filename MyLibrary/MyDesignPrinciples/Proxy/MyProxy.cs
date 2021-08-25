@@ -6,6 +6,7 @@ namespace MyLibrary.MyDesignPrinciples.Proxy
     class MyProxy : IService
     {
         IService Service;
+        bool canAccess = true;
         public MyProxy(IService service)
         {
             this.Service = service;
@@ -14,12 +15,16 @@ namespace MyLibrary.MyDesignPrinciples.Proxy
         {
             MyConsoleLogger.Instance.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod());
 
+            //lazy initialization
+            Service = new MyService();
             Service.Operation();
         }
 
         public void Operation(MyPlainOldObject data)
         {
-
+            //access control
+            if (canAccess)
+                Service.Operation(data);
         }
     }
 }
