@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples
+namespace MyLibrary.MyDesignPrinciples.FactoryMethod
 {
     public abstract class MyCreatorBase
     {

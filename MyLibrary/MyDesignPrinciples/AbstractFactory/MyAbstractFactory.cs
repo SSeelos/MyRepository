@@ -1,7 +1,8 @@
-﻿using System;
+﻿using MyLibrary.MyDesignPrinciples.FactoryMethod;
+using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples
+namespace MyLibrary.MyDesignPrinciples.AbstractFactory
 {
     //can also be an interface
     public abstract class MyAbstractFactory
