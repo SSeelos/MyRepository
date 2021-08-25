@@ -14,12 +14,24 @@ namespace MyConsoleAppProject
         //property: field with get/set block
         public int myProperty { get; set; }
 
+        //all instances of the class share static properties
+        public static string myStaticProperty { get; set; }
+
         //methods
         public double MyMethod()
         {
             double product = myAttribute * myProperty;
             Console.WriteLine(MethodBase.GetCurrentMethod().Name + ": " + myField + ", " + product);
             return product;
+
+        }
+
+
+        public static void MyStaticMethod()
+        {
+            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+
+            Console.WriteLine(myStaticProperty);
 
         }
 
@@ -43,6 +55,14 @@ namespace MyConsoleAppProject
         public void SetField(string value)
         {
             this.myField = value;
+        }
+        public void SetStaticProperty(string value)
+        {
+            myStaticProperty = value;
+        }
+        public string GetStaticProperty()
+        {
+            return myStaticProperty;
         }
 
         public override void MyAbstractMethod()

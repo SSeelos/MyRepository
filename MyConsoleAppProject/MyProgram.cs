@@ -117,6 +117,7 @@ namespace MyConsoleAppProject
             var myObject = new MyClass();
             myObject.myAttribute = 2;
             myObject.MyMethod();
+            MyClass.MyStaticMethod();
             myObject.MyInterfaceFunction();
             myObject.MyInterface2Function();
             myObject.MyVirtualMethod();
@@ -126,6 +127,10 @@ namespace MyConsoleAppProject
             myObject.myProperty = 5;
             //get property
             var str = myObject.myProperty;
+
+
+
+            MyStaticClass.MyProperty = "static property";
             #endregion
 
             #region reference or value
