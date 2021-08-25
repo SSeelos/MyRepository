@@ -1,7 +1,7 @@
 ﻿using MyLibrary.MyUtilities;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples
+namespace MyLibrary.MyDesignPrinciples.MyPrototype
 {
     public interface IPrototype
     {

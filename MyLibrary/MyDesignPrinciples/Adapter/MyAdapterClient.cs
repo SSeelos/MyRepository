@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyLibrary.MyDesignPrinciples.Adapter
+﻿namespace MyLibrary.MyDesignPrinciples.Adapter
 {
     class MyAdapterClient
     {
-        internal void Run()
+        public static void Run()
         {
             var compatibleService = new MyCompatibleService("compatible");
             var service = new MyIncompatibleService(5);

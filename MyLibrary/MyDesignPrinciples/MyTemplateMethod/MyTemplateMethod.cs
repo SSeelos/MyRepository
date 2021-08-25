@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples
+namespace MyLibrary.MyDesignPrinciples.MyTemplateMethod
 {
     public abstract class MyTemplate
     {
