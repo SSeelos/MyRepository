@@ -4,12 +4,12 @@ using System.Text;
 
 namespace MyConsoleAppProject
 {
-    interface IMyInterface
+    interface IMyInterfaceA
     {
         void MyInterfaceFunction();
     }
 
-    interface IMyInteface2
+    interface IMyIntefaceB
     {
         void MyInterface2Function();
     }

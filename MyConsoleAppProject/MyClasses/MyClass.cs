@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace MyConsoleAppProject
 {
-    public class MyClass : MyAbstractClass, IMyInterface, IMyInteface2
+    public class MyClass : MyAbstractClass, IMyInterfaceA, IMyIntefaceB
     {
         //fields        (private :accessibility within the same class)
         private string myField;
