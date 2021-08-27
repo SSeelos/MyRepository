@@ -9,7 +9,7 @@
 
     <Border Padding="20">
         <StackPanel>
-            <Button Content="MyBindedProperty" Click="MyBasicMVVM"/>
+            <Button Content="MyBoundProperty" Click="MyBasicMVVM"/>
             <Button Content="Advanced" Click="Advanced_Click"/>
             <Button Content="MyObservableCollection" Click="MyObservableCollection_Click"/>
             <Button Margin="10" Content="MyMVVMToolkit" Click="MyMVVMToolkit_Click"/>
