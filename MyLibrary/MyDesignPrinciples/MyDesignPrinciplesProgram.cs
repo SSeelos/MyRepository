@@ -9,6 +9,7 @@ using MyLibrary.MyDesignPrinciples.Facade;
 using MyLibrary.MyDesignPrinciples.FactoryMethod;
 using MyLibrary.MyDesignPrinciples.MyPrototype;
 using MyLibrary.MyDesignPrinciples.MyTemplateMethod;
+using MyLibrary.MyDesignPrinciples.State;
 using MyLibrary.MyDesignPrinciples.Strategy;
 using MyLibrary.MyUtilities;
 using System.Reflection;
@@ -48,6 +49,8 @@ namespace MyLibrary.MyDesignPrinciples
             Composite();
 
             Facade();
+
+            State();
 
         }
 
@@ -138,6 +141,13 @@ namespace MyLibrary.MyDesignPrinciples
             MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
 
             MyFacadeClient.Run();
+
+        }
+        private void State()
+        {
+            MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
+
+            MyStateClient.Run();
 
         }
     }
