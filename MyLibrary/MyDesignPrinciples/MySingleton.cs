@@ -12,7 +12,7 @@ namespace MyLibrary.MyDesignPrinciples
 
         private static MySingleton GetInstance()
         {
-            return _instance != null ? _instance : new MySingleton();
+            return _instance ?? new MySingleton();
         }
 
         public void DoSomething()
