@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.MyDesignPrinciples.BuilderPattern
+﻿namespace MyLibrary.MyDesignPrinciples.Builder
 {
     public interface IPartBuilder
     {
