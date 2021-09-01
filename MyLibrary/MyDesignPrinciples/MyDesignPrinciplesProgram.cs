@@ -4,14 +4,16 @@ using MyLibrary.MyDesignPrinciples.Adapter;
 using MyLibrary.MyDesignPrinciples.Bridge;
 using MyLibrary.MyDesignPrinciples.Builder;
 using MyLibrary.MyDesignPrinciples.Chain;
+using MyLibrary.MyDesignPrinciples.Command;
 using MyLibrary.MyDesignPrinciples.Composite;
 using MyLibrary.MyDesignPrinciples.Decorator;
 using MyLibrary.MyDesignPrinciples.Facade;
 using MyLibrary.MyDesignPrinciples.FactoryMethod;
-using MyLibrary.MyDesignPrinciples.MyPrototype;
-using MyLibrary.MyDesignPrinciples.MyTemplateMethod;
+using MyLibrary.MyDesignPrinciples.Prototype;
+using MyLibrary.MyDesignPrinciples.Singleton;
 using MyLibrary.MyDesignPrinciples.State;
 using MyLibrary.MyDesignPrinciples.Strategy;
+using MyLibrary.MyDesignPrinciples.TemplateMethod;
 using MyLibrary.MyUtilities;
 using System.Reflection;
 
@@ -54,6 +56,8 @@ namespace MyLibrary.MyDesignPrinciples
             State();
 
             Chain();
+
+            Command();
 
         }
 
@@ -158,6 +162,13 @@ namespace MyLibrary.MyDesignPrinciples
             MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
 
             MyChainClient.Run();
+
+        }
+        private void Command()
+        {
+            MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
+
+            MyCommandClient.Run();
 
         }
     }
