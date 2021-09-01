@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyLibrary.MyDesignPrinciples.MyPrototype
+namespace MyLibrary.MyDesignPrinciples.Prototype
 {
     class MyPrototypeClient
     {

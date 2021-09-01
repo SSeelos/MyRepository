@@ -4,7 +4,12 @@ using System.Reflection;
 
 namespace MyLibrary.MyDesignPrinciples.AbstractFactory
 {
-    //can also be an interface
+    /// <summary>
+    /// provides an interface for creating objects in a superclass, 
+    /// but allows subclasses to alter the type of objects that will be created.
+    /// 
+    /// can also be an interface
+    /// </summary>
     public abstract class MyAbstractFactory
     {
         public abstract IProduct createProductA();

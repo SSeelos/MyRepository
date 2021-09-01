@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyLibrary.MyDesignPrinciples.MyTemplateMethod
+namespace MyLibrary.MyDesignPrinciples.TemplateMethod
 {
     class MyTemplateClient
     {
