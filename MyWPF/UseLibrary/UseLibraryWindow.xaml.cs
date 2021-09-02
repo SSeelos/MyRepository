@@ -1,5 +1,6 @@
 ﻿using MyLibrary;
 using MyLibrary.MyDesignPrinciples;
+using MyLibrary.MyJSON;
 using System.Windows;
 
 namespace MyWPF
@@ -30,5 +31,9 @@ namespace MyWPF
             var templateMethod = new MyDesignPrinciplesProgram();
         }
 
+        private void JSON_Click(object sender, RoutedEventArgs e)
+        {
+            JSONProgram.Run();
+        }
     }
 }

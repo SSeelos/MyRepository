@@ -8,12 +8,14 @@
         SizeToContent="WidthAndHeight">
     <Border Padding="40">
         <StackPanel>
-        <Button Content="SOLID" Click="SOLID_Click"/>
+
+            <Button Content="SOLID" Click="SOLID_Click"/>
+            <Button Content="DesignPrinciples" Click="DesignPrinciples_Click"/>
+
             <Button Content="UnitValues" Click="UnitValues_Click"/>
-            <StackPanel>
-                <Button Content="DesignPrinciples" Click="DesignPrinciples_Click"/>
-                
-            </StackPanel>
+            <Button Content="JSON" Click="JSON_Click"/>
+
+
 
         </StackPanel>
     </Border>
