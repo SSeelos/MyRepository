@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace MyViewModelLibrary.ViewModels
 {
-    public class MyObservableVM : ObservableObject
+    public class MyObservableVM : MyObservableVMBase
     {
         public MyObservableVM()
         {
@@ -13,11 +13,11 @@ namespace MyViewModelLibrary.ViewModels
 
         public ICommand MyRelayCommand { get; }
 
-        private int myProperty;
+        private int _myProperty;
         public int MyProperty
         {
-            get => myProperty;
-            set => SetProperty(ref myProperty, value);
+            get => _myProperty;
+            set => SetProperty(ref _myProperty, value);
         }
 
 

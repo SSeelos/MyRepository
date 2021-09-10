@@ -1,6 +1,6 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 
-namespace MyWPF.MVVM.MyMVVMToolkit
+namespace MyViewModelLibrary.ViewModels
 {
     public class MyObservableVMBase : ObservableObject
     {
