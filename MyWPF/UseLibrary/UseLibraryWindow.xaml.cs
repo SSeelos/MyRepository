@@ -1,4 +1,5 @@
 ﻿using MyLibrary;
+using MyLibrary.EventsAndDelegates_CodeMonkey;
 using MyLibrary.MyDesignPrinciples;
 using MyLibrary.MyJSON;
 using System.Windows;
@@ -34,6 +35,11 @@ namespace MyWPF
         private void JSON_Click(object sender, RoutedEventArgs e)
         {
             JSONProgram.Run();
+        }
+
+        private void Events_Click(object sender, RoutedEventArgs e)
+        {
+            EventsClient.Run();
         }
     }
 }

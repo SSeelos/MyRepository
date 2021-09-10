@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace MyConsoleAppProject.MyEventsAndDelegates
 {
@@ -9,9 +7,9 @@ namespace MyConsoleAppProject.MyEventsAndDelegates
     //Delegate: agreement between publisher and subscriber
     //determines signature and return type
 
-        //1 Define Delegate
-        //2 Define event based on the delegate
-        //3 Raise event
+    //1 Define Delegate
+    //2 Define event based on the delegate
+    //3 Raise event
     public class MyPublisher
     {
         public delegate void MyEventHandler(object source, EventArgs args);
@@ -19,7 +17,7 @@ namespace MyConsoleAppProject.MyEventsAndDelegates
 
         protected virtual void OnEventTriggered()
         {
-            Console.WriteLine(this.GetType().Name +": "+ MethodBase.GetCurrentMethod().Name);
+            Console.WriteLine(this.GetType().Name + ": " + MethodBase.GetCurrentMethod().Name);
 
             EventTriggered?.Invoke(this, EventArgs.Empty);
         }
