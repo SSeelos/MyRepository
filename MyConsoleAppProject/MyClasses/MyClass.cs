@@ -51,6 +51,11 @@ namespace MyConsoleAppProject
         {
             this.myField = myField;
         }
+        public MyClass(MyStruct myStruct)
+            : base(myStruct.A)
+        {
+            this.myField = myStruct.B;
+        }
 
         public void SetField(string value)
         {
@@ -60,6 +65,12 @@ namespace MyConsoleAppProject
         {
             myStaticProperty = value;
         }
+
+        internal void ToConsole()
+        {
+            Console.WriteLine(myField + ", " + myProtectedVariable + " Class!");
+        }
+
         public string GetStaticProperty()
         {
             return myStaticProperty;

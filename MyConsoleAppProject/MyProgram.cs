@@ -196,6 +196,8 @@ namespace MyConsoleAppProject
                 .Run();
 
             YieldReturn();
+
+            MyDebugging.Run();
         }
 
         public static int MyMethod(int myArgument)
