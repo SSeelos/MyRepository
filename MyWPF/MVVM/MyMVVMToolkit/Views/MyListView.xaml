@@ -9,7 +9,7 @@
         SizeToContent="WidthAndHeight">
 
     <Window.DataContext>
-        <ViewModel:MyListViewVM/>
+        <ViewModel:MyDataCollectionVM/>
     </Window.DataContext>
 
     <Window.Resources>

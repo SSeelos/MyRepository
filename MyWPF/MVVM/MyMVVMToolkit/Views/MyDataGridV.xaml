@@ -10,7 +10,7 @@
         SizeToContent="Height">
 
     <Window.DataContext>
-        <ViewModel:MyListViewVM/>
+        <ViewModel:MyDataCollectionVM/>
     </Window.DataContext>
 
         <StackPanel Orientation="Horizontal">

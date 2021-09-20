@@ -4,9 +4,9 @@ using System.Windows.Input;
 
 namespace MyViewModelLibrary.ViewModels
 {
-    public class MyListViewVM : MyObservableVMBase
+    public class MyDataCollectionVM : MyObservableVMBase
     {
-        public MyListViewVM()
+        public MyDataCollectionVM()
         {
             MyItemDatas.Add(new MyItemData() { DataA = "A1", DataB = "B1" });
             MyItemDatas.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
