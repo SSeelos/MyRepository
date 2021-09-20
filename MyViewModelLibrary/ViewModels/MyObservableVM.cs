@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace MyViewModelLibrary.ViewModels
 {
-    public class MyObservableVM : BaseVM
+    public class MyObservableVM : MyObservableVMBase
     {
         public MyObservableVM()
         {
