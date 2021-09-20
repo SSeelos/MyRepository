@@ -13,7 +13,7 @@
     </Window.DataContext>
 
     <Window.Resources>
-        <DataTemplate x:Key="MyListViewItemTemplate">
+        <DataTemplate x:Key="MyListView_ItemTemplate">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{Binding Path=DataA}"/>
                 <TextBlock Text="{Binding Path=DataB}"/>
@@ -73,7 +73,7 @@
 
         <ListView Grid.Column="2" Grid.Row="1"
                   ItemsSource="{Binding Path=MyItemDatas}"
-                  ItemTemplate="{StaticResource MyListViewItemTemplate}"
+                  ItemTemplate="{StaticResource MyListView_ItemTemplate}"
                   SelectedItem="{Binding 
             Path=ItemData, 
             Mode=OneWayToSource, 

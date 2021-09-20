@@ -13,16 +13,35 @@
         <ViewModel:MyDataCollectionVM/>
     </Window.DataContext>
 
+    <Window.Resources>
+    <DataTemplate x:Key="SelectedItem_Template">
+            <StackPanel>
+                <TextBox Text="BoundData"/>
+                <TextBlock Text="{Binding Path=ItemData, Mode=OneWay}"/>
+                <TextBox Text="A"/>
+                <TextBlock Text="{Binding Path= ItemData.DataA, Mode=OneWay}"/>
+                <TextBox Text="B"/>
+                <TextBlock Text="{Binding Path= ItemData.DataB, Mode=OneWay}"/>
+            </StackPanel>
+    </DataTemplate>
+        
+    </Window.Resources>
+
         <StackPanel Orientation="Horizontal">
         <StackPanel>
-            <TextBox Text="BoundData"/>
-            <TextBlock Text="{Binding Path=ItemData, Mode=OneWay}"/>
+            <TextBlock Text="BoundData"/>
+                <TextBox Text="{Binding Path=ItemData, Mode=OneWay}" IsReadOnly="True"/>
+                <TextBlock Text="DataA"/>
+                <TextBox Text="{Binding Path= ItemData.DataA, Mode=OneWay}" IsReadOnly="True"/>
+                <TextBlock Text="DataB"/>
+            <TextBox Text="{Binding Path= ItemData.DataB, Mode=OneWay}" IsReadOnly="True"/>
             <Button Content="UseData" Command="{Binding UseDataCommand}"/>
         </StackPanel>
 
-        <DataGrid 
-            SelectedItem="{Binding Path=ItemData, Mode=OneWayToSource}"                
-            ItemsSource="{Binding Path=MyItemDatas,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+        <DataGrid                
+            ItemsSource="{Binding Path=MyItemDatas,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding Path=ItemData, Mode=OneWayToSource}"
+            IsSynchronizedWithCurrentItem="True"> 
         </DataGrid>
     </StackPanel>
 
