@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MyWPF.MVVM.MyMVVMToolkit.Views;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MyWPF.MVVM.MyMVVMToolkit
 {
@@ -27,6 +18,12 @@ namespace MyWPF.MVVM.MyMVVMToolkit
         {
             new MyObservableView()
                 .Show();
+        }
+
+        private void ListView_Click(object sender, RoutedEventArgs e)
+        {
+            new MyListView()
+                .ShowDialog();
         }
     }
 }

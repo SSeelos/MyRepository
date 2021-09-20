@@ -1,0 +1,83 @@
+﻿<Window x:Class="MyWPF.MVVM.MyMVVMToolkit.Views.MyListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ViewModel="clr-namespace:MyViewModelLibrary.ViewModels;assembly=MyViewModelLibrary"
+        mc:Ignorable="d"
+        Title="MyListView"
+        SizeToContent="WidthAndHeight">
+
+    <Window.DataContext>
+        <ViewModel:MyListViewVM/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate x:Key="MyListViewItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=DataA}"/>
+                <TextBlock Text="{Binding Path=DataB}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Control"/>
+        <TextBlock Grid.Column="1" Grid.Row="0" Text="SimpleData"/>
+        <TextBlock Grid.Column="2" Grid.Row="0" Text="BoundData"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <TextBox Text="BoundData"/>
+            <TextBlock Text="{Binding 
+                Path=ItemData, 
+                Mode=OneWay, 
+                UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding 
+                Path=ItemData.DataA, 
+                Mode=OneWay, 
+                UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding 
+                Path=ItemData.DataB, 
+                Mode=OneWay, 
+                UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="Use Data" 
+                    Command="{Binding UseDataCommand}"/>
+        </StackPanel>
+
+        <ListView Grid.Column="1" Grid.Row="1">
+        <ListViewItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>ItemA1</TextBlock>
+                <TextBlock>ItemA2</TextBlock>
+            </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>ItemB1</TextBlock>
+                    <TextBlock>ItemB2</TextBlock>
+                </StackPanel>
+            </ListViewItem>
+
+        </ListView>
+
+        <ListView Grid.Column="2" Grid.Row="1"
+                  ItemsSource="{Binding Path=MyItemDatas}"
+                  ItemTemplate="{StaticResource MyListViewItemTemplate}"
+                  SelectedItem="{Binding 
+            Path=ItemData, 
+            Mode=OneWayToSource, 
+            UpdateSourceTrigger=PropertyChanged}">
+        </ListView>
+
+    </Grid>
+</Window>

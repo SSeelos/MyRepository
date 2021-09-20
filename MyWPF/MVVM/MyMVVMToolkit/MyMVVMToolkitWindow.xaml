@@ -9,6 +9,7 @@
     <Border Padding="20">
         <StackPanel>
             <Button Content="ObservableViewModel" Click="ObservableVM_Click"/>
+            <Button Content="ListView" Click="ListView_Click"/>
         </StackPanel>
     </Border>
 </Window>
