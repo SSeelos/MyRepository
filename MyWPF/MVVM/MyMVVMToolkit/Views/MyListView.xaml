@@ -20,8 +20,9 @@
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
-    
+
     <Grid>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>

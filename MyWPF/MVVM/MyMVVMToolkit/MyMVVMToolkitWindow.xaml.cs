@@ -23,7 +23,13 @@ namespace MyWPF.MVVM.MyMVVMToolkit
         private void ListView_Click(object sender, RoutedEventArgs e)
         {
             new MyListView()
-                .ShowDialog();
+                .Show();
+        }
+
+        private void DataGridView_Click(object sender, RoutedEventArgs e)
+        {
+            new MyDataGridV()
+                .Show();
         }
     }
 }

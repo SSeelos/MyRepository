@@ -1,0 +1,29 @@
+﻿<Window x:Class="MyWPF.MVVM.MyMVVMToolkit.Views.MyDataGridV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ViewModel="clr-namespace:MyViewModelLibrary.ViewModels;assembly=MyViewModelLibrary"
+        mc:Ignorable="d"
+        Title="MyDataGridV"
+        Width="400"
+        SizeToContent="Height">
+
+    <Window.DataContext>
+        <ViewModel:MyListViewVM/>
+    </Window.DataContext>
+
+        <StackPanel Orientation="Horizontal">
+        <StackPanel>
+            <TextBox Text="BoundData"/>
+            <TextBlock Text="{Binding Path=ItemData, Mode=OneWay}"/>
+            <Button Content="UseData" Command="{Binding UseDataCommand}"/>
+        </StackPanel>
+
+        <DataGrid 
+            SelectedItem="{Binding Path=ItemData, Mode=OneWayToSource}"                
+            ItemsSource="{Binding Path=MyItemDatas,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+        </DataGrid>
+    </StackPanel>
+
+</Window>
