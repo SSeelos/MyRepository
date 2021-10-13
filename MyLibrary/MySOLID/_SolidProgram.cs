@@ -9,10 +9,11 @@
 
         private void Run()
         {
-            var line = new Line(2);
-            var square = new Square(2);
-            var circle = new Circle(2);
-            var hollowCircle = new HollowCircle(2, 1);
+            var line = ShapeFactory.CreateLine(1);
+
+            var square = ShapeFactory.CreateSquare();
+            var circle = ShapeFactory.CreateCircle();
+            var hollowCircle = ShapeFactory.CreateHollowCircle(2,1);
             var cube = new Cube(2);
 
             var lengthCalc = new LengthCalculator(line, square, circle, hollowCircle, cube);

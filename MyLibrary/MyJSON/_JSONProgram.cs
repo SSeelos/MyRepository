@@ -55,7 +55,7 @@ namespace MyLibrary.MyJSON
 
         private static string SerializeJSON(University university)
         {
-            var stringJson = JsonConvert.SerializeObject(university);
+            string stringJson = JsonConvert.SerializeObject(university);
 
             File.WriteAllText(fileName, stringJson);
             Console.WriteLine("Write: \n" + stringJson);
