@@ -2,8 +2,9 @@
 
 namespace MyLibrary.BetterOOP
 {
-    class Main_BetterOOP
+    class BetterOOP_Program : IProgram
     {
+
         public void Run()
         {
             List<IRental> rentals = new List<IRental>();

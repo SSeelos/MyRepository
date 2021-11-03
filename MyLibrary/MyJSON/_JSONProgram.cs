@@ -6,10 +6,10 @@ using System.IO;
 
 namespace MyLibrary.MyJSON
 {
-    public class JSONProgram
+    public class JSONProgram : IProgram
     {
         public static string fileName = @"myJSONFile.json";
-        public static void Run()
+        public void Run()
         {
             var university = new University();
             InitUniversity(university);

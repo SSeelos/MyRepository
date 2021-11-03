@@ -1,5 +1,6 @@
 ﻿using MyConsoleAppProject;
 using MyWPF.MVVM;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows;
 
@@ -15,33 +16,42 @@ namespace MyWPF
             InitializeComponent();
         }
 
+        private void ShowWindow(Window window)
+        {
+            try
+            {
+                window.ShowDialog();
 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
 
         private void Basics_Click(object sender, RoutedEventArgs e)
         {
-            new BasicsWindow()
-                .ShowDialog();
+            this.ShowWindow(new BasicsWindow());
         }
 
 
 
         private void MVVM_Click(object sender, RoutedEventArgs e)
         {
-            new MyMVVMWindow()
-                .ShowDialog();
+            this.ShowWindow(new MyMVVMWindow());
         }
 
         private void UseLibrary_Click(object sender, RoutedEventArgs e)
         {
             AllocConsole();
 
-            new UseLibraryWindow()
-                .ShowDialog();
+            this.ShowWindow(new UseLibraryWindow());
         }
 
         private void MyConsoleApp_Click(object sender, RoutedEventArgs e)
         {
             AllocConsole();
+
             new MyProgram();
         }
 

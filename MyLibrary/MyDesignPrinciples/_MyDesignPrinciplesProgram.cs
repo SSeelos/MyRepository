@@ -19,13 +19,8 @@ using System.Reflection;
 
 namespace MyLibrary.MyDesignPrinciples
 {
-    public class MyDesignPrinciplesProgram
+    public class MyDesignPrinciplesProgram : IProgram
     {
-        public MyDesignPrinciplesProgram()
-        {
-            Run();
-        }
-
         public void Run()
         {
 
