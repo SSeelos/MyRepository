@@ -5,8 +5,8 @@ using System.Reflection;
 namespace MyLibrary.MyDesignPrinciples.AbstractFactory
 {
     /// <summary>
-    /// provides an interface for creating objects in a superclass, 
-    /// but allows subclasses to alter the type of objects that will be created.
+    /// produce families of related objects 
+    /// without specifying their concrete classes
     /// 
     /// can also be an interface
     /// </summary>
