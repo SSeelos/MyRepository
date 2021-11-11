@@ -25,75 +25,113 @@ namespace MyLibrary
     //abstractions should not depend on details
     //-> details dependant on abstractions
 
-    public interface IShape1D
+    //Dependency Injection (DI)
+    //common way to implement DIP
+    //-> object receives other objects that it depends on (dependencies)
+    public interface IShape { }
+    public interface IShape1D : IShape
     {
-        double DimX();
+        double DimX { get; }
     }
     public interface IShape2D : IShape1D        //(ISP)
     {
+        double DimY { get; }
         double Area();
     }
     public interface IShape3D : IShape2D        //(ISP)
     {
+        double DimZ { get; }
         double Volume();
     }
-    public class Line : IShape1D
+
+    public interface ILine : IShape1D
     {
-        public double Lenght;
+    }
 
-        public Line(double lenght)
-        {
-            this.Lenght = lenght;
-        }
+    public class Line : ILine
+    {
+        public double DimX { get; set; }
 
-        public double DimX()
+        public Line(double length)
         {
-            return this.Lenght;
+            this.DimX = length;
         }
     }
-    public class Square : IShape2D
+
+    public interface ISquare : IShape2D
     {
-        public double Length;
+    }
 
-        public Square(double lenght)
+    public class Square : ISquare
+    {
+        private double _dimX;
+        public double DimX
         {
-            this.Length = lenght;
+            get => _dimX; set
+            {
+                _dimX = value;
+                _dimY = value;
+            }
+        }
+        private double _dimY;
+        public double DimY
+        {
+            get => _dimY; set
+            {
+                _dimY = value;
+                _dimX = value;
+            }
         }
 
-        public double DimX()
-        {
-            return this.Length;
-        }
         public double Area()
         {
-            return Math.Pow(this.Length, 2);
+            return Math.Pow(this.DimX, 2);
         }
 
     }
 
     public class Circle : IShape2D
     {
-        public double Radius;
-        public Circle(double radius)
+        private double _radius;
+        public double Radius { get => _radius; set => SetRadius(value); }
+
+        private void SetRadius(double value)
         {
-            this.Radius = radius;
+            _radius = value;
+            _dimX = value / 2;
+            _dimY = value / 2;
         }
 
-        public double DimX()
+        private double _dimX;
+        public double DimX { get => _dimX; set => SetDimX(value); }
+
+        private void SetDimX(double value)
         {
-            return this.Radius * 2;
+            _dimX = value;
+            _dimY = value;
+            _radius = value / 2;
         }
+        private double _dimY;
+        public double DimY { get => _dimY; set => SetDimY(value); }
+
+        private void SetDimY(double value)
+        {
+            _dimY = value;
+            _dimX = value;
+            _radius = value / 2;
+        }
+
         public double Area()
         {
-            return Math.PI * Math.Pow(this.Radius, 2);
+            return Math.PI * Math.Pow(this._radius, 2);
         }
     }
     public class HollowCircle : Circle
     {
         public double InnerRadius;
         public HollowCircle(double radius, double innerRadius)
-            : base(radius)
         {
+            this.Radius = radius;
             this.InnerRadius = innerRadius;
         }
 
@@ -107,21 +145,28 @@ namespace MyLibrary
 
     public class Cube : IShape3D
     {
-        public double Length;
+        public double DimX { get ; private set; }
+        public double DimY { get ; private set; }
+        public double DimZ { get ; private set; }
+        private double _length;
+        public double Length { get=> _length; set {
+                _length = value;
+                DimX = value;
+                DimY = value;
+                DimZ = value;
+            } }
 
         public Cube(double length)
         {
             this.Length = length;
         }
+
+
         public double Area()
         {
             return Math.Pow(this.Length, 2);
         }
 
-        public double DimX()
-        {
-            return this.Length;
-        }
 
         public double Volume()
         {
@@ -149,7 +194,7 @@ namespace MyLibrary
             var area = new List<double>();
             foreach (var shape in shapes)
             {
-                area.Add(shape.DimX());         //(OCP) removes the need for a switch statement, that would have to be extendet
+                area.Add(shape.DimX);         //(OCP) removes the need for a switch statement, that would have to be extendet
             }
             return area;
 
