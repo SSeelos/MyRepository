@@ -3,38 +3,19 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using Microsoft.Win32;
 
 namespace MyLibrary.MyProcess
 {
     public interface IProcessHandler
     {
-        void Init(string fileName);
+        void StartProcess(string fileName);
         void ReplaceProcess(string fileName);
         void Kill();
     }
     class MyProcessHandler : IProcessHandler
     {
         public static int? MyProcessId = null;
-        public void Init(string fileName)
-        {
-            MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod(), Hirarchy.Title);
-
-            using (var myProcess = new Process())
-            {
-                myProcess.StartInfo.UseShellExecute = true;
-                myProcess.StartInfo.FileName = fileName;
-                myProcess.EnableRaisingEvents = true;
-                myProcess.Exited += new EventHandler(MyProcess_Exited);
-                myProcess.Start();
-
-                var machName = myProcess.MachineName;
-
-                var name = myProcess.ProcessName;
-
-                MyProcessId = myProcess.Id;
-
-            }
-        }
         private void MyProcess_Exited(object sender, EventArgs e)
         {
             Console.WriteLine("exited");
@@ -50,7 +31,7 @@ namespace MyLibrary.MyProcess
             this.StartProcess(fileName);
 
         }
-        private void StartProcess(string fileName)
+        public void StartProcess(string fileName)
         {
             MyConsoleLogger.Instance.MethodLog(MethodBase.GetCurrentMethod());
 
