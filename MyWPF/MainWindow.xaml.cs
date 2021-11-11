@@ -59,10 +59,5 @@ namespace MyWPF
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AllocConsole();
-
-        private void DotNET6ConsoleApp_Click(object sender, RoutedEventArgs e)
-        {
-            //new _DotNET6Program();
-        }
     }
 }
