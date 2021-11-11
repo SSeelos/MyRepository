@@ -13,9 +13,8 @@
             <Button Content="Basics" Click="Basics_Click"/>
             <Button Content="MVVM" Click="MVVM_Click"/>
             <TextBlock Text="MyProjects"/>
-            <Button Content="MyConsoleApp" Click="MyConsoleApp_Click"/>
             <Button Content="UseLibrary" Click="UseLibrary_Click"/>
-            <Button Content="DotNET6 ConsoleApp" Click="DotNET6ConsoleApp_Click"/>
+            <Button Content="MyConsoleApp" Click="MyConsoleApp_Click"/>
 
 
         </StackPanel>
