@@ -2,7 +2,7 @@
 
 namespace MyViewModelLibrary.ViewModels
 {
-    public class MyObservableVMBase : ObservableObject
+    public abstract class MyObservableVMBase : ObservableObject
     {
 
     }
