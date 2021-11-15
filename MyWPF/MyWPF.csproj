@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MyConsoleAppProject\MyConsoleAppProject.csproj" />
+    <ProjectReference Include="..\MyDotNet6ConsoleApp\MyDotNet6ConsoleApp.csproj" />
     <ProjectReference Include="..\MyLibrary\MyLibrary.csproj" />
     <ProjectReference Include="..\MyMachineLearning\MyMachineLearning.csproj" />
     <ProjectReference Include="..\MyViewModelLibrary\MyViewModelLibrary.csproj" />

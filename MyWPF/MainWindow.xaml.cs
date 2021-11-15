@@ -1,4 +1,5 @@
-﻿using MyConsoleAppProject;
+﻿using DotNet6;
+using MyConsoleAppProject;
 using MyWPF.MVVM;
 using System;
 using System.Runtime.InteropServices;
@@ -54,10 +55,17 @@ namespace MyWPF
 
             new MyProgram();
         }
+        private void DotNet6App_Click(object sender, RoutedEventArgs e)
+        {
+            AllocConsole();
+
+            DotNET6Program.Main();
+        }
 
 
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AllocConsole();
+
     }
 }

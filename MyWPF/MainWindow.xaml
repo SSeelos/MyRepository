@@ -15,6 +15,7 @@
             <TextBlock Text="MyProjects"/>
             <Button Content="UseLibrary" Click="UseLibrary_Click"/>
             <Button Content="MyConsoleApp" Click="MyConsoleApp_Click"/>
+            <Button Content="DotNet6App" Click="DotNet6App_Click"/>
 
 
         </StackPanel>

@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyConsoleAppProject\MyConsoleAppProject.csproj" />
-    <ProjectReference Include="..\MyWPF\MyWPF.csproj" />
   </ItemGroup>
 
 </Project>
