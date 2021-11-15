@@ -54,6 +54,8 @@ namespace MyWPF
         private void UnitValues_Click(object sender, RoutedEventArgs e)
         {
             this.RunProgram(new UnitValuesProgram());
+
+            this.RunProgram(new UnitsNetProgram());
         }
 
         private void DesignPrinciples_Click(object sender, RoutedEventArgs e)
