@@ -131,6 +131,9 @@ namespace MyConsoleAppProject
 
 
             MyStaticClass.MyProperty = "static property";
+
+            var immutable = new MyImmutableObject("immutable prop", "immutable auto prop");
+            Console.WriteLine(immutable.ImmutableProperty + " " + immutable.MyGetterOnlyAutoProperty);
             #endregion
 
             #region reference or value
