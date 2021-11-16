@@ -2,6 +2,7 @@
 using MyLibrary.EventsAndDelegates_CodeMonkey;
 using MyLibrary.MyDesignPrinciples;
 using MyLibrary.MyJSON;
+using MyLibrary.MyNeo4j;
 using System.Windows;
 
 namespace MyWPF
@@ -40,6 +41,11 @@ namespace MyWPF
         private void Events_Click(object sender, RoutedEventArgs e)
         {
             EventsClient.Run();
+        }
+
+        private void Neo4j_Click(object sender, RoutedEventArgs e)
+        {
+            Neo4jProgram.Main();
         }
     }
 }
