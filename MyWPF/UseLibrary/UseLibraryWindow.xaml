@@ -15,6 +15,7 @@
             <Button Content="UnitValues" Click="UnitValues_Click"/>
             <Button Content="JSON" Click="JSON_Click"/>
             <Button Content="Events" Click="Events_Click"/>
+            <Button Content="Neo4j" Click="Neo4j_Click"/>
 
 
 
