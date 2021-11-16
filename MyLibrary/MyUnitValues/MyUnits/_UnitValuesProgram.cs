@@ -3,14 +3,9 @@ using System.Reflection;
 
 namespace MyLibrary
 {
-    public class UnitValuesProgram
+    public class UnitValuesProgram : IProgram
     {
-        public UnitValuesProgram()
-        {
-            Run();
-        }
-
-        private void Run()
+        public void Run()
         {
             RunUnitValue();
 

@@ -1,8 +1,8 @@
 ﻿namespace MyLibrary.EventsAndDelegates_CodeMonkey
 {
-    public class EventsClient
+    public class EventsClient : IProgram
     {
-        public static void Run()
+        public void Run()
         {
             var publisher = new MyPublisher();
 

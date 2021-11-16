@@ -6,11 +6,16 @@ using System.IO;
 
 namespace MyLibrary.MyJSON
 {
-    public class JSONProgram
+    public class JSONProgram : IProgram
     {
+<<<<<<< HEAD:MyLibrary/MyJSON/JSONProgram.cs
         public static string fileName = "myJSONFile.json";
         public static string filePath = MyPaths.Directory + "\\" + fileName;
         public static void Run()
+=======
+        public static string fileName = @"myJSONFile.json";
+        public void Run()
+>>>>>>> 4579333d76d523225eca9a5dcd5f9fec77685720:MyLibrary/MyJSON/_JSONProgram.cs
         {
             var university = new University();
             InitUniversity(university);
@@ -56,7 +61,7 @@ namespace MyLibrary.MyJSON
 
         private static string SerializeJSON(University university)
         {
-            var stringJson = JsonConvert.SerializeObject(university);
+            string stringJson = JsonConvert.SerializeObject(university);
 
             File.WriteAllText(filePath, stringJson);
             Console.WriteLine("Write: \n" + stringJson);
