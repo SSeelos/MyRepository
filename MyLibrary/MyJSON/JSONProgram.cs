@@ -8,7 +8,8 @@ namespace MyLibrary.MyJSON
 {
     public class JSONProgram
     {
-        public static string fileName = @"myJSONFile.json";
+        public static string fileName = "myJSONFile.json";
+        public static string filePath = MyPaths.Directory + "\\" + fileName;
         public static void Run()
         {
             var university = new University();
@@ -57,13 +58,13 @@ namespace MyLibrary.MyJSON
         {
             var stringJson = JsonConvert.SerializeObject(university);
 
-            File.WriteAllText(fileName, stringJson);
+            File.WriteAllText(filePath, stringJson);
             Console.WriteLine("Write: \n" + stringJson);
             return stringJson;
         }
         private static void DeserializeJSON()
         {
-            var stringJson = File.ReadAllText(fileName);
+            var stringJson = File.ReadAllText(filePath);
             Console.WriteLine("Read: \n" + stringJson);
             University deserializedUni = JsonConvert.DeserializeObject<University>(stringJson);
 
