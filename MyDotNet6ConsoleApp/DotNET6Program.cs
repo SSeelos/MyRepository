@@ -1,35 +1,20 @@
-﻿
-namespace DotNet6;
+﻿//namespace for this document
+using MyLibrary;
+
+namespace MyDotNet6ConsoleApp;
 public class DotNET6Program
 {
+
+    private static ProgramRunner programRunner = new ProgramRunner();
     public static void Main()
     {
-        RecordType();
+        programRunner.RunProgram(new RecordTypeProgram());
+
+        programRunner.RunProgram(new ThreadingProgram());
 
     }
 
-    private static void RecordType()
-    {
 
-        //var myRecord = new
-        var myRecord = new MyRecordClass()
-        //var myRecord = new MyRecordStruct()
-        {
-            PropertyA = "A",
-            PropertyB = "B"
-        };
-
-        //C# 9.0 and later,
-        //a with expression produces a copy of its operand
-        //with the specified properties and fields modified
-        var otherRecord = myRecord with { PropertyB = "otherB" };
-
-        WriteLine(myRecord);
-        WriteLine(otherRecord);
-
-        WriteLine($"Equals: {Equals(myRecord, otherRecord)}");
-        WriteLine($"== operator: {myRecord == otherRecord}");
-    }
 }
 
 
