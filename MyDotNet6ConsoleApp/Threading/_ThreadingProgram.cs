@@ -1,4 +1,6 @@
-﻿using MyLibrary;
+using MyDotNet6ConsoleApp.Threading;
+using MyLibrary;
+
 using MyLibrary.MyUtilities;
 using System.Reflection;
 
@@ -9,21 +11,19 @@ internal class ThreadingProgram : IProgram
     public static ILogger Logger = MyConsoleLogger.Instance;
     public void Run()
     {
-        Logger.MethodLog(MethodBase.GetCurrentMethod());
+        Logger.ClassMethodLog(GetType(), MethodBase.GetCurrentMethod());
 
-        ThreadStart threadStart = new ThreadStart(ThreadMethod);
-        Thread thread = new Thread(threadStart);
-        thread.Start();
+        var examples = new ThreadingExamples(
+            new SleepingThread(),
+            new StartThread(),
+            new AbortThreadExample());
+
+        examples.Execute();
     }
 
-    public static void ThreadMethod()
+    public void ExecuteExample(IThreadingExample example)
     {
-        Logger.MethodLog(MethodBase.GetCurrentMethod());
-        Thread.CurrentThread.Name = "My Thread";
-
-        WriteLine(Thread.CurrentThread.Name);
-
-
+        example.Execute();
     }
 }
 

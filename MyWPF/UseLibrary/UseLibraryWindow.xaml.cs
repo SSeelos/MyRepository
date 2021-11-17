@@ -19,76 +19,52 @@ namespace MyWPF
     /// </summary>
     public partial class UseLibraryWindow : Window
     {
-        private IProgram _currentProgram;
-        public IProgram CurrentProgram
-        {
-            get { return _currentProgram; }
-            set
-            {
-                if (_currentProgram != null)
-                    _currentProgram.Close();
-
-                _currentProgram = value;
-            }
-        }
+        private ProgramRunner programRunner = new ProgramRunner();
         public UseLibraryWindow()
         {
             InitializeComponent();
         }
-        private void RunProgram(IProgram program)
-        {
-            CurrentProgram = program;
 
-            try
-            {
-                program.Run();
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
 
         private void SOLID_Click(object sender, RoutedEventArgs e)
         {
-            this.RunProgram(new SolidProgram());
+            programRunner.RunProgram(new SolidProgram());
         }
 
         private void UnitValues_Click(object sender, RoutedEventArgs e)
         {
-            this.RunProgram(new UnitValuesProgram());
+            this.programRunner.RunProgram(new UnitValuesProgram());
 
-            this.RunProgram(new UnitsNetProgram());
+            this.programRunner.RunProgram(new UnitsNetProgram());
         }
 
         private void DesignPrinciples_Click(object sender, RoutedEventArgs e)
         {
-            this.RunProgram(new MyDesignPrinciplesProgram());
+            this.programRunner.RunProgram(new MyDesignPrinciplesProgram());
         }
 
         private void JSON_Click(object sender, RoutedEventArgs e)
         {
-            this.RunProgram(new JSONProgram());
+            this.programRunner.RunProgram(new JSONProgram());
         }
 
         private void Events_Click(object sender, RoutedEventArgs e)
         {
-            this.RunProgram(new EventsClient());
+            this.programRunner.RunProgram(new EventsClient());
         }
         private void Web_Click(object sender, RoutedEventArgs e)
         {
-            this.RunProgram(new WebProgram());
+            this.programRunner.RunProgram(new WebProgram());
         }
 
         private void Test_Click(object sender, RoutedEventArgs e)
         {
-            this.RunProgram(new TestProgram());
+            this.programRunner.RunProgram(new TestProgram());
         }
 
         private void MyProcess_Click(object sender, RoutedEventArgs e)
         {
-            this.RunProgram(new MyProcessProgram());
+            this.programRunner.RunProgram(new MyProcessProgram());
         }
 
         private void Neo4j_Click(object sender, RoutedEventArgs e)
