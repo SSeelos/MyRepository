@@ -71,14 +71,19 @@
 
         </ListView>
 
-        <ListView Grid.Column="2" Grid.Row="1"
-                  ItemsSource="{Binding Path=MyItemDatas}"
+        <ScrollViewer x:Name="MyScrollViewer" Grid.Column="2" Grid.Row="1"
+                      VerticalScrollBarVisibility="Auto"
+                      PreviewMouseWheel="MyScrollViewer_PreviewMouseWheel">
+
+            <ListView 
+                  ItemsSource="{Binding Path=MyItemData_Collection}"
                   ItemTemplate="{StaticResource MyListView_ItemTemplate}"
                   SelectedItem="{Binding 
             Path=ItemData, 
             Mode=OneWayToSource, 
             UpdateSourceTrigger=PropertyChanged}">
-        </ListView>
+            </ListView>
+        </ScrollViewer>
 
     </Grid>
 </Window>

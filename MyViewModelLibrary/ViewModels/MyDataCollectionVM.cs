@@ -8,8 +8,24 @@ namespace MyViewModelLibrary.ViewModels
     {
         public MyDataCollectionVM()
         {
-            MyItemDatas.Add(new MyItemData() { DataA = "A1", DataB = "B1" });
-            MyItemDatas.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A1", DataB = "B1" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
+            MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
             UseDataCommand = new RelayCommand(UseData);
         }
         private int myVar;
@@ -25,7 +41,7 @@ namespace MyViewModelLibrary.ViewModels
             set => SetProperty(ref _itemData, value);
         }
 
-        public ObservableCollection<MyItemData> MyItemDatas { get; } = new ObservableCollection<MyItemData>();
+        public ObservableCollection<MyItemData> MyItemData_Collection { get; } = new ObservableCollection<MyItemData>();
 
         public ICommand UseDataCommand { get; }
 
@@ -42,12 +58,12 @@ namespace MyViewModelLibrary.ViewModels
 
     public class MyItemData
     {
-        public string DataA { get; set; }
-        public string DataB { get; set; }
+        public string DataA { get; set; } = string.Empty;
+        public string DataB { get; set; } = string.Empty;
 
         public override string ToString()
         {
-            return DataA + DataB;
+            return DataA + DataB + "(toString)";
         }
     }
 }
