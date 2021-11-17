@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MyWPF.MVVM.Utils;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MyWPF.MVVM.MyMVVMToolkit.Views
 {
@@ -20,6 +13,12 @@ namespace MyWPF.MVVM.MyMVVMToolkit.Views
         public MyListView()
         {
             InitializeComponent();
+        }
+
+        private void MyScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            var scrollViewer = sender as ScrollViewer;
+            scrollViewer.EnableMouseWheelScroll(e);
         }
     }
 }

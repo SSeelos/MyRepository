@@ -1,5 +1,6 @@
-﻿using MyDotNet6ConsoleApp.Threading;
+using MyDotNet6ConsoleApp.Threading;
 using MyLibrary;
+
 using MyLibrary.MyUtilities;
 using System.Reflection;
 
