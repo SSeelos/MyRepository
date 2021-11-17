@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Threading;
 
 namespace MyLibrary.MyUtilities
 {
@@ -13,13 +14,20 @@ namespace MyLibrary.MyUtilities
         void ClassLog(Type classType, Hirarchy hirarchy = Hirarchy.Line);
         void MethodLog(MethodBase method, Hirarchy hirarchy = Hirarchy.Line);
         void ClassMethodLog(Type classType, MethodBase method, Hirarchy hirarchy = Hirarchy.Line);
+
+        void ThreadLog(Thread thread);
     }
     public class MyConsoleLogger : ILogger
     {
         private static MyConsoleLogger instance;
         public static MyConsoleLogger Instance => GetInstance();
 
-        private MyConsoleLogger() { }
+        private static string ClassPrefix = " - CLASS - ";
+        private static string MethodPrefix = " - METHOD - ";
+        private static string ThreadPrefix = " - Thread: ";
+
+        private MyConsoleLogger()
+        { }
 
         private static MyConsoleLogger GetInstance()
         {
@@ -39,7 +47,7 @@ namespace MyLibrary.MyUtilities
 
             }
 
-            Console.WriteLine(classType.Name + " ");
+            Console.WriteLine(ClassPrefix + classType.Name + " ");
         }
 
         public void ClassMethodLog(Type classType, MethodBase method, Hirarchy hirarchy = Hirarchy.Line)
@@ -54,7 +62,7 @@ namespace MyLibrary.MyUtilities
                 default:
                     break;
             }
-            Console.WriteLine(classType.Name + ": " + method.Name);
+            Console.WriteLine(ClassPrefix + classType.Name + MethodPrefix + method.Name);
         }
 
         public void MethodLog(MethodBase method, Hirarchy hirarchy = Hirarchy.Line)
@@ -63,15 +71,21 @@ namespace MyLibrary.MyUtilities
             {
                 case Hirarchy.Title:
                     Console.WriteLine();
-                    Console.WriteLine(method.Name + " ");
+                    Console.WriteLine(MethodPrefix + method.Name + " ");
                     Console.WriteLine();
                     break;
                 case Hirarchy.Line:
-                    Console.WriteLine(method.Name + " ");
+                    Console.WriteLine(MethodPrefix + method.Name + " ");
                     break;
                 default:
                     break;
             }
+        }
+
+        public void ThreadLog(Thread thread)
+        {
+            Console.WriteLine(ThreadPrefix + "Name: {0}, State: {1}", thread.Name, thread.ThreadState);
+
         }
     }
 }
