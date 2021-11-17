@@ -1,4 +1,4 @@
-﻿namespace DotNet6;
+﻿namespace MyDotNet6ConsoleApp;
   
 public record class MyRecordClass
 {
@@ -16,8 +16,8 @@ public record class MyRecordClass
 
     public record struct MyRecordStruct
     {
-    public string PropertyA { get; init; }
-    public string PropertyB { get; init; }
+    public string PropertyA { get; init; } = "defaultA";
+    public string PropertyB { get; init; } = "defaultB";
 
 }
 
