@@ -1,5 +1,5 @@
-﻿using DotNet6;
-using MyConsoleAppProject;
+﻿using MyConsoleAppProject;
+using MyDotNet6ConsoleApp;
 using MyWPF.MVVM;
 using System;
 using System.Runtime.InteropServices;
