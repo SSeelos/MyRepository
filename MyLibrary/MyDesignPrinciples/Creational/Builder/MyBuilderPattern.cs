@@ -2,15 +2,21 @@
 
 namespace MyLibrary.MyDesignPrinciples.Builder
 {
+    /// <summary>
+    /// Declares product construction steps
+    /// </summary>
     public interface IBuilder
     {
         IBuilder BuildPartA();
         IBuilder BuildPartB();
         IBuilder BuildPartC(string partC);
-
         IBuilder BuildPartProd(List<MyPartProduct> partProducts);
     }
 
+    /// <summary>
+    /// Implementations of the construction steps.
+    /// May produce products that don’t follow the common interface
+    /// </summary>
     public class MyBuilder : IBuilder
     {
         private MyProduct product;
@@ -54,7 +60,6 @@ namespace MyLibrary.MyDesignPrinciples.Builder
 
         #endregion
 
-
         public MyProduct GetProduct()
         {
             var result = this.product;
@@ -67,7 +72,9 @@ namespace MyLibrary.MyDesignPrinciples.Builder
 
     }
 
-    //execute building steps in particular sequence (Director is optional)
+    /// <summary>
+    /// execute building steps in particular sequence (Director is optional)
+    /// </summary>
     public class MyDirector
     {
         private IBuilder builder;

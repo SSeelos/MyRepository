@@ -2,16 +2,21 @@
 
 namespace MyLibrary.MyDesignPrinciples.Composite
 {
+    /// <summary>
+    /// Composite is a structural design pattern that lets you compose
+    /// objects into tree structures and then work with these
+    /// structures as if they were individual objects
+    /// </summary>
     class MyCompositeClient
     {
         public static void Run()
         {
-            var composite = new MyComposite();
+            var composite = new MyContainer();
             var leaf = new MyLeaf();
             var leaf2 = new MyLeaf();
             composite.Add(leaf);
             composite.Add(leaf2);
-            var composite2 = new MyComposite();
+            var composite2 = new MyContainer();
             composite.Add(composite2);
             var leaf3 = new MyLeaf();
             var leaf4 = new MyLeaf();

@@ -16,8 +16,9 @@
             <Button Content="JSON" Click="JSON_Click"/>
             <Button Content="Events" Click="Events_Click"/>
             <Button Content="Web" Click="Web_Click"/>
-            <Button Content="Test" Click="Test_Click"/>
+            <Button Content="LINQ" Click="LINQ_Click"/>
             <Button Content="MyProcess" Click="MyProcess_Click"/>
+            <Button Content="EnumClass" Click="EnumClass_Click"/>
 
 
 

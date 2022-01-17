@@ -28,7 +28,32 @@ namespace MyLibrary
     //Dependency Injection (DI)
     //common way to implement DIP
     //-> object receives other objects that it depends on (dependencies)
-    public interface IShape { }
+    public interface IShape
+    {
+        public static class Factory        //(DIP)
+        {
+            public static ILine CreateLine(double x)
+            {
+                return new Line(x);
+            }
+            public static ISquare CreateSquare()
+            {
+                return new Square();
+            }
+            public static IShape2D CreateCircle()
+            {
+                return new Circle();
+            }
+            public static IShape2D CreateHollowCircle(double radius, double innerRadius)
+            {
+                return new HollowCircle(radius, innerRadius);
+            }
+            //public static IShape CreateCube()
+            //{
+            //    return new Cube();
+            //}
+        }
+    }
     public interface IShape1D : IShape
     {
         double DimX { get; }
@@ -145,16 +170,20 @@ namespace MyLibrary
 
     public class Cube : IShape3D
     {
-        public double DimX { get ; private set; }
-        public double DimY { get ; private set; }
-        public double DimZ { get ; private set; }
+        public double DimX { get; private set; }
+        public double DimY { get; private set; }
+        public double DimZ { get; private set; }
         private double _length;
-        public double Length { get=> _length; set {
+        public double Length
+        {
+            get => _length; set
+            {
                 _length = value;
                 DimX = value;
                 DimY = value;
                 DimZ = value;
-            } }
+            }
+        }
 
         public Cube(double length)
         {

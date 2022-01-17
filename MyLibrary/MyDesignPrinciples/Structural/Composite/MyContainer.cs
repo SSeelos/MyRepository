@@ -4,12 +4,19 @@ using System.Reflection;
 
 namespace MyLibrary.MyDesignPrinciples.Composite
 {
+    /// <summary>
+    /// describes operations that are common to both 
+    /// simple and complex elements of the tree
+    /// </summary>
     public interface IComponent
     {
         void Execute();
     }
 
-    public class MyComposite:IComponent
+    /// <summary>
+    /// has sub-elements: leaves or other containers (aka composits)
+    /// </summary>
+    public class MyContainer : IComponent
     {
         private List<IComponent> components = new List<IComponent>();
 
@@ -37,6 +44,9 @@ namespace MyLibrary.MyDesignPrinciples.Composite
         }
     }
 
+    /// <summary>
+    /// basic element of a tree that doesn’t have sub-elements
+    /// </summary>
     public class MyLeaf : IComponent
     {
         public void Execute()

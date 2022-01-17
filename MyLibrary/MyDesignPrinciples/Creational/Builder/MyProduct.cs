@@ -6,6 +6,12 @@ namespace MyLibrary.MyDesignPrinciples.Builder
     {
         string OutputParts();
     }
+    /// <summary>
+    /// Resulting object.
+    /// 
+    /// Products constructed by different builders 
+    /// don’t have to belong to the same class hierarchy or interface
+    /// </summary>
     public class MyProduct : IProduct
     {
         private readonly List<object> _parts = new List<object>();

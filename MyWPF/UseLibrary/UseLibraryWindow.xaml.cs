@@ -2,6 +2,7 @@
 using MyLibrary.EventsAndDelegates_CodeMonkey;
 using MyLibrary.MyDesignPrinciples;
 using MyLibrary.MyJSON;
+using MyLibrary.MyLINQ;
 using MyLibrary.MyProcess;
 using MyLibrary.Test;
 using MyLibrary.Web;
@@ -61,6 +62,16 @@ namespace MyWPF
         private void MyProcess_Click(object sender, RoutedEventArgs e)
         {
             this.programRunner.RunProgram(new MyProcessProgram());
+        }
+
+        private void LINQ_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.RunProgram(new MyLinqProgram());
+        }
+
+        private void EnumClass_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.RunProgram(new MyEnumClassProgram());
         }
     }
 }

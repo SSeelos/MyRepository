@@ -7,14 +7,14 @@ namespace MyLibrary.MyDesignPrinciples.AbstractFactory
         public static void Run()
         {
             var factory0 = new MyFactory0();
-            IProduct productA0 = factory0.createProductA();
-            IProduct productB0 = factory0.createProductB();
+            IProduct productA0 = factory0._CreateProductA();
+            IProduct productB0 = factory0._CreateProductB();
             productA0.doSomething();
             productB0.doSomething();
 
             var factory1 = new MyFactory1();
-            IProduct productA1 = factory1.createProductA();
-            IProduct productB1 = factory1.createProductB();
+            IProduct productA1 = factory1._CreateProductA();
+            IProduct productB1 = factory1._CreateProductB();
             productA1.doSomething();
             productB1.doSomething();
         }
