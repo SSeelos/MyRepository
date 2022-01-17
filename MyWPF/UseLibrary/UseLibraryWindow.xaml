@@ -18,6 +18,7 @@
             <Button Content="Web" Click="Web_Click"/>
             <Button Content="Test" Click="Test_Click"/>
             <Button Content="MyProcess" Click="MyProcess_Click"/>
+            <Button Content="Bitmap" Click="Bitmap_Click"/>
 
 
 
