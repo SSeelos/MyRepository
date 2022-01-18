@@ -10,32 +10,32 @@ namespace MyLibrary.MyDesignPrinciples.AbstractFactory
     /// 
     /// can also be an interface
     /// </summary>
-    public abstract class MyAbstractFactory
+    public abstract class _MyAbstractFactory
     {
-        public abstract IProduct createProductA();
-        public abstract IProduct createProductB();
+        public abstract IProduct _CreateProductA();
+        public abstract IProduct _CreateProductB();
     }
 
-    public class MyFactory0 : MyAbstractFactory
+    public class MyFactory0 : _MyAbstractFactory
     {
-        public override IProduct createProductA()
+        public override IProduct _CreateProductA()
         {
             return new ProductA();
         }
 
-        public override IProduct createProductB()
+        public override IProduct _CreateProductB()
         {
             return new ProductB();
         }
     }
-    public class MyFactory1 : MyAbstractFactory
+    public class MyFactory1 : _MyAbstractFactory
     {
-        public override IProduct createProductA()
+        public override IProduct _CreateProductA()
         {
             return new ProductA1();
         }
 
-        public override IProduct createProductB()
+        public override IProduct _CreateProductB()
         {
             return new ProductB1();
         }

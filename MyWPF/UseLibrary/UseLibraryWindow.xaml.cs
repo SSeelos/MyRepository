@@ -3,6 +3,7 @@ using MyLibrary.EventsAndDelegates_CodeMonkey;
 using MyLibrary.MyBitMap;
 using MyLibrary.MyDesignPrinciples;
 using MyLibrary.MyJSON;
+using MyLibrary.MyLINQ;
 using MyLibrary.MyProcess;
 using MyLibrary.Test;
 using MyLibrary.Web;
@@ -86,6 +87,14 @@ namespace MyWPF
 
 
             this.programRunner.RunProgram(new MyBitMapProgram());
+        private void LINQ_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.RunProgram(new MyLinqProgram());
+        }
+
+        private void EnumClass_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.RunProgram(new MyEnumClassProgram());
         }
     }
 }

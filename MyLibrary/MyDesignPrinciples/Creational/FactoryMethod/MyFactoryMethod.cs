@@ -44,6 +44,12 @@ namespace MyLibrary.MyDesignPrinciples.FactoryMethod
     public interface IProduct
     {
         void doSomething();
+        public static class Factory
+        {
+            public static IProduct CreateDefault() => new DefaultProduct();
+            public static IProduct CreateA() => new ProductA();
+            public static IProduct CreateB() => new ProductB();
+        }
     }
     public class DefaultProduct : IProduct
     {
