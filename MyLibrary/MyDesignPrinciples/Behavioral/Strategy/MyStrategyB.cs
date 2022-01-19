@@ -8,6 +8,14 @@ namespace MyLibrary.MyDesignPrinciples.Strategy
     {
         void Execute(string data);
     }
+    public class NullStrategyB : IStrategyB
+    {
+        public void Execute(string data)
+        {
+            MyConsoleLogger.Instance.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod());
+            Console.WriteLine(data);
+        }
+    }
     public class MyStrategyB1 : IStrategyB
     {
         public void Execute(string data)

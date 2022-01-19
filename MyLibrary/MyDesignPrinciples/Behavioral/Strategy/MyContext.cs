@@ -3,13 +3,13 @@
     public class MyContext
     {
         //private IStrategyA _strategyA;
-        public IStrategyA StrategyA { get; set; }
+        public IStrategyA StrategyA { get; set; } = new NullStrategyA();
         //{
         //    get => this._strategyA;
         //    set => this._strategyA = value;
         //}
         //private IStrategyB _strategyB;
-        public IStrategyB StrategyB { get; set; }
+        public IStrategyB StrategyB { get; set; } = new NullStrategyB();
         //{
         //    get => this._strategyB;
         //    set => this._strategyB = value;
