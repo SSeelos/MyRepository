@@ -1,5 +1,6 @@
 ﻿using MyLibrary;
 using MyLibrary.EventsAndDelegates_CodeMonkey;
+using MyLibrary.MyBitMap;
 using MyLibrary.MyDesignPrinciples;
 using MyLibrary.MyJSON;
 using MyLibrary.MyLINQ;
@@ -7,7 +8,9 @@ using MyLibrary.MyProcess;
 using MyLibrary.Test;
 using MyLibrary.Web;
 using System;
+using System.Drawing;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace MyWPF
 {
@@ -64,6 +67,26 @@ namespace MyWPF
             this.programRunner.RunProgram(new MyProcessProgram());
         }
 
+        private void Bitmap_Click(object sender, RoutedEventArgs e)
+        {
+            var resUri = new Uri("pack://application:,,,/MyWPF;component/Resources/Amelie.png");
+
+            BitmapImage bitmapImageUri;
+            try
+            {
+                bitmapImageUri = new BitmapImage(resUri);
+            }
+            catch { }
+
+            Bitmap bitmap = Properties.Resources.Amelie;
+
+            //BitmapImage bitmapImage = BitmapConverter.Bitmap2BitmapImage(bitmap);
+
+            var bMimage = bitmap.ToBitmapImage();
+
+
+
+            this.programRunner.RunProgram(new MyBitMapProgram());
         private void LINQ_Click(object sender, RoutedEventArgs e)
         {
             this.programRunner.RunProgram(new MyLinqProgram());
