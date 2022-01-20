@@ -12,7 +12,7 @@ namespace MyLibrary.MyDesignPrinciples.Strategy
 
         public IStrategyB StrategyB { get; set; }
 
-        public void Execute(string data)
+        public void Execute(ModelCtx model, string data)
         {
             data += " Nested";
             MyConsoleLogger.Instance.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod());

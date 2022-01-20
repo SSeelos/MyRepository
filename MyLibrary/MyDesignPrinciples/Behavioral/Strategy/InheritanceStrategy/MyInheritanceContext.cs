@@ -13,13 +13,14 @@ namespace MyLibrary.MyDesignPrinciples.Strategy
     public class MyInheritanceContext : MyContext
     {
         public IInheritanceStrategy IInheritanceStrategy { get; set; }
-        public MyInheritanceContext()
+        public MyInheritanceContext(ModelCtx model)
+            :base(model)
         {
 
         }
-        public MyInheritanceContext(IInheritanceStrategy inheritanceStrategy,
+        public MyInheritanceContext(ModelCtx model,IInheritanceStrategy inheritanceStrategy,
             IStrategyA strategyA, IStrategyB strategyB)
-            : base(strategyA, strategyB)
+            : base(model, strategyA, strategyB)
         {
             this.IInheritanceStrategy = inheritanceStrategy;
         }

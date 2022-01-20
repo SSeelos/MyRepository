@@ -8,24 +8,35 @@ namespace MyLibrary.MyDesignPrinciples.Strategy
     {
         IStrategyA StrategyA { get; }
         IStrategyB StrategyB { get; }
-        void Execute(string data);
+        void Execute(ModelCtx model, string data);
     }
 
     public class MyNestedContext
     {
+        public ModelCtx ctx { get; set; }
         public INestedStrategy NestedStrategy { get; set; }
-        public MyNestedContext()
+        public MyNestedContext(ModelCtx model)
         {
-
+            this.ctx = model;
         }
-        public MyNestedContext(INestedStrategy nestedStrategy)
+        public MyNestedContext(ModelCtx model,INestedStrategy nestedStrategy)
         {
+            this.ctx=model;
+
             this.NestedStrategy = nestedStrategy;
         }
 
         public void Execute(string data)
         {
-            this.NestedStrategy.Execute(data);
+            this.NestedStrategy.Execute(this.ctx, data);
+        }
+        public void ExecuteStrategyA(string data)
+        {
+            this.NestedStrategy.StrategyA.Execute(this.ctx, data);
+        }
+        public void ExecuteStrategyB(string data)
+        {
+            this.NestedStrategy.StrategyB.Execute(this.ctx, data);
         }
     }
 }

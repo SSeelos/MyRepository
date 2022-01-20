@@ -9,4 +9,8 @@
     <PackageReference Include="UnitsNet" Version="4.103.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="_ItemTemplates\" />
+  </ItemGroup>
+
 </Project>

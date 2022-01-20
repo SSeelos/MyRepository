@@ -20,6 +20,7 @@
             <Button Content="MyProcess" Click="MyProcess_Click"/>
             <Button Content="Bitmap" Click="Bitmap_Click"/>
             <Button Content="EnumClass" Click="EnumClass_Click"/>
+            <Button Content="Attributes" Click="Attributes_Click"/>
 
 
 

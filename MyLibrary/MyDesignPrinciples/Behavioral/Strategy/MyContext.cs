@@ -2,6 +2,7 @@
 {
     public class MyContext
     {
+        public ModelCtx ctx;
         //private IStrategyA _strategyA;
         public IStrategyA StrategyA { get; set; } = new NullStrategyA();
         //{
@@ -15,9 +16,14 @@
         //    set => this._strategyB = value;
         //}
 
-        public MyContext() { }
-        public MyContext(IStrategyA strategyA, IStrategyB strategyB)
+        public MyContext(ModelCtx model) 
+        { 
+            this.ctx = model; 
+        }
+        public MyContext(ModelCtx model, IStrategyA strategyA, IStrategyB strategyB)
         {
+            this.ctx=model;
+
             this.StrategyA = strategyA;
             this.StrategyB = strategyB;
         }
@@ -25,14 +31,19 @@
         public void ExecuteStrategyA(string data)
         {
 
-            this.StrategyA.Execute(data);
+            this.StrategyA.Execute(ctx, data);
 
         }
         public void ExecuteStrategyB(string data)
         {
 
-            this.StrategyB.Execute(data);
+            this.StrategyB.Execute(ctx, data);
 
         }
+    }
+
+    public class ModelCtx
+    {
+        public void New<T>() { }
     }
 }

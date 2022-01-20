@@ -87,6 +87,7 @@ namespace MyWPF
 
 
             this.programRunner.RunProgram(new MyBitMapProgram());
+        }
         private void LINQ_Click(object sender, RoutedEventArgs e)
         {
             this.programRunner.RunProgram(new MyLinqProgram());
@@ -95,6 +96,11 @@ namespace MyWPF
         private void EnumClass_Click(object sender, RoutedEventArgs e)
         {
             this.programRunner.RunProgram(new MyEnumClassProgram());
+        }
+
+        private void Attributes_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.RunProgram(new MyAttributeProgram());
         }
     }
 }
