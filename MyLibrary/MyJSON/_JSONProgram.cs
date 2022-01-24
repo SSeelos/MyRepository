@@ -1,22 +1,19 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 
 namespace MyLibrary.MyJSON
 {
     public class JSONProgram : IProgram
     {
+        public static IPath path = IPath.Factory.CreatePathExt(@"myJSONFile.json");
         public void Run()
         {
             var university = new University();
             InitUniversity(university);
 
-            DeSerialization.SerializeJSON(university);
+            MyJsonConvert.SerializeJSON(path,university);
             DeSerialization.SerializeJsonWriter(university);
 
-            DeSerialization.DeserializeJSON();
+            MyJsonConvert.DeserializeJSON(path);
             DeSerialization.DeserializeJsonReader();
         }
 
