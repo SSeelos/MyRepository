@@ -1,6 +1,6 @@
 ﻿namespace MyLibrary.MyJSON
 {
-    public class Student
+    public class ClassPartOfList
     {
         public string name { get; set; }
         public int id { get; set; }

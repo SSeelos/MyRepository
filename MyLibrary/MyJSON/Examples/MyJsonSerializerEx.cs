@@ -5,12 +5,28 @@ using System.IO;
 
 namespace MyLibrary.MyJSON
 {
-    internal class DeSerialization
+    internal class MyJsonSerializerEx : IExample
     {
-        public static IPath path = IPath.Factory.CreatePathExt(@"myJSONFile.json");
-        public static void SerializeJsonWriter(University university)
+        public IPath path;
+        public ClassToSerialize university;
+        public MyJsonSerializerEx(IPath path, ClassToSerialize university)
+        {
+            this.path = new PathExt(path);
+            this.path.FileName += "Serializer";
+            this.university = university;
+
+        }
+        public void Execute()
+        {
+            SerializeJsonWriter(path, university);
+
+            DeserializeJsonReader(path);
+        }
+        public void SerializeJsonWriter(IPath path, ClassToSerialize university)
         {
             var serializer = new JsonSerializer();
+            serializer.Formatting = Formatting.Indented;
+
             using (var streamW = new StreamWriter(path.FullPath))
             using (JsonWriter writer = new JsonTextWriter(streamW))
             {
@@ -18,16 +34,19 @@ namespace MyLibrary.MyJSON
             }
         }
 
-        public static void DeserializeJsonReader()
+        public void DeserializeJsonReader(IPath path)
         {
             var serializer = new JsonSerializer();
 
             using (TextReader txtReader = new StringReader(path.FullPath))
             using (JsonReader jReader = new JsonTextReader(txtReader))
             {
-                University result = serializer.Deserialize<University>(jReader);
+                //var txt = txtReader.ReadLine();
+                //var read = File.ReadAllText(txt);
+                var str = jReader.ReadAsString();
+                ClassToSerialize result = serializer.Deserialize<ClassToSerialize>(jReader);
 
-                foreach (var student in result.students)
+                foreach (var student in result.partOfList)
                 {
                     Console.WriteLine("Student: " + student.name);
                 }
@@ -42,5 +61,6 @@ namespace MyLibrary.MyJSON
 
             }
         }
+
     }
 }

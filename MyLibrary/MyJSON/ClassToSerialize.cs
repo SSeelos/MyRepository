@@ -2,10 +2,10 @@
 
 namespace MyLibrary.MyJSON
 {
-    public class University
+    public class ClassToSerialize
     {
         public string name { get; set; }
-        public IList<Student> students { get; set; }
+        public IList<ClassPartOfList> partOfList { get; set; }
 
     }
 }

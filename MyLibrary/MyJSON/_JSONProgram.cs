@@ -7,37 +7,38 @@ namespace MyLibrary.MyJSON
         public static IPath path = IPath.Factory.CreatePathExt(@"myJSONFile.json");
         public void Run()
         {
-            var university = new University();
+            var university = new ClassToSerialize();
             InitUniversity(university);
 
-            MyJsonConvert.SerializeJSON(path,university);
-            DeSerialization.SerializeJsonWriter(university);
+            var ex = new Examples(
+                new MyJsonConvertEx(path, university),
+                //new MyJsonSerializerEx(path, university),
+                new MyJsonConverterEx(path, university));
 
-            MyJsonConvert.DeserializeJSON(path);
-            DeSerialization.DeserializeJsonReader();
+            ex.Execute();
         }
 
-        private static void InitUniversity(University university)
+        private static void InitUniversity(ClassToSerialize university)
         {
             university.name = "South Carolina StateUniversity";
 
-            List<Student> listStudent = new List<Student>();
-            var student1 = new Student
+            List<ClassPartOfList> listStudent = new List<ClassPartOfList>();
+            var student1 = new ClassPartOfList
             {
                 id = 0,
                 name = "Stephen Cousins"
             };
-            var student2 = new Student
+            var student2 = new ClassPartOfList
             {
                 id = 1,
                 name = "Austin A. Newton"
             };
-            var student3 = new Student
+            var student3 = new ClassPartOfList
             {
                 id = 2,
                 name = "Adam Wilhite"
             };
-            var student4 = new Student
+            var student4 = new ClassPartOfList
             {
                 id = 3,
                 name = "Enis Kurtay YILMAZ"
@@ -48,7 +49,7 @@ namespace MyLibrary.MyJSON
             listStudent.Add(student3);
             listStudent.Add(student4);
 
-            university.students = listStudent;
+            university.partOfList = listStudent;
         }
 
 
