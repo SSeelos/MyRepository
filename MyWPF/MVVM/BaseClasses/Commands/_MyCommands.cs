@@ -3,10 +3,10 @@ using System.Windows.Input;
 
 namespace MyWPF.MVVM
 {
-    public abstract class MyCommandBase<T> : ICommand where T : MyViewModelBase
+    public abstract class _MyCommand<T> : ICommand where T : _MyViewModel
     {
         protected T viewModel;
-        public MyCommandBase(T viewModel)
+        public _MyCommand(T viewModel)
         {
             this.viewModel = viewModel;
         }

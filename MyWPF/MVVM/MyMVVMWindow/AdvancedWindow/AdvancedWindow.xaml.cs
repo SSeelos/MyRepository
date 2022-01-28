@@ -15,7 +15,7 @@ namespace MyWPF.MVVM
             InitializeComponent();
         }
     }
-    public class MyAdvancedViewModel : MyViewModelBase
+    public class MyAdvancedViewModel : _MyViewModel
     {
         private string myProperty;
         public string MyProperty
@@ -38,7 +38,7 @@ namespace MyWPF.MVVM
         }
 
     }
-    public class CreateListItem : MyCommandBase<MyViewModelAdvanced>
+    public class CreateListItem : _MyCommand<MyViewModelAdvanced>
     {
 
         public CreateListItem(MyViewModelAdvanced viewModel)
