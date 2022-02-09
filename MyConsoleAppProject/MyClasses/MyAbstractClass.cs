@@ -2,6 +2,7 @@
 {
     public abstract class MyAbstractClass
     {
+        public static string _myStaticProperty;
         //only accessible from this class
         private string myField;
 

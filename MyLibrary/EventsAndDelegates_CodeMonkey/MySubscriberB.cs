@@ -11,7 +11,7 @@ namespace MyLibrary.EventsAndDelegates_CodeMonkey
         {
             publisher.OnEventTriggered += Publisher_OnEventTriggered;
             publisher.OnEventArgsTriggered += Publisher_OnEventArgsTriggered;
-            publisher.OnActionTriggered += Publisher_OnActionTriggered;
+            publisher.OnActionTriggeredArgs += Publisher_OnActionTriggered;
             publisher.OnFuncTriggered += Publisher_OnFuncTriggered;
             publisher.OnFuncParamTriggered += Publisher_OnFuncParamTriggered;
             publisher.OnEventDelegateTriggered += Publisher_OnEventDelegateTriggered;

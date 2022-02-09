@@ -37,7 +37,7 @@ namespace Tests
             var dimYZ = new DimensionYZ(1, 2);
             var dim3D = new Dimension3D(dimYZ, 3);
 
-            Assert.AreEqual(3, dim3D.Y);
+            Assert.AreEqual(3, dim3D.X);
             Assert.AreEqual(1, dim3D.Y);
             Assert.AreEqual(2, dim3D.Z);
         }

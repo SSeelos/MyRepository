@@ -13,22 +13,15 @@ namespace MyConsoleAppProject.MyEventsAndDelegates
     public class MyPublisher
     {
         public delegate void MyEventHandler(object source, EventArgs args);
-        public event MyEventHandler EventTriggered;
+        public event MyEventHandler OnEventTriggered;
 
-        protected virtual void OnEventTriggered()
-        {
-            Console.WriteLine(this.GetType().Name + ": " + MethodBase.GetCurrentMethod().Name);
-
-            EventTriggered?.Invoke(this, EventArgs.Empty);
-        }
-
-        public void TriggeringFunction(MyClass myClass)
+        public void InvokingFunction(MyClass myClass)
         {
             Console.WriteLine(this.GetType().Name + ": " + MethodBase.GetCurrentMethod().Name);
 
             myClass.SetField(MethodBase.GetCurrentMethod().Name);
 
-            OnEventTriggered();
+            OnEventTriggered?.Invoke(this, EventArgs.Empty);
         }
     }
 
