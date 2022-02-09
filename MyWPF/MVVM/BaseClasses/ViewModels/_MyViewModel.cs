@@ -31,7 +31,7 @@ namespace MyWPF.MVVM
     //a ViewModel object is set as the DataContext of a view.
 
     //The ViewModel, never the View, performs all modifications made to the model data.
-    public abstract class MyViewModelBase : INotifyPropertyChanged
+    public abstract class _MyViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

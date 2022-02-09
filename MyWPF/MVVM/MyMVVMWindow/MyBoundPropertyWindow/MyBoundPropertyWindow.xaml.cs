@@ -24,7 +24,7 @@ namespace MyWPF.MVVM
         }
     }
 
-    public class MyViewModel : MyViewModelBase
+    public class MyViewModel : _MyViewModel
     {
         private int myProperty = 0;
         public int MyProperty
@@ -41,7 +41,7 @@ namespace MyWPF.MVVM
         public ICommand MyCommand => new MyCommand(this);
     }
 
-    public class MyCommand : MyCommandBase<MyViewModel>
+    public class MyCommand : _MyCommand<MyViewModel>
     {
 
         public MyCommand(MyViewModel viewModel)
