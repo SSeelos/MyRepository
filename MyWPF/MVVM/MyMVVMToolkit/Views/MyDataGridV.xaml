@@ -36,12 +36,25 @@
                 <TextBlock Text="DataB"/>
             <TextBox Text="{Binding Path= ItemData.DataB, Mode=OneWay}" IsReadOnly="True"/>
             <Button Content="UseData" Command="{Binding UseDataCommand}"/>
+            <Button Content="ClickCommand" Command="{Binding ClickCommand}"/>
         </StackPanel>
 
-        <DataGrid                
+        <DataGrid               
             ItemsSource="{Binding Path=MyItemDatas,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
             SelectedItem="{Binding Path=ItemData, Mode=OneWayToSource}"
-            IsSynchronizedWithCurrentItem="True"> 
+            IsSynchronizedWithCurrentItem="True">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+
+                        <Button Content="Click" 
+                                Command="{Binding Path=DataContext.ClickCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
         </DataGrid>
     </StackPanel>
 
