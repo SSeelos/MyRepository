@@ -9,7 +9,8 @@ namespace MyLibrary.EventsAndDelegates_CodeMonkey
         public event EventHandler OnEventTriggered;
         public event EventHandler<string> OnEventArgsTriggered;
 
-        public event Action<string, string> OnActionTriggered;
+        public event Action OnActionTriggered;
+        public event Action<string, string> OnActionTriggeredArgs;
         public event Func<string> OnFuncTriggered;
         public event Func<string, string> OnFuncParamTriggered;
 
@@ -24,9 +25,13 @@ namespace MyLibrary.EventsAndDelegates_CodeMonkey
         {
             OnEventArgsTriggered?.Invoke(this, param);
         }
+        private void TriggerAction()
+        {
+            OnActionTriggered?.Invoke();
+        }
         private void TriggerAction(string param1, string param2)
         {
-            OnActionTriggered?.Invoke(param1, param2);
+            OnActionTriggeredArgs?.Invoke(param1, param2);
         }
         private string TriggerFunc()
         {
@@ -54,6 +59,8 @@ namespace MyLibrary.EventsAndDelegates_CodeMonkey
             TriggerEvent();
 
             TriggerEventArgs("arg");
+
+            TriggerAction();
 
             TriggerAction("arg1", "arg2");
 

@@ -16,9 +16,15 @@ namespace MyLibrary.EventsAndDelegates_CodeMonkey
             publisher.OnEventTriggered += Publisher_OnEventTriggered;
             publisher.OnEventArgsTriggered += Publisher_OnEventArgsTriggered;
             publisher.OnActionTriggered += Publisher_OnActionTriggered;
+            publisher.OnActionTriggeredArgs += Publisher_OnActionTriggeredArgs;
             publisher.OnFuncTriggered += Publisher_OnFuncTriggered;
             publisher.OnFuncParamTriggered += Publisher_OnFuncParamTriggered;
             publisher.OnEventDelegateTriggered += Publisher_OnEventDelegateTriggered;
+        }
+
+        private void Publisher_OnActionTriggered()
+        {
+            MyConsoleLogger.Instance.ClassMethodLog(GetType(), MethodBase.GetCurrentMethod());
         }
 
         private string Publisher_OnFuncParamTriggered(string arg)
@@ -44,7 +50,7 @@ namespace MyLibrary.EventsAndDelegates_CodeMonkey
         }
 
 
-        private void Publisher_OnActionTriggered(string arg1, string arg2)
+        private void Publisher_OnActionTriggeredArgs(string arg1, string arg2)
         {
             MyConsoleLogger.Instance.ClassMethodLog(GetType(), MethodBase.GetCurrentMethod());
             Console.WriteLine(arg1 + " " + arg2 + " " + suffix);

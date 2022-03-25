@@ -65,6 +65,10 @@ namespace MyConsoleAppProject
         {
             myStaticProperty = value;
         }
+        public void SetBaseStaticProperty(string value)
+        {
+            _myStaticProperty = value;
+        }
 
         internal void ToConsole()
         {
@@ -75,10 +79,41 @@ namespace MyConsoleAppProject
         {
             return myStaticProperty;
         }
+        public string GetBaseStaticProperty()
+        {
+            return _myStaticProperty;
+        }
+
+        //concrete implementation of abstrct method
+        public override void MyAbstractMethod()
+        {
+            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+        }
+
+        //Reflection -> can get methodbase of this function from outside this class
+        public RuntimeMethodHandle GetRuntimeMethodHandle()
+        {
+            return MethodInfo.GetCurrentMethod().MethodHandle;
+        }
+    }
+
+    public class MyClassB : MyAbstractClass
+    {
+        public MyClassB(string field) : base(field)
+        {
+        }
 
         public override void MyAbstractMethod()
         {
-            //concrete implementation
+            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+        }
+        public void SetBaseStaticProperty(string value)
+        {
+            _myStaticProperty = value;
+        }
+        public string GetBaseStaticProperty()
+        {
+            return _myStaticProperty;
         }
     }
 }
