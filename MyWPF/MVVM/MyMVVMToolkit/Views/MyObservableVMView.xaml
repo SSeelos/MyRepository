@@ -19,8 +19,12 @@
             <TextBox Text="{Binding MyProperty, Mode=OneWay}" IsReadOnly="True" Background="LightGray"/>
 
 
-            <Button Content="MyCommand"
+            <Button Content="Command"
+                    Command="{Binding MyVMCommand}"/>
+            <Button Content="RelayCommand"
                     Command="{Binding MyRelayCommand}"/>
+            <Button Content="RelayComdLambda"
+                    Command="{Binding MyRelayCommandLambda}"/>
         </StackPanel>
     </Border>
 </Window>

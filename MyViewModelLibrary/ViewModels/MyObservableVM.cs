@@ -7,22 +7,25 @@ namespace MyViewModelLibrary.ViewModels
     {
         public MyObservableVM()
         {
-            MyRelayCommand = new RelayCommand(myAction);
+            MyRelayCommand = new RelayCommand(MyAction);
+            MyRelayCommandLambda = new RelayCommand(() => MyProperty = "RelayCmdLambda");
         }
 
         public ICommand MyRelayCommand { get; }
+        public ICommand MyRelayCommandLambda { get; }
+        public ICommand MyVMCommand => new MyCommandVM(this);
 
-        private int _myProperty;
-        public int MyProperty
+        private string _myProperty;
+        public string MyProperty
         {
             get => _myProperty;
             set => SetProperty(ref _myProperty, value);
         }
 
 
-        private void myAction()
+        private void MyAction()
         {
-            MyProperty = 100;
+            MyProperty = "RelayCommand";
         }
     }
 }
