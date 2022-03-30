@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyLibrary.MyDesignPrinciples.Builder
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Builder
 {
     class MyBuilderPatternClient
     {

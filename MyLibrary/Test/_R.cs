@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyLibrary.Test
+namespace MyLibrary_DotNETstd_2_1.Test
 {
     public abstract class _RW
     {

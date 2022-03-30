@@ -1,12 +1,12 @@
-﻿using MyLibrary;
-using MyLibrary.EventsAndDelegates_CodeMonkey;
-using MyLibrary.MyBitMap;
-using MyLibrary.MyDesignPrinciples;
-using MyLibrary.MyJSON;
-using MyLibrary.MyLINQ;
-using MyLibrary.MyProcess;
-using MyLibrary.Test;
-using MyLibrary.Web;
+﻿using MyLibrary_DotNETstd_2_1;
+using MyLibrary_DotNETstd_2_1.EventsAndDelegates_CodeMonkey;
+using MyLibrary_DotNETstd_2_1.MyBitMap;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples;
+using MyLibrary_DotNETstd_2_1.MyJSON;
+using MyLibrary_DotNETstd_2_1.MyLINQ;
+using MyLibrary_DotNETstd_2_1.MyProcess;
+using MyLibrary_DotNETstd_2_1.Test;
+using MyLibrary_DotNETstd_2_1.Web;
 using System;
 using System.Drawing;
 using System.Windows;
@@ -101,6 +101,11 @@ namespace MyWPF
         private void Attributes_Click(object sender, RoutedEventArgs e)
         {
             this.programRunner.RunProgram(new MyAttributeProgram());
+        }
+
+        private void FileSystem_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.RunProgram(new FileSystemProgram());
         }
     }
 }

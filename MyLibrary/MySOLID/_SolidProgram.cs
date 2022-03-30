@@ -1,4 +1,4 @@
-﻿namespace MyLibrary
+﻿namespace MyLibrary_DotNETstd_2_1
 {
     public class SolidProgram : IProgram
     {

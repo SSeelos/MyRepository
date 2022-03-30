@@ -1,10 +1,10 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace MyLibrary.MyLINQ
+namespace MyLibrary_DotNETstd_2_1.MyLINQ
 {
     public class LinqGroup : IExample
     {

@@ -13,7 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MyConsoleAppProject\MyConsoleAppProject.csproj" />
     <ProjectReference Include="..\MyDotNet6ConsoleApp\MyDotNet6ConsoleApp.csproj" />
-    <ProjectReference Include="..\MyLibrary\MyLibrary.csproj" />
+    <ProjectReference Include="..\MyLibrary\MyLibrary_DotNETstd_2_1.csproj" />
     <ProjectReference Include="..\MyMachineLearning\MyMachineLearning.csproj" />
     <ProjectReference Include="..\MyViewModelLibrary\MyViewModelLibrary.csproj" />
   </ItemGroup>

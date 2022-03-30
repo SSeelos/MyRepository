@@ -1,6 +1,6 @@
 ﻿using MyDotNet6ConsoleApp.Threading;
-using MyLibrary;
-using MyLibrary.MyUtilities;
+using MyLibrary_DotNETstd_2_1;
+using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System.Reflection;
 
 namespace MyDotNet6ConsoleApp;

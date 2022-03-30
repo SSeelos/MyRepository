@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.IO;
 
-namespace MyLibrary.MyJSON
+namespace MyLibrary_DotNETstd_2_1.MyJSON
 {
     public class MyJsonConvertEx : IExample
     {

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace MyLibrary
+namespace MyLibrary_DotNETstd_2_1
 {
     public class MyAttribute : Attribute
     {

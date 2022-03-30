@@ -1,8 +1,8 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.Chain
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Chain
 {
     public interface IHandler
     {

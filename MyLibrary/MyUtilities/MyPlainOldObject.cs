@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.MyUtilities
+﻿namespace MyLibrary_DotNETstd_2_1.MyUtilities
 {
     public class MyPlainOldObject
     {

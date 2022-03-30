@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyLibrary.BetterOOP
+namespace MyLibrary_DotNETstd_2_1.BetterOOP
 {
     public class Truck : _LandVehicle, IRental
     {

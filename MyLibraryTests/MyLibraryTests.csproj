@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -14,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyLibrary\MyLibrary.csproj" />
+    <ProjectReference Include="..\MyInstallerLib\MyInstallerLib.csproj" />
+    <ProjectReference Include="..\MyLibrary\MyLibrary_DotNETstd_2_1.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.BetterOOP
+﻿namespace MyLibrary_DotNETstd_2_1.BetterOOP
 {
     public interface IRental
     {

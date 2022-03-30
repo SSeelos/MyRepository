@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyLibrary.MyDesignPrinciples.Strategy
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Strategy
 {
 
     public interface IInheritanceStrategy

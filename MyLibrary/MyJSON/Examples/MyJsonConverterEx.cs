@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace MyLibrary.MyJSON
+namespace MyLibrary_DotNETstd_2_1.MyJSON
 {
     public class MyJsonConverterEx : IExample
     {

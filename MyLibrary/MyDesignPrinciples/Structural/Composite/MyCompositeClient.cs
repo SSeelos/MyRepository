@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyLibrary.MyDesignPrinciples.Composite
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Composite
 {
     /// <summary>
     /// Composite is a structural design pattern that lets you compose

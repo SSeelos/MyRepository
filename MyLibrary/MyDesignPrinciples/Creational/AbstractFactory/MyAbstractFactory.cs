@@ -1,8 +1,8 @@
-﻿using MyLibrary.MyDesignPrinciples.FactoryMethod;
+﻿using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.FactoryMethod;
 using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.AbstractFactory
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.AbstractFactory
 {
     /// <summary>
     /// produce families of related objects 

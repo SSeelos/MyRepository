@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.FactoryMethod
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.FactoryMethod
 {
     /// <summary>
     /// provides an interface for creating objects in a superclass, 

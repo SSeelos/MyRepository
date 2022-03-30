@@ -1,7 +1,7 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.Facade
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Facade
 {
     public class MyFacade
     {

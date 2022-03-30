@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Threading;
 
-namespace MyLibrary.MyUtilities
+namespace MyLibrary_DotNETstd_2_1.MyUtilities
 {
     public enum Hirarchy
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.Singleton
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Singleton
 {
     public class MySingleton
     {

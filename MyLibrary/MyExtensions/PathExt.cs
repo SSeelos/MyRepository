@@ -1,13 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
-namespace MyLibrary
+namespace MyLibrary_DotNETstd_2_1
 {
     public interface IDirectory
     {
         string Directory { get; set; }
+        bool DirectoryExists { get; }
+
+        IDirectory CreateDirectory();
+        void DeleteDirectory();
     }
     public interface IFileName
     {
@@ -22,14 +24,26 @@ namespace MyLibrary
         string DirectoryFileName { get; }
         string FullPath { get; }
         bool Exists { get; }
-        bool DirectoryExists { get; }
-        public static class Factory
-        {
-            public static IPath CreatePathExt(string path) => new PathExt(path);
-        }
-        public void CreateDirectory();
+        void Delete();
     }
+    public class DirectoryExt : IDirectory
+    {
+        public string Directory { get; set; }
 
+        public bool DirectoryExists => System.IO.Directory.Exists(Directory);
+
+        public IDirectory CreateDirectory()
+        {
+            System.IO.Directory.CreateDirectory(Directory);
+            return this;
+        }
+
+        public void DeleteDirectory()
+        {
+            if (DirectoryExists)
+                System.IO.Directory.Delete(Directory);
+        }
+    }
     public class PathExt : IPath
     {
         public string Directory { get; set; }
@@ -40,17 +54,16 @@ namespace MyLibrary
         public string FullPath => DirectoryFileName + Extension;
 
         public bool Exists => File.Exists(FullPath);
-        public bool DirectoryExists => System.IO.Directory.Exists(FullPath);
+
+        public bool DirectoryExists => System.IO.Directory.Exists(Directory);
+
         public PathExt()
         {
 
         }
         public PathExt(IPath path)
+            : this(path.FullPath)
         {
-            var pathFull = path.FullPath;
-            Directory = Path.GetDirectoryName(pathFull);
-            FileName = Path.GetFileNameWithoutExtension(pathFull);
-            Extension = Path.GetExtension(pathFull);
 
         }
         public PathExt(string path)
@@ -64,13 +77,22 @@ namespace MyLibrary
         {
             FileName += DateTime.Now.ToString("dd-MM");
         }
-        public void CreateDirectory()
+
+        public IDirectory CreateDirectory()
+        {
+            System.IO.Directory.CreateDirectory(Directory);
+            return this;
+        }
+
+        public void Delete()
+        {
+            if (Exists)
+                File.Delete(FullPath);
+        }
+        public void DeleteDirectory()
         {
             if (DirectoryExists)
-            {
-                return;
-            }
-            System.IO.Directory.CreateDirectory(FullPath);
+                System.IO.Directory.Delete(Directory);
         }
     }
 }

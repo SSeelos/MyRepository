@@ -1,8 +1,8 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.Decorator
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Decorator
 {
     //defines operations that can be altered by decorators
     public interface IComponent

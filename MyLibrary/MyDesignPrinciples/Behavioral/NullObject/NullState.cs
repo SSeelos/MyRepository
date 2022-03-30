@@ -1,9 +1,9 @@
-﻿using MyLibrary.MyDesignPrinciples.State;
+﻿using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.State;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyLibrary.MyDesignPrinciples.Behavioral.NullObject
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Behavioral.NullObject
 {
     class NullState : IState
     {

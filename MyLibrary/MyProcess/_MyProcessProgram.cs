@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.MyProcess
+﻿namespace MyLibrary_DotNETstd_2_1.MyProcess
 {
     public class MyProcessProgram : IProgram
     {

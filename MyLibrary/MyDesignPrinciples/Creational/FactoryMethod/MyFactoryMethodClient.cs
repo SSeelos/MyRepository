@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.MyDesignPrinciples.FactoryMethod
+﻿namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.FactoryMethod
 {
     class MyFactoryMethodClient
     {

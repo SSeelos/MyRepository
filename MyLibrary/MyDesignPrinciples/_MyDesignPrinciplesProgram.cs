@@ -1,23 +1,23 @@
 ﻿
-using MyLibrary.MyDesignPrinciples.AbstractFactory;
-using MyLibrary.MyDesignPrinciples.Adapter;
-using MyLibrary.MyDesignPrinciples.Bridge;
-using MyLibrary.MyDesignPrinciples.Builder;
-using MyLibrary.MyDesignPrinciples.Chain;
-using MyLibrary.MyDesignPrinciples.Command;
-using MyLibrary.MyDesignPrinciples.Composite;
-using MyLibrary.MyDesignPrinciples.Decorator;
-using MyLibrary.MyDesignPrinciples.Facade;
-using MyLibrary.MyDesignPrinciples.FactoryMethod;
-using MyLibrary.MyDesignPrinciples.Prototype;
-using MyLibrary.MyDesignPrinciples.Singleton;
-using MyLibrary.MyDesignPrinciples.State;
-using MyLibrary.MyDesignPrinciples.Strategy;
-using MyLibrary.MyDesignPrinciples.TemplateMethod;
-using MyLibrary.MyUtilities;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.AbstractFactory;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Adapter;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Bridge;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Builder;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Chain;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Command;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Composite;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Decorator;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Facade;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.FactoryMethod;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Prototype;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Singleton;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.State;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Strategy;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.TemplateMethod;
+using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples
 {
     public class MyDesignPrinciplesProgram : IProgram
     {

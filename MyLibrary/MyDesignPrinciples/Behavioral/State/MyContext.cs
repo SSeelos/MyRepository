@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.MyDesignPrinciples.State
+﻿namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.State
 {
     public class MyContext
     {

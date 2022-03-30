@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace MyLibrary.MyJSON
+namespace MyLibrary_DotNETstd_2_1.MyJSON
 {
     public class MyJsonConverter : JsonConverter
     {

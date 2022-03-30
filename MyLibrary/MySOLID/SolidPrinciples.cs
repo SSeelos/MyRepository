@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace MyLibrary
+namespace MyLibrary_DotNETstd_2_1
 {
     //Single Responsibility Principle   (S-RP)
     //modules should have only one reason to change

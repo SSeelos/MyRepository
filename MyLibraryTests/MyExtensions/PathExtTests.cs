@@ -1,89 +1,179 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MyLibrary;
+﻿
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MyLibrary_DotNETstd_2_1;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.IO;
 
-namespace MyLibrary.Tests
+
+
+namespace MyLibraryTests.Tests
 {
     [TestClass()]
     public class PathExtTests
     {
-        public const string Directory = @"C:\Temp";
-        public const string Folder = "Temp";
-        public const string File = "File";
-        public const string Extension = ".txt";
-        public PathExt Generate()
+        private static string testPath = @"C:\Temp\TestDirectory\TestFile.txt";
+        private PathExt Generate()
         {
             return new PathExt()
             {
-                Directory = Directory,
-                FileName = File,
-                Extension = Extension
+                Directory = @"C:\Temp\TestDirectory",
+                FileName = "TestFile",
+                Extension = ".txt"
             };
+
+        }
+        private IPath GenerateTxtFile()
+        {
+            var path = Generate();
+
+            path.CreateDirectory();
+
+            using (var sw = new StreamWriter(path.FullPath))
+            {
+                sw.Write("");
+            }
+
+            return path;
+        }
+        private IDirectory GenerateDirectory()
+        {
+            var path = Generate();
+
+            return path.CreateDirectory();
+
         }
 
         [TestMethod()]
-        public void CtorWithPath()
+        public void CreatePathExtTest()
         {
-            var p = IPath.Factory.CreatePathExt(Directory + @"\" + File + Extension);
+            var path = Generate();
 
-            var result = p.FullPath;
-            var resDir = p.Directory;
-            var resFile = p.FileName;
-            var resExt = p.Extension;
-
-            Assert.AreEqual(result, Directory + @"\" + File + Extension);
-            Assert.AreEqual(resDir, Directory);
-            Assert.AreEqual(resFile, File);
-            Assert.AreEqual(resExt, Extension);
+            Assert.AreEqual(testPath, path.FullPath);
         }
 
         [TestMethod()]
-        public void GetDirectoryTest()
+        public void CreatePathExtFromStringTest()
         {
-            var p = Generate();
+            var path = new PathExt(testPath);
 
-            var result = p.Directory;
+            Assert.IsNotNull(path);
+            Assert.AreEqual(@"C:\Temp\TestDirectory", path.Directory);
+            Assert.AreEqual("TestFile", path.FileName);
+            Assert.AreEqual(".txt", path.Extension);
+        }
+        [TestMethod()]
+        public void CreateDirectoryTest()
+        {
+            var path = GenerateDirectory();
 
-            Assert.AreEqual(Directory, result);
+            var check = path.DirectoryExists;
+
+            Assert.AreEqual(true, check);
+
+            path.DeleteDirectory();
+
+            Assert.AreEqual(false, path.DirectoryExists);
         }
 
         [TestMethod()]
-        public void GetFileNameExtensionTest()
+        public void CheckFileTest()
         {
-            var p = Generate();
+            var path = GenerateTxtFile();
 
-            var result = p.FileName;
+            var check = path.Exists;
 
-            Assert.AreEqual(File + Extension, result);
+            Assert.AreEqual(true, check);
+
+            path.Delete();
         }
 
         [TestMethod()]
-        public void GetDirectoryFile()
+        public void CheckDirectoryTest()
         {
-            var p = Generate();
+            var path = GenerateTxtFile();
 
-            var result = p.DirectoryFileName;
+            var check = path.DirectoryExists;
 
-            Assert.AreEqual(Directory + File, result);
+            Assert.AreEqual(true, check);
+
+            path.Delete();
+            path.DeleteDirectory();
+
+            Assert.AreEqual(false, path.DirectoryExists);
         }
 
         [TestMethod()]
-        public void InitCombineTest()
+        public void DeleteTest()
         {
-            Assert.Fail();
+            var path = GenerateTxtFile();
+
+            Assert.AreEqual(true, path.Exists);
+
+            path.Delete();
+
+            Assert.AreEqual(false, path.Exists);
         }
 
+        [TestMethod()]
+        public void CheckDirectoryFailTest()
+        {
+            var path = Generate();
 
-        //[TestMethod()]
-        //public void GetFolderTest()
-        //{
-        //    var p = Generate();
+            path.Directory += "test";
+            var check = path.DirectoryExists;
 
-        //    var result = p.Folder;
+            Assert.AreEqual(false, check);
+        }
 
-        //    Assert.AreEqual(Folder, result);
-        //}
+        [TestMethod()]
+        public void ChangeDirectoryTest()
+        {
+            var path = Generate();
+
+            path.Directory += "A";
+
+            Assert.AreEqual(@"C:\Temp\TestDirectoryA\TestFile.txt", path.FullPath);
+        }
+
+        [TestMethod()]
+        public void FullPathTest()
+        {
+            var path = Generate();
+
+            Assert.AreEqual(@"C:\Temp\TestDirectory\TestFile.txt", path.FullPath);
+        }
+
+        [TestMethod()]
+        public void ChangeFileNameTest()
+        {
+            var path = Generate();
+
+            path.FileName += "A";
+
+            Assert.AreEqual("TestFileA", path.FileName);
+            Assert.AreEqual(@"C:\Temp\TestDirectory\TestFileA.txt", path.FullPath);
+        }
+
+        [TestMethod()]
+        public void ChangeExtension()
+        {
+            var path = Generate();
+
+            path.Extension = ".ifc";
+
+            Assert.AreEqual(@"C:\Temp\TestDirectory\TestFile.ifc", path.FullPath);
+        }
+
+        [TestMethod()]
+        public void AddTimeStampTest()
+        {
+            var path = Generate();
+
+            path.AddTimeStamp();
+
+            var date = DateTime.Now.ToString("dd-MM");
+
+            Assert.AreEqual(@$"C:\Temp\TestDirectory\TestFile{date}.txt", path.FullPath);
+        }
     }
 }

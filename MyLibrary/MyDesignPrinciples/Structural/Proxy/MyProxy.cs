@@ -1,7 +1,7 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.Proxy
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Proxy
 {
     class MyProxy : IService
     {

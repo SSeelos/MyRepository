@@ -1,10 +1,10 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 
-namespace MyLibrary.MyProcess
+namespace MyLibrary_DotNETstd_2_1.MyProcess
 {
     class MyConsistentProcessHandler : IProcessHandler
     {

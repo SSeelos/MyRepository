@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
 
-namespace MyLibrary.MyJSON
+namespace MyLibrary_DotNETstd_2_1.MyJSON
 {
     public class JSONProgram : IProgram
     {
-        public static IPath path = IPath.Factory.CreatePathExt(@"myJSONFile.json");
+        public static IPath path = new PathExt()
+        {
+            FileName = "myJSONFile",
+            Extension = ".json"
+        };
         public void Run()
         {
             var university = new ClassToSerialize();

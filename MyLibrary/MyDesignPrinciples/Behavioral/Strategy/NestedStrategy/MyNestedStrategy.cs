@@ -1,10 +1,10 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace MyLibrary.MyDesignPrinciples.Strategy
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Strategy
 {
     public class MyNestedStrategy : INestedStrategy
     {

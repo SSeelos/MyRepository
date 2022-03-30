@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyLibrary
+namespace MyLibrary_DotNETstd_2_1
 {
     public abstract class LengthUnit : UnitValueT<Double>
     {

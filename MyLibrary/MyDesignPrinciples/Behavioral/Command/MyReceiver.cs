@@ -1,7 +1,7 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.Command
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Command
 {
     public interface IReceiver
     {

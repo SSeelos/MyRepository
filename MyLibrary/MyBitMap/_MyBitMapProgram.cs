@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyLibrary.MyBitMap
+namespace MyLibrary_DotNETstd_2_1.MyBitMap
 {
     public class MyBitMapProgram : IProgram
     {

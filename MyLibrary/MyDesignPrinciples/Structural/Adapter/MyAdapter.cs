@@ -1,8 +1,8 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.Adapter
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Adapter
 {
     public interface IClientInterface
     {

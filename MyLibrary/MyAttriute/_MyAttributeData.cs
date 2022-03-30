@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace MyLibrary
+namespace MyLibrary_DotNETstd_2_1
 {
     public abstract class _MyAttributeData
     {
@@ -11,7 +9,7 @@ namespace MyLibrary
         public _MyAttributeData()
         {
             Type type = this.GetType();
-            object[] attr=type.GetCustomAttributes(typeof(MyAttributeEn), true);
+            object[] attr = type.GetCustomAttributes(typeof(MyAttributeEn), true);
 
             if (attr.Count() > 0)
             {
@@ -22,7 +20,7 @@ namespace MyLibrary
     }
 
     [MyAttributeEn(MyEnum.A)]
-    public class MyAttributeData:_MyAttributeData
+    public class MyAttributeData : _MyAttributeData
     {
 
     }

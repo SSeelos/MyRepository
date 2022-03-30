@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Media.Imaging;
 
-namespace MyLibrary.MyBitMap
+namespace MyLibrary_DotNETstd_2_1.MyBitMap
 {
     public static class BitMapExt
     {

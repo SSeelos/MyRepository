@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.MyDesignPrinciples.Decorator
+﻿namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Decorator
 {
     class MyDecoratorClient
     {

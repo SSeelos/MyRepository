@@ -19,7 +19,7 @@ namespace MyDotNet6ConsoleApp.Threading
         //to begin the child thread execution
         private void StartNewThread()
         {
-            ThreadingProgram.Logger.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod(), MyLibrary.MyUtilities.Hirarchy.Title);
+            ThreadingProgram.Logger.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod(), MyLibrary_DotNETstd_2_1.MyUtilities.Hirarchy.Title);
 
             ThreadStart threadStart = new ThreadStart(ThreadMethod);
             Thread thread = new Thread(threadStart);

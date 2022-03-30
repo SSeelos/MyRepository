@@ -1,5 +1,5 @@
 ﻿//namespace for this document
-using MyLibrary;
+using MyLibrary_DotNETstd_2_1;
 
 namespace MyDotNet6ConsoleApp;
 public class DotNET6Program

@@ -1,6 +1,6 @@
-﻿using MyLibrary.MyDesignPrinciples.FactoryMethod;
+﻿using MyLibrary_DotNETstd_2_1.MyDesignPrinciples.FactoryMethod;
 
-namespace MyLibrary.MyDesignPrinciples.AbstractFactory
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.AbstractFactory
 {
     class MyAbstractFactoryClient
     {
