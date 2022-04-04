@@ -105,7 +105,7 @@ namespace MyWPF
 
         private void FileSystem_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new FileSystemProgram());
+            //this.programRunner.RunProgram(new FileSystemProgram());
         }
     }
 }
