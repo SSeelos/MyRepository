@@ -17,6 +17,20 @@ namespace MyConsoleAppProject
         //all instances of the class share static properties
         public static string myStaticProperty { get; set; }
 
+        public double Min;
+        public double Max;
+        private double _myValue;
+        public double MyValue
+        {
+            get => _myValue;
+            set
+            {
+                _myValue = Math.Clamp(value, Min, Max);
+                MyValueChanged?.Invoke(_myValue);
+            }
+        }
+        public event Action<double> MyValueChanged;
+
         //methods
         public double MyMethod()
         {
