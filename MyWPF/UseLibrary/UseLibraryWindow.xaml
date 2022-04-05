@@ -21,6 +21,7 @@
             <Button Content="Bitmap" Click="Bitmap_Click"/>
             <Button Content="EnumClass" Click="EnumClass_Click"/>
             <Button Content="Attributes" Click="Attributes_Click"/>
+            <Button Content="MyEncoding" Click="MyEncoding_Click"/>
 
 
 

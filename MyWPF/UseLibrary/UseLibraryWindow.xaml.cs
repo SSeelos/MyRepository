@@ -28,43 +28,43 @@ namespace MyWPF
 
         private void SOLID_Click(object sender, RoutedEventArgs e)
         {
-            programRunner.RunProgram(new SolidProgram());
+            programRunner.Run(new SolidProgram());
         }
 
         private void UnitValues_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new UnitValuesProgram());
+            this.programRunner.Run(new UnitValuesProgram());
 
-            this.programRunner.RunProgram(new UnitsNetProgram());
+            this.programRunner.Run(new UnitsNetProgram());
         }
 
         private void DesignPrinciples_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new MyDesignPrinciplesProgram());
+            this.programRunner.Run(new MyDesignPrinciplesProgram());
         }
 
         private void JSON_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new JSONProgram());
+            this.programRunner.Run(new JSONProgram());
         }
 
         private void Events_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new EventsClient());
+            this.programRunner.Run(new EventsClient());
         }
         private void Web_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new WebProgram());
+            this.programRunner.Run(new WebProgram());
         }
 
         private void Test_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new TestProgram());
+            this.programRunner.Run(new TestProgram());
         }
 
         private void MyProcess_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new MyProcessProgram());
+            this.programRunner.Run(new MyProcessProgram());
         }
 
         private void Bitmap_Click(object sender, RoutedEventArgs e)
@@ -86,26 +86,33 @@ namespace MyWPF
 
 
 
-            this.programRunner.RunProgram(new MyBitMapProgram());
+            this.programRunner.Run(new MyBitMapProgram());
         }
         private void LINQ_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new MyLinqProgram());
+            this.programRunner.Run(new MyLinqProgram());
         }
 
         private void EnumClass_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new MyEnumClassProgram());
+            this.programRunner.Run(new MyEnumClassProgram());
         }
 
         private void Attributes_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new MyAttributeProgram());
+            this.programRunner.Run(new MyAttributeProgram());
         }
 
         private void FileSystem_Click(object sender, RoutedEventArgs e)
         {
             //this.programRunner.RunProgram(new FileSystemProgram());
+        }
+
+
+        private void MyEncoding_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.Run(new MyEncodingProgram());
+
         }
     }
 }

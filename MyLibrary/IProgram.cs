@@ -22,7 +22,7 @@ namespace MyLibrary_DotNETstd_2_1
                 _currentProgram = value;
             }
         }
-        public void RunProgram(IProgram program)
+        public void Run(IProgram program)
         {
             CurrentProgram = program;
 

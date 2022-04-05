@@ -3,6 +3,7 @@ using MyDotNet6ConsoleApp;
 using MyWPF.MVVM;
 using System;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows;
 
 namespace MyWPF
@@ -44,20 +45,20 @@ namespace MyWPF
 
         private void UseLibrary_Click(object sender, RoutedEventArgs e)
         {
-            AllocConsole();
+            AllocConsole(Encoding.Unicode);
 
             this.ShowWindow(new UseLibraryWindow());
         }
 
         private void MyConsoleApp_Click(object sender, RoutedEventArgs e)
         {
-            AllocConsole();
+            AllocConsole(Encoding.Unicode);
 
             new MyProgram();
         }
         private void DotNet6App_Click(object sender, RoutedEventArgs e)
         {
-            AllocConsole();
+            AllocConsole(Encoding.Unicode);
 
             DotNET6Program.Main();
         }
@@ -66,6 +67,12 @@ namespace MyWPF
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AllocConsole();
+        private void AllocConsole(Encoding encoding)
+        {
+            AllocConsole();
+            Console.InputEncoding = encoding;
+            Console.OutputEncoding = encoding;
+        }
 
     }
 }
