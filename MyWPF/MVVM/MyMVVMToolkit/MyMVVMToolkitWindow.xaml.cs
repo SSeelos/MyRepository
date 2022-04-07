@@ -31,5 +31,11 @@ namespace MyWPF.MVVM.MyMVVMToolkit
             new MyDataGridV()
                 .Show();
         }
+
+        private void Ookii_Click(object sender, RoutedEventArgs e)
+        {
+            new OokiiV()
+                .Show();
+        }
     }
 }
