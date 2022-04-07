@@ -2,6 +2,7 @@
 using MyLibrary_DotNETstd_2_1.EventsAndDelegates_CodeMonkey;
 using MyLibrary_DotNETstd_2_1.MyBitMap;
 using MyLibrary_DotNETstd_2_1.MyDesignPrinciples;
+using MyLibrary_DotNETstd_2_1.MyEncoding;
 using MyLibrary_DotNETstd_2_1.MyJSON;
 using MyLibrary_DotNETstd_2_1.MyLINQ;
 using MyLibrary_DotNETstd_2_1.MyProcess;
