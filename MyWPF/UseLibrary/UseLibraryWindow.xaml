@@ -24,6 +24,7 @@
             <Button Content="FileSystem" Click="FileSystem_Click"/>
             <Button Content="RegEx" Click="RegEx_Click"/>
             <Button Content="Audio" Click="Audio_Click"/>
+            <Button Content="MyEncoding" Click="MyEncoding_Click"/>
 
 
 

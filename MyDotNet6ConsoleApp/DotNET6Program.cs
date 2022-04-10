@@ -8,9 +8,9 @@ public class DotNET6Program
     private static ProgramRunner programRunner = new ProgramRunner();
     public static void Main()
     {
-        programRunner.RunProgram(new RecordTypeProgram());
+        programRunner.Run(new RecordTypeProgram());
 
-        programRunner.RunProgram(new ThreadingProgram());
+        programRunner.Run(new ThreadingProgram());
 
     }
 
