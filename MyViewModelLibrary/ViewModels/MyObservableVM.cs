@@ -1,9 +1,10 @@
-﻿using Microsoft.Toolkit.Mvvm.Input;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System.Windows.Input;
 
 namespace MyViewModelLibrary.ViewModels
 {
-    public class MyObservableVM : _MyObservableVM
+    public class MyObservableVM : _MyVM
     {
         public MyObservableVM()
         {
@@ -24,6 +25,9 @@ namespace MyViewModelLibrary.ViewModels
             get => _myProperty;
             set => SetProperty(ref _myProperty, value);
         }
+
+        [ObservableProperty]
+        private string? _myObservabelProperty;
 
 
         private void MyAction()

@@ -11,7 +11,7 @@ namespace MyViewModelLibrary.ViewModels
 
         public abstract void Execute(object parameter);
     }
-    public abstract class _Command<T> : ICommand where T : _MyObservableVM
+    public abstract class _Command<T> : ICommand where T : _MyVM
     {
         protected T viewModel;
         public event EventHandler CanExecuteChanged;

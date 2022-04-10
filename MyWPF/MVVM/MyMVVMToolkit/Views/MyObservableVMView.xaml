@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:ViewModel="clr-namespace:MyViewModelLibrary.ViewModels;assembly=MyViewModelLibrary"
         mc:Ignorable="d"
-        Title="MyObservableViewModelView" 
+        Title="MyObservableView" 
         SizeToContent="WidthAndHeight">
-    
+
 
     <Window.DataContext>
         <ViewModel:MyObservableVM/>
     </Window.DataContext>
-    
+
     <Border Padding="20">
         <StackPanel>
             <TextBox Text="{Binding MyProperty, Mode=Twoway, UpdateSourceTrigger=PropertyChanged}"/>

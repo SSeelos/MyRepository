@@ -6,10 +6,12 @@ using MyLibrary_DotNETstd_2_1.MyEncoding;
 using MyLibrary_DotNETstd_2_1.MyJSON;
 using MyLibrary_DotNETstd_2_1.MyLINQ;
 using MyLibrary_DotNETstd_2_1.MyProcess;
+using MyLibrary_DotNETstd_2_1.MyRegex;
 using MyLibrary_DotNETstd_2_1.Test;
 using MyLibrary_DotNETstd_2_1.Web;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
@@ -114,6 +116,19 @@ namespace MyWPF
         {
             this.programRunner.Run(new MyEncodingProgram());
 
+        }
+
+        private void RegEx_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.RunProgram(new MyRegexProgram());
+        }
+
+        private void Audio_Click(object sender, RoutedEventArgs e)
+        {
+            var audio = Properties.Resources.OOT_Navi_Hey1;
+
+            SoundPlayer player = new SoundPlayer(audio);
+            player.Play();
         }
     }
 }
