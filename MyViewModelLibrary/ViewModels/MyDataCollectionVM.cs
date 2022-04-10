@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace MyViewModelLibrary.ViewModels
 {
-    public class MyDataCollectionVM : _MyObservableVM
+    public class MyDataCollectionVM : _MyVM
     {
         public MyDataCollectionVM()
         {

@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace MyViewModelLibrary.ViewModels
 {
-    public class MyTaskObservableVM : _MyObservableVM
+    public class MyTaskObservableVM : _MyVM
     {
 
 
