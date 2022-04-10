@@ -79,5 +79,14 @@ namespace MyWPF.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream OOT_Navi_Hey1 {
+            get {
+                return ResourceManager.GetStream("OOT_Navi_Hey1", resourceCulture);
+            }
+        }
     }
 }

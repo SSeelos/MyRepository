@@ -21,6 +21,9 @@
             <Button Content="Bitmap" Click="Bitmap_Click"/>
             <Button Content="EnumClass" Click="EnumClass_Click"/>
             <Button Content="Attributes" Click="Attributes_Click"/>
+            <Button Content="FileSystem" Click="FileSystem_Click"/>
+            <Button Content="RegEx" Click="RegEx_Click"/>
+            <Button Content="Audio" Click="Audio_Click"/>
 
 
 
