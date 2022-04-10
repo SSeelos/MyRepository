@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace MyViewModelLibrary.ViewModels
 {
-    public class OokiiVM : _MyObservableVM
+    public class OokiiVM : _MyVM
     {
         private string _path;
         public string Path
