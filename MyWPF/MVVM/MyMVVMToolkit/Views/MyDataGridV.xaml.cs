@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MyViewModelLibrary.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MyWPF.MVVM.MyMVVMToolkit.Views
 {
@@ -19,6 +10,7 @@ namespace MyWPF.MVVM.MyMVVMToolkit.Views
     {
         public MyDataGridV()
         {
+            this.DataContext = new MyDataCollectionVM();
             InitializeComponent();
         }
     }

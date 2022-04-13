@@ -3,18 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ViewModel="clr-namespace:MyViewModelLibrary.ViewModels;assembly=MyViewModelLibrary"
+        xmlns:ViewModels="clr-namespace:MyViewModelLibrary.ViewModels;assembly=MyViewModelLibrary" 
+        d:DataContext="{d:DesignInstance Type= ViewModels:MyDataCollectionVM,IsDesignTimeCreatable=True}"
         mc:Ignorable="d"
         Title="MyDataGridV"
         Width="400"
         SizeToContent="Height">
 
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <ViewModel:MyDataCollectionVM/>
-    </Window.DataContext>
+    </Window.DataContext>-->
 
     <Window.Resources>
-    <DataTemplate x:Key="SelectedItem_Template">
+        <DataTemplate x:Key="SelectedItem_Template">
             <StackPanel>
                 <TextBox Text="BoundData"/>
                 <TextBlock Text="{Binding Path=ItemData, Mode=OneWay}"/>
@@ -23,17 +24,17 @@
                 <TextBox Text="B"/>
                 <TextBlock Text="{Binding Path= ItemData.DataB, Mode=OneWay}"/>
             </StackPanel>
-    </DataTemplate>
-        
+        </DataTemplate>
+
     </Window.Resources>
 
-        <StackPanel Orientation="Horizontal">
+    <StackPanel Orientation="Horizontal">
         <StackPanel>
             <TextBlock Text="BoundData"/>
-                <TextBox Text="{Binding Path=ItemData, Mode=OneWay}" IsReadOnly="True"/>
-                <TextBlock Text="DataA"/>
-                <TextBox Text="{Binding Path= ItemData.DataA, Mode=OneWay}" IsReadOnly="True"/>
-                <TextBlock Text="DataB"/>
+            <TextBox Text="{Binding Path=ItemData, Mode=OneWay}" IsReadOnly="True"/>
+            <TextBlock Text="DataA"/>
+            <TextBox Text="{Binding Path= ItemData.DataA, Mode=OneWay}" IsReadOnly="True"/>
+            <TextBlock Text="DataB"/>
             <TextBox Text="{Binding Path= ItemData.DataB, Mode=OneWay}" IsReadOnly="True"/>
             <Button Content="UseData" Command="{Binding UseDataCommand}"/>
             <Button Content="ClickCommand" Command="{Binding ClickCommand}"/>
@@ -46,13 +47,13 @@
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
-                    <DataTemplate>
+                        <DataTemplate>
 
-                        <Button Content="Click" 
+                            <Button Content="Click" 
                                 Command="{Binding Path=DataContext.ClickCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
 
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellTemplate>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>

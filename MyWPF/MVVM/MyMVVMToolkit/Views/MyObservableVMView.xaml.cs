@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MyViewModelLibrary.ViewModels;
+using System.Windows;
 
 namespace MyWPF.MVVM.MyMVVMToolkit
 {
@@ -9,7 +10,7 @@ namespace MyWPF.MVVM.MyMVVMToolkit
     {
         public MyObservableView()
         {
-            //view model defined in separate library!
+            DataContext = new MyObservableVM();
             InitializeComponent();
         }
 

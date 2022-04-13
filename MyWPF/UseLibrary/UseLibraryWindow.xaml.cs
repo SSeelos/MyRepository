@@ -120,7 +120,7 @@ namespace MyWPF
 
         private void RegEx_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new MyRegexProgram());
+            this.programRunner.Run(new MyRegexProgram());
         }
 
         private void Audio_Click(object sender, RoutedEventArgs e)
