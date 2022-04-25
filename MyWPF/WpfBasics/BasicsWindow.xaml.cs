@@ -23,16 +23,16 @@ namespace MyWPF
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            this.MyTextBoxReadOnly.Text += ((CheckBox)sender).Content;
+            this.Log.Text += ((CheckBox)sender).Content;
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             var txt = ((CheckBox)sender).Content.ToString();
-            var str = new StringBuilder(this.MyTextBoxReadOnly.Text);
+            var str = new StringBuilder(this.Log.Text);
             str.Replace(txt, "");
 
-            this.MyTextBoxReadOnly.Text = str.ToString();
+            this.Log.Text = str.ToString();
         }
 
         private void MyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -48,9 +48,10 @@ namespace MyWPF
             MessageBox.Show(MethodBase.GetCurrentMethod().Name);
         }
 
-        private void MyTextBlock_TextChanged(object sender, TextChangedEventArgs e)
+        private void MyTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            this.Log.Text = this.MyTextBlock.Text;
+            this.Log.Text = this.MyTextBox.Text;
+            this.MyTextBoxReadOnly.Text = this.MyTextBox.Text;
         }
 
         private void OpenPage_Click(object sender, RoutedEventArgs e)
@@ -66,12 +67,6 @@ namespace MyWPF
         {
             new MyWindow()
                 .Show();
-        }
-
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
