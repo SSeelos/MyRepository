@@ -1,4 +1,4 @@
-﻿<Window x:Class="MyWPF.MVVM.MyMVVMToolkit.MyObservableView"
+﻿<Window x:Class="MyWPF.MVVM.MyMVVMToolkit.MyObservableV"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,17 +7,23 @@
         d:DataContext="{d:DesignInstance Type=ViewModels:MyObservableVM,IsDesignTimeCreatable=True}"
         mc:Ignorable="d"
         Title="MyObservableView" 
+        MinWidth="600"
         SizeToContent="WidthAndHeight">
 
 
-    <!--<Window.DataContext>
-        <ViewModel:MyObservableVM/>
-    </Window.DataContext>-->
-
     <Border Padding="20">
         <StackPanel>
+            <TextBlock Text="Property (TwoWay)"/>
             <TextBox Text="{Binding MyProperty, Mode=Twoway, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Property (OneWayToSource)"/>
+            <TextBox Text="{Binding MyProperty, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Property (OneWay)"/>
             <TextBox Text="{Binding MyProperty, Mode=OneWay}" IsReadOnly="True" Background="LightGray"/>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+            <TextBlock Text="ObservableProperty"/>
+            <TextBox Text="{Binding MyObservableProperty, Mode=Twoway, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding MyObservableProperty, Mode=OneWay}" IsReadOnly="True" Background="LightGray"/>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
 
 
             <Button Content="Reset"
@@ -29,6 +35,8 @@
                     Command="{Binding MyRelayCommand}"/>
             <Button Content="RelayCmdLambda"
                     Command="{Binding MyRelayCommandLambda}"/>
+            <Button Content="ObservableProperty"
+                    Command="{Binding MyObservablePropertyCommand}"/>
         </StackPanel>
     </Border>
 </Window>

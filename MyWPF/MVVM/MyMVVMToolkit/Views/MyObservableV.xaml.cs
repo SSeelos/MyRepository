@@ -6,9 +6,9 @@ namespace MyWPF.MVVM.MyMVVMToolkit
     /// <summary>
     /// Interaction logic for MyMVVMToolkitWindow.xaml
     /// </summary>
-    public partial class MyObservableView : Window
+    public partial class MyObservableV : Window
     {
-        public MyObservableView()
+        public MyObservableV()
         {
             DataContext = new MyObservableVM();
             InitializeComponent();

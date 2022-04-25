@@ -4,18 +4,22 @@ using System.Windows.Input;
 
 namespace MyViewModelLibrary.ViewModels
 {
-    public class MyObservableVM : _MyVM
+    public partial class MyObservableVM : _MyVM
     {
         public MyObservableVM()
         {
             MyRelayCommand = new RelayCommand(MyAction);
             MyRelayCommandLambda = new RelayCommand(() => MyProperty = "RelayCmdLambda");
 
-            ResetCommand = new RelayCommand(() => MyProperty = defaultValue);
+            ResetCommand = new RelayCommand(Reset);
+            MyObservablePropertyCommand = new RelayCommand(() => MyObservableProperty = "MyObservableProperty");
         }
+
+
         public ICommand ResetCommand { get; }
         public ICommand MyRelayCommand { get; }
         public ICommand MyRelayCommandLambda { get; }
+        public ICommand MyObservablePropertyCommand { get; }
         public ICommand MyVMCommand => new MyCommandVM(this);
 
         private const string defaultValue = "default";
@@ -27,12 +31,15 @@ namespace MyViewModelLibrary.ViewModels
         }
 
         [ObservableProperty]
-        private string? _myObservabelProperty;
-
-
+        string myObservableProperty = defaultValue;
         private void MyAction()
         {
             MyProperty = "RelayCommand";
+        }
+        private void Reset()
+        {
+            MyProperty = defaultValue;
+            MyObservableProperty = defaultValue;
         }
     }
 }
