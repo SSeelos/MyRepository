@@ -1,7 +1,6 @@
-﻿using MyConsoleAppProject;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Reflection;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Reflection;
 
 namespace MyConsoleAppProject.Tests
 {

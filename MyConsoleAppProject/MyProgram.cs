@@ -120,14 +120,20 @@ namespace MyConsoleAppProject
             MyClass.MyStaticMethod();
             myObject.MyInterfaceFunction();
             myObject.MyInterface2Function();
-            myObject.MyVirtualMethod();
-            myObject.MyAbstractMethod();
+            myObject.MyPublicVirtualMethod();
+            myObject.MyPublicAbstractMethod();
+            myObject.MyMethodOfAbstractClass();
 
             //set property
             myObject.myProperty = 5;
             //get property
             var str = myObject.myProperty;
 
+
+            var myObjectB = new MyClassB("field");
+            myObjectB.MyPublicVirtualMethod();
+            myObjectB.MyPublicAbstractMethod();
+            myObjectB.MyMethodOfAbstractClass();
 
 
             MyStaticClass.MyProperty = "static property";

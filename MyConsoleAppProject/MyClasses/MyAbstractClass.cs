@@ -1,4 +1,7 @@
-﻿namespace MyConsoleAppProject
+﻿using System;
+using System.Reflection;
+
+namespace MyConsoleAppProject
 {
     public abstract class MyAbstractClass
     {
@@ -15,12 +18,30 @@
         }
 
         //derived classes can override virtual method
-        public virtual void MyVirtualMethod()
+        protected virtual void MyProtectedVirtualMethod()
         {
-            //default implementation
+            Console.WriteLine($"{GetType().Name} - {MethodBase.GetCurrentMethod().Name}");
+
+            //default implementation...
+        }
+        public virtual void MyPublicVirtualMethod()
+        {
+            Console.WriteLine($"{GetType().Name} - {MethodBase.GetCurrentMethod().Name}");
+
+            //default implementation...
         }
 
         //derived classes must override abstract method
-        public abstract void MyAbstractMethod();
+        protected abstract void MyProtectedAbstractMethod();
+        public abstract void MyPublicAbstractMethod();
+
+        public void MyMethodOfAbstractClass()
+        {
+            Console.WriteLine($"{GetType().Name} - {MethodBase.GetCurrentMethod().Name}");
+
+            MyProtectedVirtualMethod();
+
+            MyProtectedAbstractMethod();
+        }
     }
 }

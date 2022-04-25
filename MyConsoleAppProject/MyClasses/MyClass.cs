@@ -98,17 +98,22 @@ namespace MyConsoleAppProject
             return _myStaticProperty;
         }
 
-        //concrete implementation of abstrct method
-        public override void MyAbstractMethod()
+        //concrete implementation of abstract method
+        public override void MyPublicAbstractMethod()
         {
-            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+            Console.WriteLine($"{GetType().Name} - (override){MethodBase.GetCurrentMethod().Name}");
+        }
+        protected override void MyProtectedAbstractMethod()
+        {
+            Console.WriteLine($"{GetType().Name} - (override){MethodBase.GetCurrentMethod().Name}");
         }
 
         //Reflection -> can get methodbase of this function from outside this class
         public RuntimeMethodHandle GetRuntimeMethodHandle()
         {
-            return MethodInfo.GetCurrentMethod().MethodHandle;
+            return MethodBase.GetCurrentMethod().MethodHandle;
         }
+
     }
 
     public class MyClassB : MyAbstractClass
@@ -117,10 +122,6 @@ namespace MyConsoleAppProject
         {
         }
 
-        public override void MyAbstractMethod()
-        {
-            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
-        }
         public void SetBaseStaticProperty(string value)
         {
             _myStaticProperty = value;
@@ -128,6 +129,19 @@ namespace MyConsoleAppProject
         public string GetBaseStaticProperty()
         {
             return _myStaticProperty;
+        }
+
+        protected override void MyProtectedVirtualMethod()
+        {
+            Console.WriteLine($"{GetType().Name} - (override){MethodBase.GetCurrentMethod().Name}");
+        }
+        protected override void MyProtectedAbstractMethod()
+        {
+            Console.WriteLine($"{GetType().Name} - (override){MethodBase.GetCurrentMethod().Name}");
+        }
+        public override void MyPublicAbstractMethod()
+        {
+            Console.WriteLine($"{GetType().Name} - (override){MethodBase.GetCurrentMethod().Name}");
         }
     }
 }
