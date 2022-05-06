@@ -7,7 +7,7 @@
         d:DataContext="{d:DesignInstance Type=ViewModels:MyObservableVM,IsDesignTimeCreatable=True}"
         mc:Ignorable="d"
         Title="MyObservableView" 
-        MinWidth="600"
+        MinWidth="400"
         SizeToContent="WidthAndHeight">
 
 
@@ -20,13 +20,9 @@
             <TextBlock Text="Property (OneWay)"/>
             <TextBox Text="{Binding MyProperty, Mode=OneWay}" IsReadOnly="True" Background="LightGray"/>
             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
-            <TextBlock Text="ObservableProperty"/>
-            <TextBox Text="{Binding MyObservableProperty, Mode=Twoway, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Text="{Binding MyObservableProperty, Mode=OneWay}" IsReadOnly="True" Background="LightGray"/>
-            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
 
 
-            <Button Content="Reset"
+            <Button Content="Reset" FontWeight="Bold"
                     Command="{Binding ResetCommand}"/>
             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
             <Button Content="Command"
@@ -35,8 +31,25 @@
                     Command="{Binding MyRelayCommand}"/>
             <Button Content="RelayCmdLambda"
                     Command="{Binding MyRelayCommandLambda}"/>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+            <TextBlock Text="ObservableProperty"/>
+            <TextBox Text="{Binding MyObservableProperty, Mode=Twoway, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding MyObservableProperty, Mode=OneWay}" IsReadOnly="True" Background="LightGray"/>
             <Button Content="ObservableProperty"
                     Command="{Binding MyObservablePropertyCommand}"/>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+            <TextBlock Text="Property (can execute check)"/>
+            <TextBox Text="{Binding MyPropertyNotify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="CanExecute?"
+                    Command="{Binding MyRelayCommandCanExecute}"/>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+            <TextBlock Text="Property (error)"/>
+            <TextBox Text="{Binding MyPropertyError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Property (validator)"/>
+            <TextBox Text="{Binding MyObservableValidator.MyValidatorProperty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding MyObservableValidator.MyValidatorProperty.HasErrors, ValidatesOnNotifyDataErrors=True,Mode=OneWay}"/>
+            <!--<TextBlock Text="{Binding Path=MyObservableValidator.HasErrors, MyObservableValidator.MyValidatorProperty.HasErrors, ValidatesOnNotifyDataErrors=True,Mode=OneWay}"/>
+            <TextBlock Text="{Binding MyObservableValidator.ValidationResult.ErrorMessage, Mode=OneWay}"/>-->
         </StackPanel>
     </Border>
 </Window>
