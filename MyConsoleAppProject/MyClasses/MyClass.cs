@@ -37,7 +37,22 @@ namespace MyConsoleAppProject
             double product = myAttribute * myProperty;
             Console.WriteLine(MethodBase.GetCurrentMethod().Name + ": " + myField + ", " + product);
             return product;
+            Type type = typeof(MyClass);
+            Type thisType = this.GetType();
 
+            try
+            {
+                throw new Exception();
+            }
+            catch (Exception exception)
+            {
+                string m = exception.Message;
+                string s = exception.Source;
+                MethodBase t = exception.TargetSite;
+
+                throw;
+            }
+            bool compare = type == thisType;
         }
 
 
