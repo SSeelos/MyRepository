@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="UseLibraryWindow" 
+        MinWidth="600"
         SizeToContent="WidthAndHeight">
     <Border Padding="40">
         <StackPanel>
@@ -25,6 +26,7 @@
             <Button Content="RegEx" Click="RegEx_Click"/>
             <Button Content="Audio" Click="Audio_Click"/>
             <Button Content="MyEncoding" Click="MyEncoding_Click"/>
+            <Button Content="MyAssembly" Click="MyAssembly_Click"/>
 
 
 

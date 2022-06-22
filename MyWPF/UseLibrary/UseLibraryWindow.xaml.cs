@@ -1,5 +1,6 @@
 ﻿using MyLibrary_DotNETstd_2_1;
 using MyLibrary_DotNETstd_2_1.EventsAndDelegates_CodeMonkey;
+using MyLibrary_DotNETstd_2_1.MyAssembly;
 using MyLibrary_DotNETstd_2_1.MyBitMap;
 using MyLibrary_DotNETstd_2_1.MyDesignPrinciples;
 using MyLibrary_DotNETstd_2_1.MyEncoding;
@@ -129,6 +130,11 @@ namespace MyWPF
 
             SoundPlayer player = new SoundPlayer(audio);
             player.Play();
+        }
+
+        private void MyAssembly_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.Run(new AssemblyProgram());
         }
     }
 }
