@@ -7,7 +7,7 @@
         d:DataContext="{d:DesignInstance Type= ViewModels:MyDataCollectionVM,IsDesignTimeCreatable=True}"
         mc:Ignorable="d"
         Title="MyDataGridV"
-        Width="400"
+        Width="600"
         SizeToContent="Height">
 
     <!--<Window.DataContext>
