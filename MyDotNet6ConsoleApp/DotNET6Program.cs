@@ -9,6 +9,8 @@ public class DotNET6Program
     private static ProgramRunner programRunner = new ProgramRunner();
     public static void Main()
     {
+        programRunner.Run(new AutoMapperProgram());
+
         programRunner.Run(new MyDependencyInjectionProgram());
 
         programRunner.Run(new RecordTypeProgram());
