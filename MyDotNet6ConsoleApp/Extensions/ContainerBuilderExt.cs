@@ -24,5 +24,11 @@ namespace MyDotNet6ConsoleApp
                 .Where(t => t.Name.EndsWith(nameSuffix) && t.Namespace.EndsWith(namespaceEnd))
                 .As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == $"I{ t.Name}"));
         }
+        public static void RegisterAssemblyTypesAsImplementedInterfaces(this ContainerBuilder containerBuilder, Assembly assembly, string nameSuffix)
+        {
+            containerBuilder.RegisterAssemblyTypes(assembly)
+                .Where(t => t.Name.EndsWith(nameSuffix))
+                .AsImplementedInterfaces();
+        }
     }
 }

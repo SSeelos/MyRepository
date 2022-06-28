@@ -1,4 +1,4 @@
-﻿namespace MyLibrary_DotNETstd_2_1.DependencyInjection.Dependencies
+﻿namespace MyDotNet6ConsoleApp.DependencyInjection
 {
     public interface IDependencyA
     {

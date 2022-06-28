@@ -1,4 +1,5 @@
-﻿using MyLibrary_DotNETstd_2_1.DependencyInjection.Dependencies;
+﻿
+using System.Reflection;
 
 namespace MyDotNet6ConsoleApp.DependencyInjection
 {
@@ -13,6 +14,8 @@ namespace MyDotNet6ConsoleApp.DependencyInjection
         }
         public void Run()
         {
+            Console.WriteLine($"{GetType().Name} {MethodBase.GetCurrentMethod().Name}");
+
             _dependencyA.Execute();
             _dependencyB.Execute();
         }

@@ -1,15 +1,16 @@
-﻿using System.Reflection;
+﻿
+using System.Reflection;
 
 namespace MyDotNet6ConsoleApp.DependencyInjection
 {
-    public class DependencyB : IDependencyB
+    public class Dependant
     {
         IDependencyA _dependencyA;
-        public DependencyB(IDependencyA dependencyA)
+        public Dependant(IDependencyA dependencyA)
         {
             _dependencyA = dependencyA;
         }
-        public void Execute()
+        public void Run()
         {
             Console.WriteLine($"{GetType().Name} {MethodBase.GetCurrentMethod().Name}");
 

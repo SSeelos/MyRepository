@@ -1,4 +1,5 @@
-﻿using MyLibrary_DotNETstd_2_1.DependencyInjection.Dependencies;
+﻿
+using System.Reflection;
 
 namespace MyDotNet6ConsoleApp.DependencyInjection
 {
@@ -6,6 +7,11 @@ namespace MyDotNet6ConsoleApp.DependencyInjection
     {
         IDependencyA _dependencyA;
         IDependencyB _dependencyB;
+        public DependantB(IDependencyA dependencyA)
+        {
+            _dependencyA = dependencyA;
+            _dependencyB = NullDependencyB.Instance;
+        }
         public DependantB(IDependencyA dependencyA, IDependencyB dependencyB)
         {
             _dependencyA = dependencyA;
@@ -13,6 +19,9 @@ namespace MyDotNet6ConsoleApp.DependencyInjection
         }
         public void Run()
         {
+            Console.WriteLine($"{GetType().Name} {MethodBase.GetCurrentMethod().Name}");
+
+
             _dependencyB.Execute();
             _dependencyA.Execute();
         }
