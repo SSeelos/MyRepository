@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Configuration;
 using Microsoft.Extensions.Configuration;
+using System.Reflection;
 
 namespace MyDotNet6ConsoleApp.DependencyInjection
 {
@@ -9,6 +10,9 @@ namespace MyDotNet6ConsoleApp.DependencyInjection
         public static IContainer ConfigureContainer()
         {
             var builder = new ContainerBuilder();
+
+            //allow resolving unknown types
+            //builder.RegisterSource(new MyType());
 
             builder.RegisterType<Dependant>();
             //register a class type,
@@ -19,6 +23,7 @@ namespace MyDotNet6ConsoleApp.DependencyInjection
 
             //builder.RegisterType<DependencyA>().As<IDependencyA>();   //
             builder.RegisterExecutingAssemblyTypes(containsNamespace: "Dependencies");
+            builder.RegisterAssemblyTypesAsImplementedInterfaces(Assembly.GetExecutingAssembly(), "Service");
 
             return builder.Build();
         }
@@ -70,5 +75,6 @@ namespace MyDotNet6ConsoleApp.DependencyInjection
 
             return builder.Build();
         }
+
     }
 }

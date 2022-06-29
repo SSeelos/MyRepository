@@ -13,6 +13,7 @@
             <Button Content="ListView" Click="ListView_Click"/>
             <Button Content="DataGridView" Click="DataGridView_Click"/>
             <Button Content="Ookii" Click="Ookii_Click"/>
+            <Button Content="DependencyInjection" Click="DependencyInjection_Click"/>
         </StackPanel>
     </Border>
 </Window>

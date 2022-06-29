@@ -1,4 +1,7 @@
-﻿using MyWPF.MVVM.MyMVVMToolkit.Views;
+﻿using Autofac;
+using MyViewModelLibrary.ViewModels;
+using MyWPF.MVVM.MyMVVMToolkit.Views;
+using System;
 using System.Windows;
 
 namespace MyWPF.MVVM.MyMVVMToolkit
@@ -35,6 +38,20 @@ namespace MyWPF.MVVM.MyMVVMToolkit
         private void Ookii_Click(object sender, RoutedEventArgs e)
         {
             new OokiiV()
+                .Show();
+        }
+
+        private void DependencyInjection_Click(object sender, RoutedEventArgs e)
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<MyDependencyInjectionVM>();
+            builder.RegisterType<MyService>().As<IService>();
+            IContainer container = builder.Build();
+            Type type = typeof(MyDependencyInjectionVM);
+            Func<Type, object> resolver = (type) => { return container.Resolve(type); };
+            DISource.Resolver = resolver;
+
+            new MyDependencyInjectionV()
                 .Show();
         }
     }

@@ -34,6 +34,13 @@ namespace MyViewModelLibrary.ViewModels
     {
         bool Validate();
     }
+    public class MyService : IService
+    {
+        public bool Validate()
+        {
+            return true;
+        }
+    }
     public class MyObservableValidatorC : ObservableValidator
     {
         readonly IService _service;
