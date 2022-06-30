@@ -7,9 +7,22 @@
         xmlns:VM="clr-namespace:MyViewModelLibrary.ViewModels;assembly=MyViewModelLibrary"
         d:DataContext="{d:DesignInstance Type=VM:MyDependencyInjectionVM}"
         mc:Ignorable="d"
-        Title="MyDependencyInjectionV" Height="450" Width="800">
-    <Grid>
-        <Button Content="PressMe" Command="{Binding PressMe}"/>
+        Title="MyDependencyInjectionV"
+        SizeToContent="WidthAndHeight"
+        MinWidth="600">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Content="PressMe" Command="{Binding PressMe}"/>
+        <GroupBox Grid.Row="1"  Header="My GroupBox">
+            <ListBox BorderThickness="0"
+                     ItemsSource="{Binding Items}"
+                     SelectedItem="{Binding SelectedItem}"
+                     DisplayMemberPath="DisplayTxt"/>
+        </GroupBox>
 
     </Grid>
 </Window>

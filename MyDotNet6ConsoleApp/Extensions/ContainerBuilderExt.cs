@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using System.Reflection;
+using System.Text.RegularExpressions;
+
 namespace MyDotNet6ConsoleApp
 {
     public static class ContainerBuilderExt
@@ -30,5 +32,18 @@ namespace MyDotNet6ConsoleApp
                 .Where(t => t.Name.EndsWith(nameSuffix))
                 .AsImplementedInterfaces();
         }
+        public static void RegisterAssemblyTypesAsImplementedInterfaces(this ContainerBuilder containerBuilder, Assembly assembly, Regex matchTypeName)
+        {
+            containerBuilder.RegisterAssemblyTypes(assembly)
+                .Where(t => matchTypeName.IsMatch(t.Name))
+                .AsImplementedInterfaces();
+        }
+        public static void RegisterAssemblyTypesAs(this ContainerBuilder containerBuilder, Assembly assembly, Regex matchTypeName)
+        {
+            containerBuilder.RegisterAssemblyTypes(assembly)
+                .Where(t => matchTypeName.IsMatch(t.Name))
+                .As(t => t.GetInterfaces().FirstOrDefault(i => matchTypeName.IsMatch(i.Name)));
+        }
+
     }
 }

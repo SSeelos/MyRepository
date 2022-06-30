@@ -2,7 +2,7 @@
 
 namespace MyDotNet6ConsoleApp.DependencyInjection
 {
-    public class DependencyA : IServiceA
+    public class DependencyA : IDependencyA
     {
         public void Execute()
         {

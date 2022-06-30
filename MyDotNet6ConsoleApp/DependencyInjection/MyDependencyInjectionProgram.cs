@@ -15,9 +15,9 @@ namespace MyLibrary_DotNETstd_2_1
             //var dependant = new Dependant(dependency);
             //dependant.Run();
 
-            IContainer? container = AutoFacConfig.ModuleConfig();
+            //IContainer? container = AutoFacConfig.ConfigureContainer();
 
-            using (ILifetimeScope? scope = container.BeginLifetimeScope())
+            using (ILifetimeScope? scope = AutoFacConfig.Container.BeginLifetimeScope())
             {
                 Dependant? dep = scope.Resolve<Dependant>();
                 dep.Run();

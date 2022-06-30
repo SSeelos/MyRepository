@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MyConsoleAppProject\MyConsoleAppProject.csproj" />
     <ProjectReference Include="..\MyLibrary\MyLibrary_DotNETstd_2_1.csproj" />
   </ItemGroup>
 

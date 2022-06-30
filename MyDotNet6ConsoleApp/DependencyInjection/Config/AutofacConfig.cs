@@ -2,11 +2,13 @@
 using Autofac.Configuration;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace MyDotNet6ConsoleApp.DependencyInjection
 {
     public static class AutoFacConfig
     {
+        public static IContainer Container = ConfigureContainer();
         public static IContainer ConfigureContainer()
         {
             var builder = new ContainerBuilder();
@@ -23,7 +25,8 @@ namespace MyDotNet6ConsoleApp.DependencyInjection
 
             //builder.RegisterType<DependencyA>().As<IDependencyA>();   //
             builder.RegisterExecutingAssemblyTypes(containsNamespace: "Dependencies");
-            builder.RegisterAssemblyTypesAsImplementedInterfaces(Assembly.GetExecutingAssembly(), "Service");
+            //builder.RegisterAssemblyTypesAsImplementedInterfaces(Assembly.GetExecutingAssembly(), "Service");
+            builder.RegisterAssemblyTypesAsImplementedInterfaces(Assembly.GetExecutingAssembly(), new Regex("\b+Service\b"));
 
             return builder.Build();
         }

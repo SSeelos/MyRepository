@@ -44,11 +44,15 @@ namespace MyWPF.MVVM.MyMVVMToolkit
         private void DependencyInjection_Click(object sender, RoutedEventArgs e)
         {
             var builder = new ContainerBuilder();
-            builder.RegisterType<MyDependencyInjectionVM>();
+            builder.RegisterType<MyDependencyInjectionVM>().AsSelf();
             builder.RegisterType<MyService>().As<IService>();
             IContainer container = builder.Build();
             Type type = typeof(MyDependencyInjectionVM);
             Func<Type, object> resolver = (type) => { return container.Resolve(type); };
+            Func<Type, object> resolverLTS = (type) =>
+            {
+                return container.Resolve(type);
+            };
             DISource.Resolver = resolver;
 
             new MyDependencyInjectionV()

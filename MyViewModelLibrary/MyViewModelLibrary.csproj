@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DI VM\" />
+    <ProjectReference Include="..\MyLibrary\MyLibrary_DotNETstd_2_1.csproj" />
   </ItemGroup>
 
 </Project>
