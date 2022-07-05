@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace MyDotNet6ConsoleApp.DependencyInjection
+namespace MyDotNet6ConsoleApp.DependencyInjection.Services
 {
     public class DependencyA : IDependencyA
     {

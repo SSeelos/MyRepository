@@ -1,4 +1,5 @@
 ﻿
+using MyDotNet6ConsoleApp.DependencyInjection.Services;
 using System.Reflection;
 
 namespace MyDotNet6ConsoleApp.DependencyInjection
@@ -12,7 +13,7 @@ namespace MyDotNet6ConsoleApp.DependencyInjection
         }
         public void Run()
         {
-            Console.WriteLine($"{GetType().Name} {MethodBase.GetCurrentMethod().Name}");
+            WriteLine($"{GetType().Name} {MethodBase.GetCurrentMethod().Name}");
 
             _dependencyA.Execute();
         }

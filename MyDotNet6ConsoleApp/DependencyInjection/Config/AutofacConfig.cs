@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using Autofac.Configuration;
 using Microsoft.Extensions.Configuration;
-using System.Reflection;
-using System.Text.RegularExpressions;
+using MyDotNet6ConsoleApp.DependencyInjection.Handler;
+using MyDotNet6ConsoleApp.DependencyInjection.Services;
 
 namespace MyDotNet6ConsoleApp.DependencyInjection
 {
@@ -24,9 +24,12 @@ namespace MyDotNet6ConsoleApp.DependencyInjection
             //builder.RegisterType<DependantB>().As<IDependant>();  //depandant can easily be swapped
 
             //builder.RegisterType<DependencyA>().As<IDependencyA>();   //
-            builder.RegisterExecutingAssemblyTypes(containsNamespace: "Dependencies");
+            //builder.RegisterExecutingAssemblyTypes(containsNamespace: "Dependencies");
             //builder.RegisterAssemblyTypesAsImplementedInterfaces(Assembly.GetExecutingAssembly(), "Service");
-            builder.RegisterAssemblyTypesAsImplementedInterfaces(Assembly.GetExecutingAssembly(), new Regex("\b+Service\b"));
+            //builder.RegisterAssemblyTypesAsImplementedInterfaces(Assembly.GetExecutingAssembly(), new Regex("\b+Service\b"));
+
+            builder.RegisterInterface(typeof(IService));
+
 
             return builder.Build();
         }
@@ -75,6 +78,20 @@ namespace MyDotNet6ConsoleApp.DependencyInjection
             var builder = new ContainerBuilder();
 
             builder.RegisterModule(module);
+
+            return builder.Build();
+        }
+
+        public static IContainer ConfigRegistrationSource()
+        {
+            var builder = new ContainerBuilder();
+            //builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
+            //builder.RegisterSource(new ContravariantRegistrationSource());
+
+            builder.RegisterType<HandlerFactory>().As<IHandlerFactory>();
+            builder.RegisterSource(new MyRegistrationSource());
+            builder.RegisterType<ComponentA>();
+            builder.RegisterType<ComponentB>();
 
             return builder.Build();
         }

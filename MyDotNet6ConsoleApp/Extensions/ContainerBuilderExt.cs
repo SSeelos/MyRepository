@@ -45,5 +45,17 @@ namespace MyDotNet6ConsoleApp
                 .As(t => t.GetInterfaces().FirstOrDefault(i => matchTypeName.IsMatch(i.Name)));
         }
 
+        public static void RegisterInterface(this ContainerBuilder containerBuilder, Type type)
+        {
+            containerBuilder.RegisterInterface(Assembly.GetExecutingAssembly(), type);
+        }
+
+        public static void RegisterInterface(this ContainerBuilder containerBuilder, Assembly assembly, Type type)
+        {
+            containerBuilder.RegisterAssemblyTypes(assembly)
+                .Where(t => type.IsAssignableFrom(t))
+                .AsImplementedInterfaces();
+        }
+
     }
 }

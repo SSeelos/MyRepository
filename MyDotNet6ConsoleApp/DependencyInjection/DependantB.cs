@@ -1,4 +1,5 @@
 ﻿
+using MyDotNet6ConsoleApp.DependencyInjection.Services;
 using System.Reflection;
 
 namespace MyDotNet6ConsoleApp.DependencyInjection

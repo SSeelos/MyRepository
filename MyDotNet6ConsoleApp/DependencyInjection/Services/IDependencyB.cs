@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 
-namespace MyDotNet6ConsoleApp.DependencyInjection
+namespace MyDotNet6ConsoleApp.DependencyInjection.Services
 {
-    public interface IDependencyB
+    public interface IDependencyB : IService
     {
         void Execute();
     }

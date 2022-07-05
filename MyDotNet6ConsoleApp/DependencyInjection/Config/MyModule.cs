@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using MyDotNet6ConsoleApp.DependencyInjection.Services;
 
 namespace MyDotNet6ConsoleApp.DependencyInjection
 {

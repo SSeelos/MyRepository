@@ -5,7 +5,12 @@ namespace MyLibrary_DotNETstd_2_1
     public interface IProgram
     {
         void Run();
-        void Close() => Console.Clear();
+        void Close()
+        {
+            Console.WriteLine("PRESS ENTER TO CLOSE PROGRAM");
+            Console.ReadLine();
+            Console.Clear();
+        }
     }
 
     public class ProgramRunner
@@ -28,6 +33,7 @@ namespace MyLibrary_DotNETstd_2_1
 
             try
             {
+                Console.WriteLine(program.GetType().Name);
                 program.Run();
 
             }

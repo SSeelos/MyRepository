@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using MyDotNet6ConsoleApp.DependencyInjection;
+using MyDotNet6ConsoleApp.DependencyInjection.Handler;
 
 namespace MyLibrary_DotNETstd_2_1
 {
@@ -9,6 +10,13 @@ namespace MyLibrary_DotNETstd_2_1
         {
         }
         public void Run()
+        {
+            //ExampleA();
+
+            ExampleB();
+        }
+
+        private static void ExampleA()
         {
             //this is what we want to replace
             //var dependency = new Dependency();
@@ -26,6 +34,19 @@ namespace MyLibrary_DotNETstd_2_1
                 dependant.Run();
 
 
+            }
+        }
+
+        private static void ExampleB()
+        {
+            var container = AutoFacConfig.ConfigRegistrationSource();
+
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var componentA = scope.Resolve<ComponentA>();
+                componentA.Execute();
+                var componentB = scope.Resolve<ComponentB>();
+                componentB.Execute();
             }
         }
     }
