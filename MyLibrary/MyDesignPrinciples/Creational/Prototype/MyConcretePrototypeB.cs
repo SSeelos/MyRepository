@@ -11,6 +11,11 @@ namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Prototype
         {
             _fieldB = fieldB;
         }
+        public MyConcretePrototypeB(MyConcretePrototypeB prototypeB)
+            : base(prototypeB)
+        {
+            _fieldB = prototypeB._fieldB;
+        }
 
         public override _MyPrototype Clone()
         {
