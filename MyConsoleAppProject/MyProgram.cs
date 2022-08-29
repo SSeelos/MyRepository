@@ -151,6 +151,7 @@ namespace MyConsoleAppProject
             b = (double)a;
             a = (int)b;
 
+
             Console.WriteLine($"a before reference method: {a}");
             ReferenceMethod(ref a);
             Console.WriteLine($"a after reference method: {a}");
@@ -158,6 +159,25 @@ namespace MyConsoleAppProject
             int c;
             OutMethod(out c);
 
+            MyStruct myValT = new MyStruct("Aref", "Bref");
+            MyStruct tempStruct;
+            //data will be copied
+            //(memory already beeing allocated)
+            tempStruct = myValT;
+            tempStruct.B = "neBAref";
+
+            Console.WriteLine(myValT.B);
+            Console.WriteLine(tempStruct.B);
+
+            //reference
+            string reference = "ref";
+            MyClass myRefT = new MyClass("value");
+            MyClass tempRefT = myRefT;
+            tempRefT.SetField("new value");
+
+            string newF = tempRefT.GetField();
+            Console.WriteLine(myRefT.GetField());
+            Console.WriteLine(newF);
 
             #endregion
 

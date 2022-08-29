@@ -90,6 +90,8 @@ namespace MyConsoleAppProject
         {
             this.myField = value;
         }
+        public string GetField() => this.myField;
+
         public void SetStaticProperty(string value)
         {
             myStaticProperty = value;
