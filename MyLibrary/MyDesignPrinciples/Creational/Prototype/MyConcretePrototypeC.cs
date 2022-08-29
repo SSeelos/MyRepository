@@ -35,6 +35,6 @@ namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Prototype
             //protected ctor copy
             return new MyConcretePrototypeC(this);
         }
-        public override string Output() => $"{base.Output()} {this._nestedPrototype}";
+        public override string Output() => $"{base.Output()} {this._nestedPrototype.GetType().Name}";
     }
 }
