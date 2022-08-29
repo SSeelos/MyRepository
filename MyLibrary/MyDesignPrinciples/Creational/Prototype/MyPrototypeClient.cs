@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Prototype
 {
@@ -11,14 +9,20 @@ namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Prototype
             var protoTypeA = new MyConcretePrototypeA("field", "fieldA");
             Console.WriteLine(protoTypeA.Output());
 
-            MyPrototype cloneA = protoTypeA.Clone();
+            _MyPrototype cloneA = protoTypeA.Clone();
             Console.WriteLine(cloneA.Output());
 
-            var protoTypeB = new MyConcretePrototypeB("field", "fieldB");
+            var protoTypeB = new MyConcretePrototypeB("fieldA", "fieldB");
             Console.WriteLine(protoTypeB.Output());
 
-            MyPrototype cloneB = protoTypeB.Clone();
+            _MyPrototype cloneB = protoTypeB.Clone();
             Console.WriteLine(cloneB.Output());
+
+            var protoTypeC = new MyConcretePrototypeC(protoTypeA, "fieldB");
+            Console.WriteLine(protoTypeC.Output());
+
+            _MyPrototype cloneC = protoTypeC.Clone();
+            Console.WriteLine(cloneC.Output());
         }
     }
 }
