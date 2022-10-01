@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using MyDotNet6ConsoleApp.ECS;
 using MyViewModelLibrary.ViewModels;
 using MyWPF.MVVM.MyMVVMToolkit.Views;
 using System;
@@ -57,6 +58,12 @@ namespace MyWPF.MVVM.MyMVVMToolkit
 
             new MyDependencyInjectionV()
                 .Show();
+        }
+
+        private void EntityComponentSystem_Click(object sender, RoutedEventArgs e)
+        {
+            var ecs = new ECSProgramm();
+            ecs.Run();
         }
     }
 }

@@ -4,6 +4,7 @@ using MyLibrary_DotNETstd_2_1;
 
 namespace MyDotNet6ConsoleApp
 {
+    //https://docs.automapper.org/en/latest/Getting-started.html
     internal class AutoMapperProgram : IProgram
     {
         public void Run()
@@ -23,6 +24,18 @@ namespace MyDotNet6ConsoleApp
             WriteLine($"A: {destinationA.MyProperty}, {destinationA.DestinationProperty}");
             WriteLine($"B: {destinationB.MyProperty}, {destinationB.DestinationProperty}");
 
+            var configI = AutoMapperConfig.ConfigMatchInterface();
+            var mapper = configI.CreateMapper();
+
+            var sourceB = new SourceTypeB()
+            {
+                MyProperty = "my propB",
+                SourceProperty = "source propB"
+            };
+
+            DestinationType? res = mapper.Map<DestinationType>(sourceB);
+
+            WriteLine($"from SourceB: {res.MyProperty}, {res.DestinationProperty}");
         }
 
 
