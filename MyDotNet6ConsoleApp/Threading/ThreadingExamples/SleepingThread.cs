@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
+using System.Reflection;
 
 namespace MyDotNet6ConsoleApp.Threading;
 
@@ -10,7 +11,7 @@ internal class SleepingThread : IThreadingExample
     }
     private void StartSleepingThread()
     {
-        ThreadingProgram.Logger.ClassMethodLog(GetType(), MethodBase.GetCurrentMethod(), MyLibrary_DotNETstd_2_1.MyUtilities.Hirarchy.Title);
+        ThreadingProgram.Logger.ClassMethodLog(GetType(), MethodBase.GetCurrentMethod(), Hirarchy.Title);
 
         ThreadStart threadStart = new ThreadStart(ThreadMethod_Sleep);
         var thread = new Thread(threadStart);

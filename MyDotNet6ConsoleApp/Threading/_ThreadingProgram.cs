@@ -16,7 +16,8 @@ internal class ThreadingProgram : IProgram
             new SleepingThread(),
             new StartThread(),
             new AbortThreadExample(),
-            new ThreadLocalExample());
+            new ThreadLocalExample(),
+            new MyTaskExample());
 
         examples.Execute();
     }

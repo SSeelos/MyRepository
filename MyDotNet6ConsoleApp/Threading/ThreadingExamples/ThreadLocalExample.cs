@@ -7,7 +7,7 @@
             ThreadLocal<string> threadName = new ThreadLocal<string>(
                 () =>
                 {
-                    return $"Curren Thread: {Thread.CurrentThread.ManagedThreadId}";
+                    return $"Current Thread: {Thread.CurrentThread.ManagedThreadId}";
                 }
                 );
 
