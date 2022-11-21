@@ -6,7 +6,8 @@
         {
             var examples = new Examples(
                 new ExceptionEx(),
-                new ExceptionExNested());
+                new ExceptionExNested(),
+                new ExceptionExNestedB());
 
             examples.Execute();
         }

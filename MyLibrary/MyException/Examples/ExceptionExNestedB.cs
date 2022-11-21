@@ -2,7 +2,7 @@
 
 namespace MyLibrary_DotNETstd_2_1
 {
-    public class ExceptionExNested : IExample
+    public class ExceptionExNestedB : IExample
     {
         public void Execute()
         {
@@ -11,22 +11,7 @@ namespace MyLibrary_DotNETstd_2_1
                 Console.WriteLine("try");
                 ThrowNestedEx();
             }
-            catch (MyException ex)
-            {
-                Console.WriteLine("catch");
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-
-                var inner = ex.InnerException;
-                while (inner != null)
-                {
-                    Console.WriteLine(nameof(Exception.InnerException));
-                    Console.WriteLine(inner.Message);
-                    Console.WriteLine(inner.StackTrace);
-                    inner = inner.InnerException;
-                }
-            }
-            //catch any exception type
+            //catch any type of exception
             catch (Exception ex)
             {
                 Console.WriteLine("catch");
@@ -44,7 +29,8 @@ namespace MyLibrary_DotNETstd_2_1
             {
                 throw new Exception("oops");
             }
-            catch (Exception ex)
+            //catches another type of exception as is thrown
+            catch (MyException ex)
             {
                 throw new MyException("my oops", ex);
             }
