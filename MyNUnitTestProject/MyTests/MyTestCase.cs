@@ -19,9 +19,9 @@ namespace MyNUnitTestProject.MyTests
         {
             var myClass = new MyClass { Max = max, };
 
-            myClass.MyValue = value;
+            myClass.MyClampedValue = value;
 
-            Assert.AreEqual(exp, myClass.MyValue);
+            Assert.AreEqual(exp, myClass.MyClampedValue);
         }
 
         [TestCase(11, 10, ExpectedResult = 10)]
@@ -30,9 +30,9 @@ namespace MyNUnitTestProject.MyTests
         {
             var myClass = new MyClass { Max = max, };
 
-            myClass.MyValue = value;
+            myClass.MyClampedValue = value;
 
-            return myClass.MyValue;
+            return myClass.MyClampedValue;
         }
     }
 }

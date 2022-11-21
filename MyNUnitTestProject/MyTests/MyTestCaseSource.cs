@@ -25,9 +25,9 @@ namespace MyNUnitTestProject.MyTests
         {
             var myClass = new MyClass { Max = max, };
 
-            myClass.MyValue = value;
+            myClass.MyClampedValue = value;
 
-            Assert.AreEqual(exp, myClass.MyValue);
+            Assert.AreEqual(exp, myClass.MyClampedValue);
         }
 
         static object[] MyCases =
@@ -42,9 +42,9 @@ namespace MyNUnitTestProject.MyTests
         {
             var myClass = new MyClass { Max = max, };
 
-            myClass.MyValue = value;
+            myClass.MyClampedValue = value;
 
-            Assert.AreEqual(exp, myClass.MyValue);
+            Assert.AreEqual(exp, myClass.MyClampedValue);
         }
 
         static IEnumerable<object[]> MyCasesEnumerable()
@@ -59,9 +59,9 @@ namespace MyNUnitTestProject.MyTests
         {
             var myClass = new MyClass { Max = max, };
 
-            myClass.MyValue = value;
+            myClass.MyClampedValue = value;
 
-            Assert.AreEqual(exp, myClass.MyValue);
+            Assert.AreEqual(exp, myClass.MyClampedValue);
         }
 
     }

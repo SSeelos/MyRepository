@@ -17,10 +17,11 @@ namespace MyConsoleAppProject
         //all instances of the class share static properties
         public static string myStaticProperty { get; set; }
 
+        #region advanced Property
         public double Min;
         public double Max;
         private double _myValue;
-        public double MyValue
+        public double MyClampedValue
         {
             get => _myValue;
             set
@@ -30,13 +31,13 @@ namespace MyConsoleAppProject
             }
         }
         public event Action<double> MyValueChanged;
+        #endregion
 
         //methods
         public double MyMethod()
         {
             double product = myAttribute * myProperty;
             Console.WriteLine(MethodBase.GetCurrentMethod().Name + ": " + myField + ", " + product);
-            return product;
             Type type = typeof(MyClass);
             Type thisType = this.GetType();
 
@@ -53,6 +54,8 @@ namespace MyConsoleAppProject
                 throw;
             }
             bool compare = type == thisType;
+
+            return product;
         }
 
 
