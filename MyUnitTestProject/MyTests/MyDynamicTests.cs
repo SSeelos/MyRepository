@@ -15,9 +15,9 @@ namespace MyUnitTestProject.MyTests
         {
             var myClass = new MyClass() { Min = min, Max = max };
 
-            myClass.MyValue = value;
+            myClass.MyClampedValue = value;
 
-            Assert.AreEqual(expValue, myClass.MyValue);
+            Assert.AreEqual(expValue, myClass.MyClampedValue);
         }
 
         [DynamicData(nameof(GetData), DynamicDataSourceType.Method)]
@@ -25,9 +25,9 @@ namespace MyUnitTestProject.MyTests
         {
             var myClass = new MyClass() { Min = min, Max = max };
 
-            myClass.MyValue = value;
+            myClass.MyClampedValue = value;
 
-            Assert.AreEqual(expValue, myClass.MyValue);
+            Assert.AreEqual(expValue, myClass.MyClampedValue);
         }
 
         private IEnumerable<object[]> GetData()
