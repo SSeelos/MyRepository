@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MyLibrary_DotNETstd_2_1
 {
@@ -21,9 +20,10 @@ namespace MyLibrary_DotNETstd_2_1
         {
             foreach (var example in examples)
             {
+                Console.WriteLine($"Example:{example.GetType().Name}");
                 example.Execute();
+                Console.WriteLine();
             }
         }
-
     }
 }

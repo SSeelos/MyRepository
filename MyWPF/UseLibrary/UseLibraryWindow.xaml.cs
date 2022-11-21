@@ -136,5 +136,10 @@ namespace MyWPF
         {
             this.programRunner.Run(new AssemblyProgram());
         }
+
+        private void MyExceptions_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.Run(new ExceptionProgram());
+        }
     }
 }

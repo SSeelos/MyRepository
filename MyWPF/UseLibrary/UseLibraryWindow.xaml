@@ -27,6 +27,7 @@
             <Button Content="Audio" Click="Audio_Click"/>
             <Button Content="MyEncoding" Click="MyEncoding_Click"/>
             <Button Content="MyAssembly" Click="MyAssembly_Click"/>
+            <Button Content="MyExceptions" Click="MyExceptions_Click"/>
 
 
 
