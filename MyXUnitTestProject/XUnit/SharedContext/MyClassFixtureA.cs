@@ -11,14 +11,12 @@ namespace MyXUnitTestProject.XUnit
         MyFixtureA myFixtureA;
         public MyClassFixtureA(MyFixtureA myFixtureA)
         {
-            //2, 4
             this.myFixtureA = myFixtureA;
         }
 
         [Fact]
         public void MyFactA()
         {
-            //3
             var result = myFixtureA.Data + nameof(MyFactA);
             Assert.Equal(nameof(MyFixtureA) + nameof(MyFixtureA.Data) + nameof(MyFactA), result);
         }
@@ -26,7 +24,6 @@ namespace MyXUnitTestProject.XUnit
         [Fact]
         public void MyFactB()
         {
-            //5
             var result = myFixtureA.Data + nameof(MyFactB);
             Assert.Equal(nameof(MyFixtureA) + nameof(MyFixtureA.Data) + nameof(MyFactB), result);
         }

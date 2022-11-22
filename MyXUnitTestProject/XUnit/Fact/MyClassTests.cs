@@ -1,37 +1,34 @@
-﻿namespace MyXUnitTestProject.XUnit
-{
-    public class MyClassTests : IDisposable
-    {
-        string? _data;
-        //(optional) setup
-        public MyClassTests()
-        {
-            //1, 4
-            _data = "data";
-        }
-        //(optional) teardown
-        public void Dispose()
-        {
-            //3, 6
-            _data = null;
-        }
+﻿using MyConsoleAppProject;
 
+namespace MyXUnitTestProject.XUnit
+{
+    public class MyClassTests
+    {
         [Fact]
         public void MyFactA()
         {
-            //5
-            _data += nameof(MyFactA);
-            Assert.Equal("dataMyFactA", _data);
-        }
+            //Arrange
+            var myClass = new MyClass();
 
+            //Act
+            myClass.Max = 10;
+            myClass.MyClampedValue = 11;
+
+            //Assert
+            Assert.Equal(10, myClass.MyClampedValue);
+        }
         [Fact]
         public void MyFactB()
         {
-            //2
-            _data += nameof(MyFactB);
+            //Arrange
+            var myClass = new MyClass();
 
-            Assert.Equal("dataMyFactB", _data);
+            //Act
+            myClass.Min = -10;
+            myClass.MyClampedValue = -30;
+
+            //Assert
+            Assert.Equal(-10, myClass.MyClampedValue);
         }
-
     }
 }

@@ -9,12 +9,10 @@
         public string? Data { get; private set; }
         public MyFixtureA()
         {
-            //1
             Data = nameof(MyFixtureA) + nameof(Data);
         }
         public void Dispose()
         {
-            //6
             Data = null;
         }
     }
