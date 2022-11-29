@@ -3,16 +3,14 @@
 namespace MyXUnitTestProject.XUnit
 {
     [Collection(nameof(MyCollectionFixtures))]
-    public class MyCollectionTestsC : IClassFixture<MyFixtureC>
+    public class MyCollectionTestsB
     {
         MyFixtureA myFixtureA;
         MyFixtureB myFixtureB;
-        MyFixtureC myFixtureC;
-        public MyCollectionTestsC(MyFixtureA myFixtureA, MyFixtureB myFixtureB, MyFixtureC myFixtureC)
+        public MyCollectionTestsB(MyFixtureA myFixtureA, MyFixtureB myFixtureB)
         {
             this.myFixtureA = myFixtureA;
             this.myFixtureB = myFixtureB;
-            this.myFixtureC = myFixtureC;
         }
 
         [Fact]
@@ -20,12 +18,12 @@ namespace MyXUnitTestProject.XUnit
         {
             Assert.Equal(nameof(MyFixtureA) + nameof(MyFixtureA.Data), myFixtureA.Data);
             Assert.Equal(nameof(MyFixtureB) + nameof(MyFixtureB.Data), myFixtureB.Data);
-            Assert.Equal(nameof(MyFixtureC) + nameof(MyFixtureC.Data), myFixtureC.Data);
         }
         [Fact]
         public void MyFactB()
         {
-            Assert.Equal(nameof(MyFixtureC) + nameof(MyFixtureC.Data), myFixtureC.Data);
+            Assert.Equal(nameof(MyFixtureA) + nameof(MyFixtureA.Data), myFixtureA.Data);
+            Assert.Equal(nameof(MyFixtureB) + nameof(MyFixtureB.Data), myFixtureB.Data);
         }
     }
 }
