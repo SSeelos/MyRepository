@@ -5,17 +5,23 @@ namespace MyConsoleAppProject
 {
     public class MyClass : MyAbstractClass, IMyInterfaceA, IMyIntefaceB
     {
+        public const string myConst = "const value";
         //fields        (private :accessibility within the same class)
         private string myField;
 
         //attributes    (public: accessible by any code within current or external assembly)
         public double myAttribute = 1;
 
+        public string myGet { get; }
+        public string myGetPrivateSet { get; private set; }
+        public readonly string myReadonly;
+
         //property: field with get/set block
         public int myProperty { get; set; }
 
         //all instances of the class share static properties
         public static string myStaticProperty { get; set; }
+
 
         #region advanced Property
         public double Min;
@@ -78,10 +84,12 @@ namespace MyConsoleAppProject
         }
 
         //constructor
-        public MyClass(string myField = "myValue")
+        public MyClass(string myParameter = "myValue")
             : base("input for abstract class")
         {
-            this.myField = myField;
+            this.myField = myParameter;
+            this.myGetPrivateSet = myParameter;
+            this.myReadonly = myParameter;
         }
         public MyClass(MyStruct myStruct)
             : base(myStruct.A)
@@ -132,6 +140,15 @@ namespace MyConsoleAppProject
         public RuntimeMethodHandle GetRuntimeMethodHandle()
         {
             return MethodBase.GetCurrentMethod().MethodHandle;
+        }
+        //readonly cant be changed
+        //public void ChangeReadOnly(string value)
+        //{
+        //    this.myReadonly = value;
+        //}
+        public void ChangeGetPrivateSet(string value)
+        {
+            this.myGetPrivateSet = value;
         }
 
     }

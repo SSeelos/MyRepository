@@ -21,14 +21,14 @@ namespace MyConsoleAppProject.Tests
         [TestMethod()]
         public void MyMethodTest()
         {
-            //build (given)
+            //arrange/build (given)
             var myClass = new MyClass("value");
             myClass.myProperty += 2;
 
-            //operate (when)
+            //act/operate (when)
             var result = myClass.MyMethod();
 
-            //check (then)
+            //assert/check (then)
             Assert.AreEqual(2, result);
         }
         [TestMethod()]
@@ -139,6 +139,46 @@ namespace MyConsoleAppProject.Tests
             }
 
             Assert.AreEqual("GetRuntimeMethodHandle", name);
+        }
+
+        [TestMethod()]
+        public void GetPrivateSet()
+        {
+            var instance = new MyClass();
+
+            string get = instance.myGetPrivateSet;
+
+            //(cant change from extern)
+            //instance.myGetPrivateSet = "new";
+            get = "new";
+
+            Assert.IsTrue(!instance.myGetPrivateSet.Equals("new"));
+        }
+        [TestMethod()]
+        public void ChangeGetPrivateSetTest()
+        {
+            var instance = new MyClass();
+
+            string get = instance.myGetPrivateSet;
+
+            //(cant change from extern)
+            //instance.myGetPrivateSet = "new";
+            //but the value can still get changed
+            instance.ChangeGetPrivateSet("new");
+
+            Assert.IsTrue(instance.myGetPrivateSet.Equals("new"));
+        }
+
+        [TestMethod()]
+        public void Readonly()
+        {
+            var instance = new MyClass();
+
+            string myReadonly = instance.myReadonly;
+            //instance.myReadonly = "new";
+            myReadonly = "new";
+
+            Assert.AreEqual("new", myReadonly);
         }
     }
 }
