@@ -9,11 +9,14 @@ namespace MyWiX
         static string productName = "MyProduct";
         public static void Main(string[] args)
         {
-            var dir = new Dir($@"ProgramFiles\MyCompany\{productName}",
+            var dir = new Dir($@"%ProgramFiles%\MyCompany\{productName}",
                 new DirFiles(@"Release\Bin\*.*"));
 
-            var project = new Project(productName, dir);
-
+            var project = new Project(productName, new ManagedAction(nameof(CustomAcitons.MyCustomAction)))
+            {
+                Dirs = new Dir[] { dir },
+            };
+            project.ToXElement("xName");
             project.BuildMsi();
         }
     }
@@ -21,10 +24,11 @@ namespace MyWiX
     public class CustomAcitons
     {
         [CustomAction]
-        public static ActionResult MyAction(Session session)
+        public static ActionResult MyCustomAction(Session session)
         {
-            MessageBox.Show($"{nameof(MyAction)}()");
-            session.Log($"session: {nameof(MyAction)}()");
+            MessageBox.Show($"{nameof(MyCustomAction)}()");
+            session.Log($"session: {nameof(MyCustomAction)}()");
+
 
             return ActionResult.Success;
         }
