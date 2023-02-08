@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace MyConsoleAppProject
 {
-    public class MyClass : MyAbstractClass, IMyInterfaceA, IMyIntefaceB
+    public class MyClass : MyAbstractClass, IMyInterfaceA, IMyInterfaceB
     {
         //fields        (private :accessibility within the same class)
         private string myField;
@@ -26,7 +26,6 @@ namespace MyConsoleAppProject
 
         }
 
-
         public static void MyStaticMethod()
         {
             Console.WriteLine(MethodBase.GetCurrentMethod().Name);
@@ -35,12 +34,16 @@ namespace MyConsoleAppProject
 
         }
 
-        public void MyInterfaceFunction()
+        public void MyInterfaceAMethod()
         {
             Console.WriteLine(MethodBase.GetCurrentMethod().Name);
         }
+        void IMyInterfaceA.MyVirtualInterfaceMethod()
+        {
+            //...
+        }
 
-        public void MyInterface2Function()
+        public void MyInterfaceBMethod()
         {
             Console.WriteLine(MethodBase.GetCurrentMethod().Name);
         }

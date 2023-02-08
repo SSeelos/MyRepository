@@ -6,11 +6,15 @@ namespace MyConsoleAppProject
 {
     interface IMyInterfaceA
     {
-        void MyInterfaceFunction();
+        void MyInterfaceAMethod();
+        virtual void MyVirtualInterfaceMethod()
+        {
+            //...
+        }
     }
 
-    interface IMyIntefaceB
+    interface IMyInterfaceB
     {
-        void MyInterface2Function();
+        void MyInterfaceBMethod();
     }
 }

@@ -118,8 +118,8 @@ namespace MyConsoleAppProject
             myObject.myAttribute = 2;
             myObject.MyMethod();
             MyClass.MyStaticMethod();
-            myObject.MyInterfaceFunction();
-            myObject.MyInterface2Function();
+            myObject.MyInterfaceAMethod();
+            myObject.MyInterfaceBMethod();
             myObject.MyVirtualMethod();
             myObject.MyAbstractMethod();
 
