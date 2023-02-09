@@ -7,7 +7,7 @@ namespace MyWiX
         static string productName = "MyProduct";
         public static void Main(string[] args)
         {
-            var dir = new Dir($@"%ProgramFiles%\MyCompany\{productName}",
+            var dir = new InstallDir($@"%ProgramFiles%\MyCompany\{productName}",
                 new DirFiles(@"Release\Bin\*.*"));
 
             var project = new Project(productName,
