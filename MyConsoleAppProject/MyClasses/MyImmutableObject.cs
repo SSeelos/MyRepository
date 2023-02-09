@@ -7,6 +7,7 @@
     ///Note that private set only provides a restricted encapsulation
     ///of change to the property from within the same class,
     ///and thus isn't truly immutable
+    /// https://www.codeguru.com/csharp/c-sharp-immutability/
     /// </summary>
     public class MyImmutableObject
     {
