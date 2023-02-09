@@ -16,7 +16,7 @@ namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.AbstractFactory
         public abstract IProduct _CreateProductB();
     }
 
-    public class MyFactory0 : _MyAbstractFactory
+    public class MyFactoryA : _MyAbstractFactory
     {
         public override IProduct _CreateProductA()
         {
@@ -28,7 +28,7 @@ namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.AbstractFactory
             return new ProductB();
         }
     }
-    public class MyFactory1 : _MyAbstractFactory
+    public class MyFactoryB : _MyAbstractFactory
     {
         public override IProduct _CreateProductA()
         {
@@ -45,14 +45,14 @@ namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.AbstractFactory
     {
         public void doSomething()
         {
-            Console.WriteLine($"{this.GetType().Name} : {MethodBase.GetCurrentMethod().Name}");
+            Console.WriteLine($"{this.GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
         }
     }
     public class ProductB1 : IProduct
     {
         public void doSomething()
         {
-            Console.WriteLine($"{this.GetType().Name} : {MethodBase.GetCurrentMethod().Name}");
+            Console.WriteLine($"{this.GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
         }
     }
 

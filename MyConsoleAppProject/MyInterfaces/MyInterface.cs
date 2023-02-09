@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyConsoleAppProject
+﻿namespace MyConsoleAppProject
 {
-    interface IMyInterfaceA
+    public interface IMyInterfaceA
     {
-        void MyInterfaceFunction();
+        void MyInterfaceAMethod();
     }
 
-    interface IMyIntefaceB
+    public interface IMyIntefaceB
     {
-        void MyInterface2Function();
+        void MyInterfaceBMethod();
     }
 }

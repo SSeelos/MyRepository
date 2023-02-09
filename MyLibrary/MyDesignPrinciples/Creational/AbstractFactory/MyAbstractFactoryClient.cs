@@ -6,13 +6,13 @@ namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.AbstractFactory
     {
         public static void Run()
         {
-            var factory0 = new MyFactory0();
+            var factory0 = new MyFactoryA();
             IProduct productA0 = factory0._CreateProductA();
             IProduct productB0 = factory0._CreateProductB();
             productA0.doSomething();
             productB0.doSomething();
 
-            var factory1 = new MyFactory1();
+            var factory1 = new MyFactoryB();
             IProduct productA1 = factory1._CreateProductA();
             IProduct productB1 = factory1._CreateProductB();
             productA1.doSomething();

@@ -117,29 +117,36 @@ namespace MyConsoleAppProject
             var myObject = new MyClass();
             myObject.myAttribute = 2;
             myObject.MyMethod();
+            myObject.MyNewMethod();
             MyClass.MyStaticMethod();
-            myObject.MyInterfaceFunction();
-            myObject.MyInterface2Function();
+            myObject.MyInterfaceAMethod();
+            myObject.MyInterfaceBMethod();
             myObject.MyPublicVirtualMethod();
-            myObject.MyPublicAbstractMethod();
+            myObject._MyPublicAbstractMethod();
             myObject.MyMethodOfAbstractClass();
 
             //set property
-            myObject.myProperty = 5;
+            myObject.MyAutoProperty = 5;
             //get property
-            var str = myObject.myProperty;
+            var str = myObject.MyAutoProperty;
 
 
             var myObjectB = new MyClassB("field");
             myObjectB.MyPublicVirtualMethod();
-            myObjectB.MyPublicAbstractMethod();
+            myObjectB._MyPublicAbstractMethod();
             myObjectB.MyMethodOfAbstractClass();
+
+            var derived = new MyDerivedClass();
+            derived.MyMethod();
 
 
             MyStaticClass.MyProperty = "static property";
 
+
             var immutable = new MyImmutableObject("immutable prop", "immutable auto prop");
             Console.WriteLine(immutable.ImmutableProperty + " " + immutable.MyGetterOnlyAutoProperty);
+
+
             #endregion
 
             #region reference or value
