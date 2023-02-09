@@ -17,7 +17,10 @@ namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Builder
         private readonly List<object> _parts = new List<object>();
 
         private readonly List<MyPartProduct> _partProducts = new List<MyPartProduct>();
+        public MyProduct()
+        {
 
+        }
         public MyProduct(string initPart)
         {
             this._parts.Add(initPart);
