@@ -1,9 +1,14 @@
-﻿using System;
+﻿using MySystemExtensions;
+using System;
 using System.Reflection;
 
 namespace MyConsoleAppProject
 {
-    public abstract class MyAbstractClass
+    public interface IMyInterface
+    {
+        void MyInterfaceMethod();
+    }
+    public abstract class _MyAbstractClass : IMyInterface
     {
         public static string _myStaticProperty;
         //only accessible from this class
@@ -12,36 +17,64 @@ namespace MyConsoleAppProject
         //only accessible from derived classes
         protected string myProtectedVariable;
 
-        public MyAbstractClass(string field)
+        public _MyAbstractClass()
+        {
+
+        }
+        public _MyAbstractClass(string field)
         {
             this.myField = field;
         }
+        public string GetField() => this.myField;
+        public void MyInterfaceMethod()
+        {
+            Console.WriteLine($"{GetType().BaseType.Name}.{MethodBase.GetCurrentMethod().Name}");
+        }
 
-        //derived classes can override virtual method
+        /// <summary>
+        /// derived classes CAN override virtual method
+        /// </summary>
         protected virtual void MyProtectedVirtualMethod()
         {
-            Console.WriteLine($"{GetType().Name} - {MethodBase.GetCurrentMethod().Name}");
+            Console.WriteLine($"{GetType().BaseType.Name}.{MethodBase.GetCurrentMethod().Name}");
 
             //default implementation...
         }
         public virtual void MyPublicVirtualMethod()
         {
-            Console.WriteLine($"{GetType().Name} - {MethodBase.GetCurrentMethod().Name}");
+            Console.WriteLine($"{GetType().BaseType.Name}.{MethodBase.GetCurrentMethod().Name}");
 
             //default implementation...
         }
 
-        //derived classes must override abstract method
-        protected abstract void MyProtectedAbstractMethod();
-        public abstract void MyPublicAbstractMethod();
+        /// <summary>
+        /// derived classes MUST override abstract methods
+        /// </summary>
+        protected abstract void _MyProtectedAbstractMethod();
+        public abstract void _MyPublicAbstractMethod();
 
         public void MyMethodOfAbstractClass()
         {
-            Console.WriteLine($"{GetType().Name} - {MethodBase.GetCurrentMethod().Name}");
+            Console.WriteLine($"{GetType().BaseType.Name}.{MethodBase.GetCurrentMethod().Name}");
 
             MyProtectedVirtualMethod();
 
-            MyProtectedAbstractMethod();
+            _MyProtectedAbstractMethod();
         }
+        /// <summary>
+        /// use the new keyword in the derived class to test the behaviour
+        /// (any derived class cast to this abstract class will call this method rather than the "new" method of the derived class)
+        /// </summary>
+        /// <returns></returns>
+        public string MyNewMethod()
+        {
+            string msg2 = $"{MethodBase.GetCurrentMethod().Display()}";
+            string msg = $"{GetType().BaseType.Name}.{MethodBase.GetCurrentMethod().Name}";
+            Console.WriteLine(msg);
+
+            return msg;
+        }
+
+
     }
 }

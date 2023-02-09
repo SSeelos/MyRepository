@@ -1,13 +1,35 @@
-﻿using System;
+﻿using MySystemExtensions;
+using System;
 using System.Reflection;
 
 namespace MyConsoleAppProject
 {
-    public class MyClass : MyAbstractClass, IMyInterfaceA, IMyIntefaceB
+    public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyIntefaceB
     {
-        public const string myConst = "const value";
-        //fields        (private :accessibility within the same class)
+        #region Members
+        //Methods, properties, events, constructors, and fields
+        //are collectively referred to as members.
+
+        //The means by which framework functionality is exposed to the end users of a framework.
+
+        #region Fields
+
+        //a type should be designed so that changes to fields of that type (name or type changes)
+        //can be made without breaking code other than for members of the type.
+        //This implies that all fields must be private.
+
+        //(private :accessibility within the same class)
         private string myField;
+
+        //excluded from this strict restriction are constant and static read-only fields,
+        //because such fields, are never required to change.
+        public const string myConstant = "const value";
+        //all instances of the class share static fields
+        public static readonly string myStaticReadonlyField;
+
+        #endregion
+
+        #region Properties
 
         //attributes    (public: accessible by any code within current or external assembly)
         public double myAttribute = 1;
@@ -16,16 +38,19 @@ namespace MyConsoleAppProject
         public string myGetPrivateSet { get; private set; }
         public readonly string myReadonly;
 
-        //property: field with get/set block
-        public int myProperty { get; set; }
+        //(auto-implemented) property: field with get/set block
+        public int MyAutoProperty { get; set; }
 
         //all instances of the class share static properties
         public static string myStaticProperty { get; set; }
 
 
-        #region advanced Property
+        #region Advanced Property
+
         public double Min;
         public double Max;
+
+        //backing field
         private double _myValue;
         public double MyClampedValue
         {
@@ -37,54 +62,17 @@ namespace MyConsoleAppProject
             }
         }
         public event Action<double> MyValueChanged;
+
         #endregion
 
-        //methods
-        public double MyMethod()
+        #endregion
+
+        #region Constructors (ctor)
+        public MyClass()
         {
-            double product = myAttribute * myProperty;
-            Console.WriteLine(MethodBase.GetCurrentMethod().Name + ": " + myField + ", " + product);
-            Type type = typeof(MyClass);
-            Type thisType = this.GetType();
-
-            try
-            {
-                throw new Exception();
-            }
-            catch (Exception exception)
-            {
-                string m = exception.Message;
-                string s = exception.Source;
-                MethodBase t = exception.TargetSite;
-
-                throw;
-            }
-            bool compare = type == thisType;
-
-            return product;
-        }
-
-
-        public static void MyStaticMethod()
-        {
-            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
-
-            Console.WriteLine(myStaticProperty);
 
         }
-
-        public void MyInterfaceFunction()
-        {
-            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
-        }
-
-        public void MyInterface2Function()
-        {
-            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
-        }
-
-        //constructor
-        public MyClass(string myParameter = "myValue")
+        public MyClass(string myParameter)
             : base("input for abstract class")
         {
             this.myField = myParameter;
@@ -96,7 +84,60 @@ namespace MyConsoleAppProject
         {
             this.myField = myStruct.B;
         }
+        #endregion
 
+        #region Methods
+        public double MyMethod()
+        {
+            double product = myAttribute * MyAutoProperty;
+            Console.WriteLine(MethodBase.GetCurrentMethod().Name + ": " + myField + ", " + product);
+            Type type = typeof(MyClass);
+            Type thisType = this.GetType();
+
+
+            bool compare = type == thisType;
+
+            return product;
+        }
+
+        public void TryCatchException()
+        {
+            try
+            {
+                throw new Exception();
+            }
+            catch (Exception exception)
+            {
+                string m = exception.Message;
+                string s = exception.Source;
+                MethodBase t = exception.TargetSite;
+            }
+        }
+
+        public static void MyStaticMethod()
+        {
+            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+
+            Console.WriteLine(myStaticProperty);
+
+        }
+
+        public void MyInterfaceAMethod()
+        {
+            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+        }
+
+        public void MyInterfaceBMethod()
+        {
+            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+        }
+        public new string MyNewMethod()
+        {
+            string msg = $"{MethodBase.GetCurrentMethod().Display()}";
+            Console.WriteLine(msg);
+
+            return msg;
+        }
         public void SetField(string value)
         {
             this.myField = value;
@@ -127,11 +168,11 @@ namespace MyConsoleAppProject
         }
 
         //concrete implementation of abstract method
-        public override void MyPublicAbstractMethod()
+        public override void _MyPublicAbstractMethod()
         {
             Console.WriteLine($"{GetType().Name} - (override){MethodBase.GetCurrentMethod().Name}");
         }
-        protected override void MyProtectedAbstractMethod()
+        protected override void _MyProtectedAbstractMethod()
         {
             Console.WriteLine($"{GetType().Name} - (override){MethodBase.GetCurrentMethod().Name}");
         }
@@ -151,9 +192,12 @@ namespace MyConsoleAppProject
             this.myGetPrivateSet = value;
         }
 
+        #endregion
+
+        #endregion
     }
 
-    public class MyClassB : MyAbstractClass
+    public class MyClassB : _MyAbstractClass
     {
         public MyClassB(string field) : base(field)
         {
@@ -172,11 +216,11 @@ namespace MyConsoleAppProject
         {
             Console.WriteLine($"{GetType().Name} - (override){MethodBase.GetCurrentMethod().Name}");
         }
-        protected override void MyProtectedAbstractMethod()
+        protected override void _MyProtectedAbstractMethod()
         {
             Console.WriteLine($"{GetType().Name} - (override){MethodBase.GetCurrentMethod().Name}");
         }
-        public override void MyPublicAbstractMethod()
+        public override void _MyPublicAbstractMethod()
         {
             Console.WriteLine($"{GetType().Name} - (override){MethodBase.GetCurrentMethod().Name}");
         }
