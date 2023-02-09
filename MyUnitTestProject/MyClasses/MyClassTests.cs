@@ -23,13 +23,25 @@ namespace MyConsoleAppProject.Tests
         {
             //arrange/build (given)
             var myClass = new MyClass("value");
-            myClass.myProperty += 2;
+            myClass.MyAutoProperty += 2;
 
             //act/operate (when)
             var result = myClass.MyMethod();
 
             //assert/check (then)
             Assert.AreEqual(2, result);
+        }
+        [TestMethod()]
+        public void MyNewMethodTest()
+        {
+            MyClass myClass = new MyClass("value");
+            _MyAbstractClass absClass = myClass;
+            var newRes = myClass.MyNewMethod();
+            var absRes = absClass.MyNewMethod();
+
+            Assert.AreNotEqual(newRes, absRes);
+            Assert.AreEqual("<MyClass>:<_MyAbstractClass>.MyNewMethod", newRes);
+            Assert.AreEqual("<_MyAbstractClass>.MyNewMethod", absRes);
         }
         [TestMethod()]
         public void MyStaticPropertyTest()
@@ -65,14 +77,14 @@ namespace MyConsoleAppProject.Tests
         public void MyInterfaceFunctionTest()
         {
             var myClass = new MyClass("value");
-            myClass.MyInterfaceFunction();
+            myClass.MyInterfaceAMethod();
         }
 
         [TestMethod()]
         public void MyInterface2FunctionTest()
         {
             var myClass = new MyClass("value");
-            myClass.MyInterfaceFunction();
+            myClass.MyInterfaceAMethod();
         }
         [TestMethod()]
         public void MyBaseStaticPropertyTest()
@@ -84,8 +96,8 @@ namespace MyConsoleAppProject.Tests
             var objB = new MyClassB("value");
             objB.SetBaseStaticProperty(dataB);
 
-            Assert.AreEqual(objA.GetBaseStaticProperty(), MyAbstractClass._myStaticProperty);
-            Assert.AreEqual(objB.GetBaseStaticProperty(), MyAbstractClass._myStaticProperty);
+            Assert.AreEqual(objA.GetBaseStaticProperty(), _MyAbstractClass._myStaticProperty);
+            Assert.AreEqual(objB.GetBaseStaticProperty(), _MyAbstractClass._myStaticProperty);
         }
 
 
@@ -105,7 +117,7 @@ namespace MyConsoleAppProject.Tests
         public void GetBaseClassTypeTest()
         {
             var type = typeof(MyClass);
-            var baseType = typeof(MyAbstractClass);
+            var baseType = typeof(_MyAbstractClass);
 
             Assert.AreEqual(baseType, type.BaseType);
             Assert.AreEqual("MyAbstractClass", type.BaseType.Name);

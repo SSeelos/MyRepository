@@ -27,5 +27,13 @@ namespace MyConsoleAppProject.Tests
 
             Assert.AreEqual(result, dataA + dataB);
         }
+        [TestMethod()]
+        public void MyExtensionMethodTest()
+        {
+            var mySealedClass = new MySealedClass();
+            var result = mySealedClass.MyExtensionMethod();
+
+            Assert.AreEqual(mySealedClass.MyProperty + "extended", result);
+        }
     }
 }
