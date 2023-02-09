@@ -1,5 +1,4 @@
 ﻿//namespace for this document
-
 using MyLibrary_DotNETstd_2_1;
 
 namespace MyDotNet6ConsoleApp;
@@ -16,10 +15,7 @@ public class DotNET6Program
         programRunner.Run(new RecordTypeProgram());
 
         programRunner.Run(new ThreadingProgram());
-
     }
-
-
 }
 
 
