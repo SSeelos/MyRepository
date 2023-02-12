@@ -32,4 +32,15 @@ namespace MyConsoleAppProject
     {
         void MyDuplicateMethod();
     }
+
+    interface IObservable
+    {
+        static event Action OnTriggeredStatic;
+        void Trigger();
+
+        virtual void TriggerStatic()
+        {
+            OnTriggeredStatic?.Invoke();
+        }
+    }
 }
