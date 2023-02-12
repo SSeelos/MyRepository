@@ -17,4 +17,19 @@ namespace MyConsoleAppProject
     {
         void MyInterfaceBMethod();
     }
+
+    /// <summary>
+    /// interface that enforces implementation of a method with the same signature as IMyDuplicateB
+    /// </summary>
+    interface IMyDuplicateA
+    {
+        void MyDuplicateMethod();
+    }
+    /// <summary>
+    /// interface that enforces implementation of a method with the same signature as IMyDuplicateA
+    /// </summary>
+    interface IMyDuplicateB
+    {
+        void MyDuplicateMethod();
+    }
 }

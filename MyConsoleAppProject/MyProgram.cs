@@ -120,7 +120,11 @@ namespace MyConsoleAppProject
             MyClass.MyStaticMethod();
             myObject.MyInterfaceAMethod();
             myObject.MyInterfaceBMethod();
-            myObject.MyVirtualMethod();
+            
+            myObject.MyDuplicateMethod();
+            (myObject as IMyDuplicateA).MyDuplicateMethod();
+            (myObject as IMyDuplicateA).MyDuplicateMethod();
+
             myObject.MyAbstractMethod();
 
             //set property
