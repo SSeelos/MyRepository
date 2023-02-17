@@ -8,8 +8,8 @@ public static class TypeExt
             return "";
 
         if (type.BaseType == null || type.BaseType.Equals(typeof(object)))
-            return $"<{type.Name}>";
+            return $"{type.Name}";
 
-        return $"<{type.Name}>:base<{type.BaseType.Name}>";
+        return $"{type.Name}:{type.BaseType.Name}";
     }
 }
