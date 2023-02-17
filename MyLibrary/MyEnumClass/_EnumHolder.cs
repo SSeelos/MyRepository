@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MyLibrary_DotNETstd_2_1
 {
@@ -8,14 +7,8 @@ namespace MyLibrary_DotNETstd_2_1
     {
         public Dictionary<T, _MyEnumClass> MyEnumClasses = new Dictionary<T, _MyEnumClass>();
         public abstract void Add(_MyEnumClass enumClass);
-        public _MyEnumClass Get(T type)
-        {
-            return MyEnumClasses[type];
-        }
-        public void Delete(T type)
-        {
-            MyEnumClasses.Remove(type);
-        }
+        public _MyEnumClass Get(T type) => MyEnumClasses[type];
+        public void Delete(T type) => MyEnumClasses.Remove(type);
     }
     public class EnumHolderType : _MyEnumHolder<Type>
     {
