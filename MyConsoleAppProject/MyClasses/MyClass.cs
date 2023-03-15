@@ -44,7 +44,6 @@ namespace MyConsoleAppProject
         //all instances of the class share static properties
         public static string myStaticProperty { get; set; }
 
-
         #region Advanced Property
 
         public double Min;
@@ -73,7 +72,7 @@ namespace MyConsoleAppProject
 
         }
         public MyClass(string myParameter)
-            : base("input for abstract class")
+            : base("input for base class")
         {
             this.myField = myParameter;
             this.myGetPrivateSet = myParameter;
