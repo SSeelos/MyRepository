@@ -1,4 +1,5 @@
 ﻿using MyConsoleAppProject.MyEventsAndDelegates;
+using MySystemExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -142,6 +143,12 @@ namespace MyConsoleAppProject
 
             MyStaticClass.MyProperty = "static property";
 
+            var myEnumerable = new MyEnumerable();
+            foreach (var item in myEnumerable)
+            {
+                Console.WriteLine(typeof(MyEnumerable).Display());
+                Console.WriteLine(item);
+            }
 
             var immutable = new MyImmutableObject("immutable prop", "immutable auto prop");
             Console.WriteLine(immutable.ImmutableProperty + " " + immutable.MyGetterOnlyAutoProperty);
