@@ -146,6 +146,8 @@ namespace MyLibrary_DotNETstd_2_1
             _radius = value / 2;
         }
 
+        //What did the circle say when it saw its area?
+        //"Wow, that's a lot of pi!"
         public double Area()
         {
             return Math.PI * Math.Pow(this._radius, 2);

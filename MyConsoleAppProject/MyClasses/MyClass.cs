@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace MyConsoleAppProject
 {
-    public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyIntefaceB
+    public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyInterfaceB
     {
         #region Members
         //Methods, properties, events, constructors, and fields

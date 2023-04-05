@@ -2,7 +2,7 @@
 
 namespace MyConsoleAppProject
 {
-    class MyGenericClass
+    public class MyGenericClass
     {
 
         public T[] CreateArray<T>(T first, T second)
@@ -22,7 +22,7 @@ namespace MyConsoleAppProject
             return props;
         }
     }
-    class MyGenericClassT<T>
+    public class MyGenericClassT<T>
     {
         T type;
         public T GetGenericType() => type;
