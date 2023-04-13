@@ -3,8 +3,8 @@
 namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.AbstractFactory
 {
     /// <summary>
-    /// produce families of related objects 
-    /// without specifying their concrete classes
+    /// provides an interface for creating objects in a superclass, 
+    /// but allows subclasses to alter the type of objects that will be created.
     /// 
     /// can also be an interface
     /// </summary>

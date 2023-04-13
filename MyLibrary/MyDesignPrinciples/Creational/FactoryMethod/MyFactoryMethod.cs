@@ -3,10 +3,6 @@ using System.Reflection;
 
 namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.FactoryMethod
 {
-    /// <summary>
-    /// provides an interface for creating objects in a superclass, 
-    /// but allows subclasses to alter the type of objects that will be created.
-    /// </summary>
     public abstract class MyCreatorBase
     {
         public virtual void Operation()
