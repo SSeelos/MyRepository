@@ -1,10 +1,6 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyDotNet6ConsoleApp.Threading
 {
@@ -19,7 +15,7 @@ namespace MyDotNet6ConsoleApp.Threading
         //to begin the child thread execution
         private void StartNewThread()
         {
-            ThreadingProgram.Logger.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod(), MyLibrary.MyUtilities.Hirarchy.Title);
+            ThreadingProgram.Logger.ClassMethodLog(this.GetType(), MethodBase.GetCurrentMethod(), Hirarchy.Title);
 
             ThreadStart threadStart = new ThreadStart(ThreadMethod);
             Thread thread = new Thread(threadStart);

@@ -1,8 +1,16 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.Proxy
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Proxy
 {
+    /// <summary>
+    /// The Proxy has an interface identical to the "real" Service.
+    /// 
+    /// Applications:
+    /// lazy loading,caching, controlling the access, logging, ... 
+    /// A Proxy then, depending on the result, 
+    /// passes the execution to the same method in a linked RealSubject object.
+    /// </summary>
     class MyProxy : IService
     {
         IService Service;

@@ -1,11 +1,11 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using Microsoft.Win32;
 
-namespace MyLibrary.MyProcess
+namespace MyLibrary_DotNETstd_2_1.MyProcess
 {
     public interface IProcessHandler
     {

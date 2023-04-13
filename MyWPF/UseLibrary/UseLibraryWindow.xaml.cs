@@ -1,16 +1,20 @@
-﻿using MyLibrary;
-using MyLibrary.EventsAndDelegates_CodeMonkey;
-using MyLibrary.MyDesignPrinciples;
-using MyLibrary.MyJSON;
-<<<<<<< HEAD
-using MyLibrary.MyNeo4j;
-=======
-using MyLibrary.MyProcess;
-using MyLibrary.Test;
-using MyLibrary.Web;
+﻿using MyLibrary_DotNETstd_2_1;
+using MyLibrary_DotNETstd_2_1.EventsAndDelegates_CodeMonkey;
+using MyLibrary_DotNETstd_2_1.MyAssembly;
+using MyLibrary_DotNETstd_2_1.MyBitMap;
+using MyLibrary_DotNETstd_2_1.MyDesignPrinciples;
+using MyLibrary_DotNETstd_2_1.MyEncoding;
+using MyLibrary_DotNETstd_2_1.MyJSON;
+using MyLibrary_DotNETstd_2_1.MyLINQ;
+using MyLibrary_DotNETstd_2_1.MyProcess;
+using MyLibrary_DotNETstd_2_1.MyRegex;
+using MyLibrary_DotNETstd_2_1.Test;
+using MyLibrary_DotNETstd_2_1.Web;
 using System;
->>>>>>> 4579333d76d523225eca9a5dcd5f9fec77685720
+using System.Drawing;
+using System.Media;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace MyWPF
 {
@@ -28,48 +32,114 @@ namespace MyWPF
 
         private void SOLID_Click(object sender, RoutedEventArgs e)
         {
-            programRunner.RunProgram(new SolidProgram());
+            programRunner.Run(new SolidProgram());
         }
 
         private void UnitValues_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new UnitValuesProgram());
+            this.programRunner.Run(new UnitValuesProgram());
 
-            this.programRunner.RunProgram(new UnitsNetProgram());
+            this.programRunner.Run(new UnitsNetProgram());
         }
 
         private void DesignPrinciples_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new MyDesignPrinciplesProgram());
+            this.programRunner.Run(new MyDesignPrinciplesProgram());
         }
 
         private void JSON_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new JSONProgram());
+            this.programRunner.Run(new JSONProgram());
         }
 
         private void Events_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new EventsClient());
+            this.programRunner.Run(new EventsClient());
         }
         private void Web_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new WebProgram());
+            this.programRunner.Run(new WebProgram());
         }
 
         private void Test_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new TestProgram());
+            this.programRunner.Run(new TestProgram());
         }
 
         private void MyProcess_Click(object sender, RoutedEventArgs e)
         {
-            this.programRunner.RunProgram(new MyProcessProgram());
+            this.programRunner.Run(new MyProcessProgram());
         }
 
-        private void Neo4j_Click(object sender, RoutedEventArgs e)
+        private void Bitmap_Click(object sender, RoutedEventArgs e)
         {
-            Neo4jProgram.Main();
+            var resUri = new Uri("pack://application:,,,/MyWPF;component/Resources/Amelie.png");
+
+            BitmapImage bitmapImageUri;
+            try
+            {
+                bitmapImageUri = new BitmapImage(resUri);
+            }
+            catch { }
+
+            Bitmap bitmap = Properties.Resources.Amelie;
+
+            //BitmapImage bitmapImage = BitmapConverter.Bitmap2BitmapImage(bitmap);
+
+            var bMimage = bitmap.ToBitmapImage();
+
+
+
+            this.programRunner.Run(new MyBitMapProgram());
+        }
+        private void LINQ_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.Run(new MyLinqProgram());
+        }
+
+        private void EnumClass_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.Run(new MyEnumClassProgram());
+        }
+
+        private void Attributes_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.Run(new MyAttributeProgram());
+        }
+
+        private void FileSystem_Click(object sender, RoutedEventArgs e)
+        {
+            //this.programRunner.RunProgram(new FileSystemProgram());
+        }
+
+
+        private void MyEncoding_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.Run(new MyEncodingProgram());
+
+        }
+
+        private void RegEx_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.Run(new MyRegexProgram());
+        }
+
+        private void Audio_Click(object sender, RoutedEventArgs e)
+        {
+            var audio = Properties.Resources.OOT_Navi_Hey1;
+
+            SoundPlayer player = new SoundPlayer(audio);
+            player.Play();
+        }
+
+        private void MyAssembly_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.Run(new AssemblyProgram());
+        }
+
+        private void MyExceptions_Click(object sender, RoutedEventArgs e)
+        {
+            this.programRunner.Run(new ExceptionProgram());
         }
     }
 }

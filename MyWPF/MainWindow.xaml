@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWPF"
         mc:Ignorable="d"
-        Title="MyTitle" 
+        Title="MyTitle"
+        MinWidth="800"
         SizeToContent="WidthAndHeight">
     <Border Padding="50" Background ="Green">
         <StackPanel>

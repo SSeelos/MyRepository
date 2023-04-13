@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.MyDesignPrinciples.Builder
+﻿namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Builder
 {
     #region builder interfaces
 
@@ -6,10 +6,10 @@
     {
         IBuildPartBOrPartC BuildPartA(string partA);
     }
-    public interface IBuildPartBOrPartC
+    public interface IBuildPartBOrPartC : IBuildPartC
     {
         IBuildPartC BuildPartB_Optional(string partB);
-        IGetProduct BuildPartC(string partC);
+        //IGetProduct BuildPartC(string partC);
     }
     public interface IBuildPartC
     {
@@ -17,7 +17,7 @@
     }
     public interface IGetProduct
     {
-        MyFluentProduct GetProduct();
+        IProduct GetProduct();
     }
 
     #endregion
@@ -61,7 +61,7 @@
 
         #endregion
 
-        public MyFluentProduct GetProduct()
+        public IProduct GetProduct()
         {
             var result = this.product;
             Reset();

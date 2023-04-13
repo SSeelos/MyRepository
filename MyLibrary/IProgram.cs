@@ -1,11 +1,16 @@
 ﻿using System;
 
-namespace MyLibrary
+namespace MyLibrary_DotNETstd_2_1
 {
     public interface IProgram
     {
         void Run();
-        void Close() => Console.Clear();
+        void Close()
+        {
+            Console.WriteLine("PRESS ENTER TO CLOSE PROGRAM");
+            Console.ReadLine();
+            Console.Clear();
+        }
     }
 
     public class ProgramRunner
@@ -22,18 +27,20 @@ namespace MyLibrary
                 _currentProgram = value;
             }
         }
-        public void RunProgram(IProgram program)
+        public void Run(IProgram program)
         {
             CurrentProgram = program;
 
             try
             {
+                Console.WriteLine(program.GetType().Name);
                 program.Run();
 
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }

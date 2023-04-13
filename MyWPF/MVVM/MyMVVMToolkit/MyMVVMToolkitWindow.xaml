@@ -4,13 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MyMVVMToolkitWindow" 
+        Title="MyMVVMToolkitWindow"
+        MinWidth="600"
         SizeToContent="WidthAndHeight">
     <Border Padding="20">
         <StackPanel>
             <Button Content="ObservableViewModel" Click="ObservableVM_Click"/>
             <Button Content="ListView" Click="ListView_Click"/>
             <Button Content="DataGridView" Click="DataGridView_Click"/>
+            <Button Content="Ookii" Click="Ookii_Click"/>
+            <Button Content="DependencyInjection" Click="DependencyInjection_Click"/>
+            <Button Content="EntityComponentSystem" Click="EntityComponentSystem_Click"/>
         </StackPanel>
     </Border>
 </Window>

@@ -1,17 +1,17 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System;
 using System.Reflection;
 
-namespace MyLibrary.EventsAndDelegates_CodeMonkey
+namespace MyLibrary_DotNETstd_2_1.EventsAndDelegates_CodeMonkey
 {
     public class MySubscriberB : ISubscriber
     {
         public static string suffix = "B";
-        public void Subscribe(MyPublisher publisher)
+        public void Subscribe(IPublisher publisher)
         {
             publisher.OnEventTriggered += Publisher_OnEventTriggered;
             publisher.OnEventArgsTriggered += Publisher_OnEventArgsTriggered;
-            publisher.OnActionTriggered += Publisher_OnActionTriggered;
+            publisher.OnActionTriggeredArgs += Publisher_OnActionTriggered;
             publisher.OnFuncTriggered += Publisher_OnFuncTriggered;
             publisher.OnFuncParamTriggered += Publisher_OnFuncParamTriggered;
             publisher.OnEventDelegateTriggered += Publisher_OnEventDelegateTriggered;

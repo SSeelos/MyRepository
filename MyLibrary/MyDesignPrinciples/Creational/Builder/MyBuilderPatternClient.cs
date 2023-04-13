@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyLibrary.MyDesignPrinciples.Builder
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Builder
 {
     class MyBuilderPatternClient
     {
@@ -13,10 +13,11 @@ namespace MyLibrary.MyDesignPrinciples.Builder
 
             BuildWithDirector(director);
 
-
             BuildWithPartBuilder();
 
             BuildWithFluentBuilder();
+
+            BuildWithNestedBuilder();
 
         }
         private static void BuildProductWithBuilder(MyBuilder builder)
@@ -65,18 +66,49 @@ namespace MyLibrary.MyDesignPrinciples.Builder
             IBuildPartC B = A.BuildPartB_Optional("B (optional)");
             IGetProduct C = B.BuildPartC("C");
 
-            MyFluentProduct prod = C.GetProduct();
+            IProduct prod = C.GetProduct();
             var parts = prod.OutputParts();
             Console.WriteLine(parts);
 
 
-            MyFluentProduct prod2 = builder.Start()
+            IProduct prod2 = builder.Start()
                 .BuildPartA("A2")
                 .BuildPartC("C2")
                 .GetProduct();
 
             Console.WriteLine(prod2.OutputParts());
 
+        }
+
+        private static void BuildWithNestedBuilder()
+        {
+            var builder = new MyNestedBuilderA();
+            IBuildPartAOrNest build = builder.Build();
+            IBuildPartBOrPartCOrNest A = build.BuildPartA("A");
+            IBuildPartCOrNest B = A.BuildPartB_Optional("B");
+            IBuildPartAOrNest nest = B.Nest().Build();
+            IBuildPartBOrPartCOrNest An = nest.BuildPartA("nestedA");
+            IBuildPartCOrNest Bn = An.BuildPartB_Optional("nestedB");
+            INestableBuilder ret = Bn.Return();
+            IGetProduct C = ret.BuildPartC("C");
+            IProduct product = C.GetProduct();
+            ;
+            var parts = product.OutputParts();
+            Console.WriteLine(parts);
+
+
+            var builder2 = new MyNestedBuilderA();
+            IProduct product2 = builder2.Build()
+                .BuildPartA("A")
+                .BuildPartB_Optional("B")
+                    .Nest().Build()
+                    .BuildPartA("nestedA")
+                    .BuildPartB_Optional("nestedB")
+                    .Return()
+                .BuildPartC("C")
+                .GetProduct();
+            var parts2 = product2.OutputParts();
+            Console.WriteLine(parts2);
         }
     }
 }

@@ -13,5 +13,13 @@ namespace MyConsoleAppProject
 
             return dataA + dataB;
         }
+
+        public static string MyExtensionMethod(this MySealedClass subject)
+        {
+            Console.WriteLine(MethodBase.GetCurrentMethod().Name);
+
+            return subject.MyProperty + "extended";
+        }
+
     }
 }

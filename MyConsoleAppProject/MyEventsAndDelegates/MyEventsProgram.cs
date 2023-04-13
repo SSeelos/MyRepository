@@ -17,16 +17,13 @@ namespace MyConsoleAppProject.MyEventsAndDelegates
             var myClass = new MyClass();
             var publisher = new MyPublisher();
             var subscriber = new MySubscriber();
+            subscriber.Subscribe(publisher);
 
-            publisher.EventTriggered += subscriber.OnEventTrigger;
-
-            publisher.TriggeringFunction(myClass);
-
+            publisher.InvokingFunction(myClass);
 
             var publisherArgs = new MyPublisherArgs();
             var subscriberArgs = new MySubscriberArgs();
-
-            publisherArgs.EventTriggeredArgs += subscriberArgs.OnEventTriggerArgs;
+            subscriberArgs.Subscribe(publisherArgs);
 
             publisherArgs.TriggeringFunctionArgs(myClass);
         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyLibrary
+namespace MyLibrary_DotNETstd_2_1
 {
     //extra class for each unit? -> convertToBase()
     public enum Units

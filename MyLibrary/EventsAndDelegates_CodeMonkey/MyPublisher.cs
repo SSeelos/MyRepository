@@ -1,20 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyLibrary.EventsAndDelegates_CodeMonkey
+namespace MyLibrary_DotNETstd_2_1.EventsAndDelegates_CodeMonkey
 {
-    public interface IPublisher { }
-    public class MyPublisher
+    public interface IPublisher
+    {
+        event EventHandler OnEventTriggered;
+        event EventHandler<string> OnEventArgsTriggered;
+
+        event Action OnActionTriggered;
+        event Action<string, string> OnActionTriggeredArgs;
+        event Func<string> OnFuncTriggered;
+        event Func<string, string> OnFuncParamTriggered;
+
+        delegate void EventDelegate(string param);
+        event EventDelegate OnEventDelegateTriggered;
+    }
+    public class MyPublisher : IPublisher
     {
         public event EventHandler OnEventTriggered;
         public event EventHandler<string> OnEventArgsTriggered;
 
-        public event Action<string, string> OnActionTriggered;
+        public event Action OnActionTriggered;
+        public event Action<string, string> OnActionTriggeredArgs;
         public event Func<string> OnFuncTriggered;
         public event Func<string, string> OnFuncParamTriggered;
+        //public delegate void EventDelegate(string param);
+        public event IPublisher.EventDelegate OnEventDelegateTriggered;
 
-        public delegate void EventDelegate(string param);
-        public event EventDelegate OnEventDelegateTriggered;
 
         private void TriggerEvent()
         {
@@ -24,9 +37,13 @@ namespace MyLibrary.EventsAndDelegates_CodeMonkey
         {
             OnEventArgsTriggered?.Invoke(this, param);
         }
+        private void TriggerAction()
+        {
+            OnActionTriggered?.Invoke();
+        }
         private void TriggerAction(string param1, string param2)
         {
-            OnActionTriggered?.Invoke(param1, param2);
+            OnActionTriggeredArgs?.Invoke(param1, param2);
         }
         private string TriggerFunc()
         {
@@ -54,6 +71,8 @@ namespace MyLibrary.EventsAndDelegates_CodeMonkey
             TriggerEvent();
 
             TriggerEventArgs("arg");
+
+            TriggerAction();
 
             TriggerAction("arg1", "arg2");
 

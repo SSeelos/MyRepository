@@ -10,17 +10,26 @@ namespace MyConsoleAppProject.MyEventsAndDelegates
         /// </summary>
         /// <param name="source"></param>
         /// <param name="eventArgs"></param>
-        public void OnEventTrigger(object source, EventArgs eventArgs)
+        public void OnEventTriggered(object source, EventArgs eventArgs)
         {
             Console.WriteLine(this.GetType().Name + ": " + MethodBase.GetCurrentMethod().Name);
         }
+        public void Subscribe(MyPublisher publisher)
+        {
+            publisher.OnEventTriggered += OnEventTriggered;
+        }
     }
+
     public class MySubscriberArgs
     {
-        public void OnEventTriggerArgs(object source, MyEventArgs eventArgs)
+        public void OnEventTriggered(object source, MyEventArgs eventArgs)
         {
             Console.WriteLine(this.GetType().Name + ": " + MethodBase.GetCurrentMethod().Name + "\n"
                 + eventArgs.GetType().Name + ": " + eventArgs.MyProperty.GetType().Name);
+        }
+        public void Subscribe(MyPublisherArgs publisher)
+        {
+            publisher.OnEventTriggeredArgs += OnEventTriggered;
         }
     }
 }

@@ -1,17 +1,26 @@
 ﻿using System.Collections.Generic;
 
-namespace MyLibrary.MyDesignPrinciples.Builder
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Builder
 {
     public interface IProduct
     {
         string OutputParts();
     }
+    /// <summary>
+    /// Resulting object.
+    /// 
+    /// Products constructed by different builders 
+    /// don’t have to belong to the same class hierarchy or interface
+    /// </summary>
     public class MyProduct : IProduct
     {
         private readonly List<object> _parts = new List<object>();
 
         private readonly List<MyPartProduct> _partProducts = new List<MyPartProduct>();
+        public MyProduct()
+        {
 
+        }
         public MyProduct(string initPart)
         {
             this._parts.Add(initPart);

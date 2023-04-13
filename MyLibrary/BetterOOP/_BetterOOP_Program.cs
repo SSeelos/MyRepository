@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MyLibrary.BetterOOP
+namespace MyLibrary_DotNETstd_2_1.BetterOOP
 {
     class BetterOOP_Program : IProgram
     {

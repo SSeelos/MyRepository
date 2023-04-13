@@ -1,51 +1,48 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 
-namespace MyLibrary.MyJSON
+namespace MyLibrary_DotNETstd_2_1.MyJSON
 {
     public class JSONProgram : IProgram
     {
-<<<<<<< HEAD:MyLibrary/MyJSON/JSONProgram.cs
-        public static string fileName = "myJSONFile.json";
-        public static string filePath = MyPaths.Directory + "\\" + fileName;
-        public static void Run()
-=======
-        public static string fileName = @"myJSONFile.json";
-        public void Run()
->>>>>>> 4579333d76d523225eca9a5dcd5f9fec77685720:MyLibrary/MyJSON/_JSONProgram.cs
+        public static IPath path = new PathExt()
         {
-            var university = new University();
+            FileName = "myJSONFile",
+            Extension = ".json"
+        };
+        public void Run()
+        {
+            var university = new ClassToSerialize();
             InitUniversity(university);
 
-            SerializeJSON(university);
+            var ex = new Examples(
+                new MyJsonConvertEx(path, university),
+                //new MyJsonSerializerEx(path, university),
+                new MyJsonConverterEx(path, university));
 
-            DeserializeJSON();
+            ex.Execute();
         }
 
-        private static void InitUniversity(University university)
+        private static void InitUniversity(ClassToSerialize university)
         {
             university.name = "South Carolina StateUniversity";
 
-            List<Student> listStudent = new List<Student>();
-            var student1 = new Student
+            List<ClassPartOfList> listStudent = new List<ClassPartOfList>();
+            var student1 = new ClassPartOfList
             {
                 id = 0,
                 name = "Stephen Cousins"
             };
-            var student2 = new Student
+            var student2 = new ClassPartOfList
             {
                 id = 1,
                 name = "Austin A. Newton"
             };
-            var student3 = new Student
+            var student3 = new ClassPartOfList
             {
                 id = 2,
                 name = "Adam Wilhite"
             };
-            var student4 = new Student
+            var student4 = new ClassPartOfList
             {
                 id = 3,
                 name = "Enis Kurtay YILMAZ"
@@ -56,36 +53,9 @@ namespace MyLibrary.MyJSON
             listStudent.Add(student3);
             listStudent.Add(student4);
 
-            university.students = listStudent;
+            university.partOfList = listStudent;
         }
 
-        private static string SerializeJSON(University university)
-        {
-            string stringJson = JsonConvert.SerializeObject(university);
-
-            File.WriteAllText(filePath, stringJson);
-            Console.WriteLine("Write: \n" + stringJson);
-            return stringJson;
-        }
-        private static void DeserializeJSON()
-        {
-            var stringJson = File.ReadAllText(filePath);
-            Console.WriteLine("Read: \n" + stringJson);
-            University deserializedUni = JsonConvert.DeserializeObject<University>(stringJson);
-
-            Console.WriteLine("DeserializedUni: " + deserializedUni.name);
-            foreach (var student in deserializedUni.students)
-            {
-                Console.WriteLine("Student: " + student.name);
-            }
-
-            IDictionary dict = JsonConvert.DeserializeObject<IDictionary>(stringJson);
-
-            foreach (DictionaryEntry entry in dict)
-            {
-                Console.WriteLine(string.Format("Key: {0}, Value: {1}", entry.Key, entry.Value));
-            }
-        }
 
     }
 }

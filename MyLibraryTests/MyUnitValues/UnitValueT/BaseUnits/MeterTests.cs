@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MyLibrary.Tests
+namespace MyLibrary_DotNETstd_2_1.Tests
 {
     [TestClass()]
     public class MeterTests

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.FactoryMethod
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.FactoryMethod
 {
     public abstract class MyCreatorBase
     {
@@ -40,6 +40,12 @@ namespace MyLibrary.MyDesignPrinciples.FactoryMethod
     public interface IProduct
     {
         void doSomething();
+        public static class Factory
+        {
+            public static IProduct CreateDefault() => new DefaultProduct();
+            public static IProduct CreateA() => new ProductA();
+            public static IProduct CreateB() => new ProductB();
+        }
     }
     public class DefaultProduct : IProduct
     {

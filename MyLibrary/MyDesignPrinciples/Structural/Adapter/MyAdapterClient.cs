@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.MyDesignPrinciples.Adapter
+﻿namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Adapter
 {
     class MyAdapterClient
     {

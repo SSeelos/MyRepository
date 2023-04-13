@@ -1,7 +1,5 @@
-﻿using MyWPF.MVVM.Utils;
+﻿using MyViewModelLibrary.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace MyWPF.MVVM.MyMVVMToolkit.Views
 {
@@ -12,13 +10,8 @@ namespace MyWPF.MVVM.MyMVVMToolkit.Views
     {
         public MyListView()
         {
+            DataContext = new MyDataCollectionVM();
             InitializeComponent();
-        }
-
-        private void MyScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
-        {
-            var scrollViewer = sender as ScrollViewer;
-            scrollViewer.EnableMouseWheelScroll(e);
         }
     }
 }

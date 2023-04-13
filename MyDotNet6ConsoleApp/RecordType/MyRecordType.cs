@@ -1,5 +1,5 @@
 ﻿namespace MyDotNet6ConsoleApp;
-  
+
 public record class MyRecordClass
 {
     public string PropertyA { get; init; } = default!;
@@ -14,12 +14,12 @@ public record class MyRecordClass
     }
 }
 
-    public record struct MyRecordStruct
-    {
-    public string PropertyA { get; init; } = "defaultA";
-    public string PropertyB { get; init; } = "defaultB";
+//    public record struct MyRecordStruct
+//    {
+//    public string PropertyA { get; init; } = "defaultA";
+//    public string PropertyB { get; init; } = "defaultB";
 
-}
+//}
 
 #region Note
 //regular class does not support "with" expressioon

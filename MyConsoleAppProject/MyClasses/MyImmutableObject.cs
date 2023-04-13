@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyConsoleAppProject
+﻿namespace MyConsoleAppProject
 {
-    //An immutable type is a type of which its properties can only be set at initialization. 
 
-    //Note that private set only provides a restricted encapsulation
-    //of change to the property from within the same class,
-    //and thus isn't truly immutable
+    /// <summary>
+    ///An immutable type is a type of which its properties can only be set at initialization.
+
+    ///Note that private set only provides a restricted encapsulation
+    ///of change to the property from within the same class,
+    ///and thus isn't truly immutable
+    /// https://www.codeguru.com/csharp/c-sharp-immutability/
+    /// </summary>
     public class MyImmutableObject
     {
         private readonly string _immutableProperty;
-        public string ImmutableProperty { get { return _immutableProperty; } }
+        public string ImmutableProperty => _immutableProperty;
 
         public MyImmutableObject(string prop)
         {
@@ -27,7 +27,7 @@ namespace MyConsoleAppProject
 
         public MyImmutableObject(string prop, string autoprop)
         {
-            _immutableProperty=prop;
+            _immutableProperty = prop;
 
             // The compiler understands this and initializes the backing field
             MyGetterOnlyAutoProperty = autoprop;

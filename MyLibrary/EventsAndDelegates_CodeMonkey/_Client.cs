@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.EventsAndDelegates_CodeMonkey
+﻿namespace MyLibrary_DotNETstd_2_1.EventsAndDelegates_CodeMonkey
 {
     public class EventsClient : IProgram
     {

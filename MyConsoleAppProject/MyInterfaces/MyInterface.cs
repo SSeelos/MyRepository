@@ -1,46 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyConsoleAppProject
+﻿namespace MyConsoleAppProject
 {
-    interface IMyInterfaceA
+    public interface IMyInterfaceA
     {
         void MyInterfaceAMethod();
-        virtual void MyVirtualInterfaceMethod()
-        {
-            //...
-        }
     }
 
-    interface IMyInterfaceB
+    public interface IMyInterfaceB
     {
         void MyInterfaceBMethod();
     }
 
-    /// <summary>
-    /// interface that enforces implementation of a method with the same signature as IMyDuplicateB
-    /// </summary>
-    interface IMyDuplicateA
+    public interface IMyIntefaceAB : IMyInterfaceA, IMyInterfaceB
     {
-        void MyDuplicateMethod();
-    }
-    /// <summary>
-    /// interface that enforces implementation of a method with the same signature as IMyDuplicateA
-    /// </summary>
-    interface IMyDuplicateB
-    {
-        void MyDuplicateMethod();
-    }
 
-    interface IObservable
+    }
+    public interface IMyIntefaceParam
     {
-        static event Action OnTriggeredStatic;
-        void Trigger();
-
-        virtual void TriggerStatic()
-        {
-            OnTriggeredStatic?.Invoke();
-        }
+        void MyIntefaceParamMethod(string param);
+    }
+    public interface IMyIntefaceReturn
+    {
+        string MyIntefaceReturnMethod();
+    }
+    public interface IMyIntefaceParamReturn
+    {
+        string MyIntefaceParamReturnMethod(string param);
     }
 }

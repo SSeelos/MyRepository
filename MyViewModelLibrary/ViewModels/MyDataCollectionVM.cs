@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace MyViewModelLibrary.ViewModels
 {
-    public class MyDataCollectionVM : MyObservableVMBase
+    public class MyDataCollectionVM : _MyVM
     {
         public MyDataCollectionVM()
         {
@@ -27,6 +27,7 @@ namespace MyViewModelLibrary.ViewModels
             MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
             MyItemData_Collection.Add(new MyItemData() { DataA = "A2", DataB = "B2" });
             UseDataCommand = new RelayCommand(UseData);
+            ClickCommand = new RelayCommand(OnClick);
         }
         private int myVar;
         public int MyProperty
@@ -44,7 +45,11 @@ namespace MyViewModelLibrary.ViewModels
         public ObservableCollection<MyItemData> MyItemData_Collection { get; } = new ObservableCollection<MyItemData>();
 
         public ICommand UseDataCommand { get; }
-
+        public ICommand ClickCommand { get; }
+        private void OnClick()
+        {
+            UseData();
+        }
         private void UseData()
         {
             //new instance -> refresh display value (optional)

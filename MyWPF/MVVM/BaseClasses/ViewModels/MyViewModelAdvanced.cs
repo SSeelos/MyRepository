@@ -2,7 +2,7 @@
 
 namespace MyWPF.MVVM
 {
-    public class MyViewModelAdvanced : MyViewModelBase
+    public class MyViewModelAdvanced : _MyViewModel
     {
         public int MyPropertyA
         {

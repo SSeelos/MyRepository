@@ -1,10 +1,11 @@
-﻿<Window x:Class="MyWPF.UseLibraryWindow"
+<Window x:Class="MyWPF.UseLibraryWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="UseLibraryWindow" 
+        MinWidth="600"
         SizeToContent="WidthAndHeight">
     <Border Padding="40">
         <StackPanel>
@@ -15,13 +16,18 @@
             <Button Content="UnitValues" Click="UnitValues_Click"/>
             <Button Content="JSON" Click="JSON_Click"/>
             <Button Content="Events" Click="Events_Click"/>
-<<<<<<< HEAD
-            <Button Content="Neo4j" Click="Neo4j_Click"/>
-=======
             <Button Content="Web" Click="Web_Click"/>
-            <Button Content="Test" Click="Test_Click"/>
+            <Button Content="LINQ" Click="LINQ_Click"/>
             <Button Content="MyProcess" Click="MyProcess_Click"/>
->>>>>>> 4579333d76d523225eca9a5dcd5f9fec77685720
+            <Button Content="Bitmap" Click="Bitmap_Click"/>
+            <Button Content="EnumClass" Click="EnumClass_Click"/>
+            <Button Content="Attributes" Click="Attributes_Click"/>
+            <Button Content="FileSystem" Click="FileSystem_Click"/>
+            <Button Content="RegEx" Click="RegEx_Click"/>
+            <Button Content="Audio" Click="Audio_Click"/>
+            <Button Content="MyEncoding" Click="MyEncoding_Click"/>
+            <Button Content="MyAssembly" Click="MyAssembly_Click"/>
+            <Button Content="MyExceptions" Click="MyExceptions_Click"/>
 
 
 

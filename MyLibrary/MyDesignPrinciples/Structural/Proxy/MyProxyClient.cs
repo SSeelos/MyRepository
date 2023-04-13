@@ -1,6 +1,6 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 
-namespace MyLibrary.MyDesignPrinciples.Proxy
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Proxy
 {
     class MyProxyClient
     {

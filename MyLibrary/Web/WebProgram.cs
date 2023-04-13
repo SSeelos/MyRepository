@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace MyLibrary.Web
+namespace MyLibrary_DotNETstd_2_1.Web
 {
     public class WebProgram : IProgram
     {

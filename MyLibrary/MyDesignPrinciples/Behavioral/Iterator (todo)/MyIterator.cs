@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyLibrary.MyDesignPrinciples.Iterator
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Iterator
 {
     public interface IIterator
     {

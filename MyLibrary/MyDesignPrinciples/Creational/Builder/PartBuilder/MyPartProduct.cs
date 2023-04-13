@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MyLibrary.MyDesignPrinciples.Builder
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Builder
 {
     public class MyPartProduct:IProduct
     {

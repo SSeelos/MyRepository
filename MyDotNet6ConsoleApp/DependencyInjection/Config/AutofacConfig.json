@@ -1,0 +1,36 @@
+{
+  "defaultAssembly": "MyDotNet6ConsoleApp",
+  "components": [
+    {
+      "type": "MyDotNet6ConsoleApp.DependencyInjection.Dependant, MyDotNet6ConsoleApp",
+      "services": [
+        {
+          "type": "MyDotNet6ConsoleApp.DependencyInjection.IDependencyA"
+        }
+      ]
+    },
+    {
+      "type": "MyDotNet6ConsoleApp.DependencyInjection.DependantA, MyDotNet6ConsoleApp",
+      "services": [
+        {
+          "type": "MyDotNet6ConsoleApp.DependencyInjection.IDependencyA"
+        },
+        {
+          "type": "MyDotNet6ConsoleApp.DependencyInjection.IDependencyB"
+        }
+      ]
+    },
+    {
+      "type": "MyDotNet6ConsoleApp.DependencyInjection.DependantB, MyDotNet6ConsoleApp",
+      "services": [
+        {
+          "type": "MyDotNet6ConsoleApp.DependencyInjection.IDependencyA"
+        },
+        {
+          "type": "MyDotNet6ConsoleApp.DependencyInjection.IDependencyB"
+        }
+      ]
+    }
+
+  ]
+}

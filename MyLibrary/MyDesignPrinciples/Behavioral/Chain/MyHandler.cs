@@ -1,15 +1,15 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System;
 using System.Reflection;
 
-namespace MyLibrary.MyDesignPrinciples.Chain
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Chain
 {
     public interface IHandler
     {
         void SetNext(IHandler handler);
         void Execute(string request);
     }
-    public abstract class AMyHandler : IHandler
+    public abstract class _MyHandler : IHandler
     {
         protected IHandler next;
         public void Execute(string request)
@@ -23,7 +23,7 @@ namespace MyLibrary.MyDesignPrinciples.Chain
             this.next = handler;
         }
     }
-    public class MyHandlerA : AMyHandler
+    public class MyHandlerA : _MyHandler
     {
         public void Execute(string request)
         {
@@ -32,7 +32,8 @@ namespace MyLibrary.MyDesignPrinciples.Chain
 
             if (CanHandleRequest(request))
                 HandleRequest(request);
-            else base.Execute(request);
+            else
+                base.Execute(request);
         }
         private bool CanHandleRequest(string request)
         {
@@ -40,10 +41,11 @@ namespace MyLibrary.MyDesignPrinciples.Chain
         }
         private void HandleRequest(string request)
         {
-            //...
+            MyConsoleLogger.Instance.ClassMethodLog(GetType(), MethodBase.GetCurrentMethod());
+            Console.WriteLine(request);
         }
     }
-    public class MyHandlerB : AMyHandler
+    public class MyHandlerB : _MyHandler
     {
         public void Execute(string request)
         {
@@ -51,7 +53,8 @@ namespace MyLibrary.MyDesignPrinciples.Chain
 
             if (CanHandleRequest(request))
                 HandleRequest(request);
-            else base.Execute(request);
+            else
+                base.Execute(request);
         }
         private bool CanHandleRequest(string request)
         {
@@ -59,10 +62,11 @@ namespace MyLibrary.MyDesignPrinciples.Chain
         }
         private void HandleRequest(string request)
         {
-            //...
+            MyConsoleLogger.Instance.ClassMethodLog(GetType(), MethodBase.GetCurrentMethod());
+            Console.WriteLine(request);
         }
     }
-    public class MyHandlerC : AMyHandler
+    public class MyHandlerC : _MyHandler
     {
         public void Execute(string request)
         {
@@ -70,7 +74,8 @@ namespace MyLibrary.MyDesignPrinciples.Chain
 
             if (CanHandleRequest(request))
                 HandleRequest(request);
-            else base.Execute(request);
+            else
+                base.Execute(request);
 
         }
         private bool CanHandleRequest(string request)
@@ -79,6 +84,7 @@ namespace MyLibrary.MyDesignPrinciples.Chain
         }
         private void HandleRequest(string request)
         {
+            MyConsoleLogger.Instance.ClassMethodLog(GetType(), MethodBase.GetCurrentMethod());
             Console.WriteLine(request);
         }
     }

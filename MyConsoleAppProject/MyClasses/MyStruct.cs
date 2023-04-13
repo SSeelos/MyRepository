@@ -11,7 +11,7 @@ namespace MyConsoleAppProject
         }
 
         public string A { get; }
-        public string B { get; }
+        public string B { get; set; }
 
         public void ToConsole()
         {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace MyLibrary
+namespace MyLibrary_DotNETstd_2_1
 {
     public class UnitValuesProgram : IProgram
     {

@@ -1,7 +1,6 @@
-using MyDotNet6ConsoleApp.Threading;
-using MyLibrary;
-
-using MyLibrary.MyUtilities;
+﻿using MyDotNet6ConsoleApp.Threading;
+using MyLibrary_DotNETstd_2_1;
+using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System.Reflection;
 
 namespace MyDotNet6ConsoleApp;
@@ -16,7 +15,9 @@ internal class ThreadingProgram : IProgram
         var examples = new ThreadingExamples(
             new SleepingThread(),
             new StartThread(),
-            new AbortThreadExample());
+            new AbortThreadExample(),
+            new ThreadLocalExample(),
+            new MyTaskExample());
 
         examples.Execute();
     }

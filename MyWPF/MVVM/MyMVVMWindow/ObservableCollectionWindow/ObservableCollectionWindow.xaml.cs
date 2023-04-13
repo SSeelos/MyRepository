@@ -15,7 +15,7 @@ namespace MyWPF.MVVM
             InitializeComponent();
         }
     }
-    public class ObservableCollectionViewModel : MyViewModelBase
+    public class ObservableCollectionViewModel : _MyViewModel
     {
         public MyCollection myDatas { get; set; }
 
@@ -34,7 +34,7 @@ namespace MyWPF.MVVM
             Add(new MyData(viewModel, "three", "four"));
         }
     }
-    public class MyData : MyViewModelBase
+    public class MyData : _MyViewModel
     {
         public ObservableCollectionViewModel parentViewModel;
         private string myField;
@@ -53,7 +53,7 @@ namespace MyWPF.MVVM
 
     }
 
-    public class MyObservableCollectionCommand : MyCommandBase<ObservableCollectionViewModel>
+    public class MyObservableCollectionCommand : _MyCommand<ObservableCollectionViewModel>
     {
         public MyObservableCollectionCommand(ObservableCollectionViewModel viewModel)
             : base(viewModel)
@@ -65,7 +65,7 @@ namespace MyWPF.MVVM
             viewModel.myDatas.Add(new MyData(viewModel, "five", "six"));
         }
     }
-    public class MyDataCommand : MyCommandBase<MyData>
+    public class MyDataCommand : _MyCommand<MyData>
     {
         public MyDataCommand(MyData viewModel)
             : base(viewModel)

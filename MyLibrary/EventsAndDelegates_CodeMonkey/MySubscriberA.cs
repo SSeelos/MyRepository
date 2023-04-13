@@ -1,24 +1,30 @@
-﻿using MyLibrary.MyUtilities;
+﻿using MyLibrary_DotNETstd_2_1.MyUtilities;
 using System;
 using System.Reflection;
 
-namespace MyLibrary.EventsAndDelegates_CodeMonkey
+namespace MyLibrary_DotNETstd_2_1.EventsAndDelegates_CodeMonkey
 {
     public interface ISubscriber
     {
-        void Subscribe(MyPublisher publisher);
+        void Subscribe(IPublisher publisher);
     }
     public class MySubscriberA : ISubscriber
     {
         public static string suffix = "A";
-        public void Subscribe(MyPublisher publisher)
+        public void Subscribe(IPublisher publisher)
         {
             publisher.OnEventTriggered += Publisher_OnEventTriggered;
             publisher.OnEventArgsTriggered += Publisher_OnEventArgsTriggered;
             publisher.OnActionTriggered += Publisher_OnActionTriggered;
+            publisher.OnActionTriggeredArgs += Publisher_OnActionTriggeredArgs;
             publisher.OnFuncTriggered += Publisher_OnFuncTriggered;
             publisher.OnFuncParamTriggered += Publisher_OnFuncParamTriggered;
             publisher.OnEventDelegateTriggered += Publisher_OnEventDelegateTriggered;
+        }
+
+        private void Publisher_OnActionTriggered()
+        {
+            MyConsoleLogger.Instance.ClassMethodLog(GetType(), MethodBase.GetCurrentMethod());
         }
 
         private string Publisher_OnFuncParamTriggered(string arg)
@@ -44,7 +50,7 @@ namespace MyLibrary.EventsAndDelegates_CodeMonkey
         }
 
 
-        private void Publisher_OnActionTriggered(string arg1, string arg2)
+        private void Publisher_OnActionTriggeredArgs(string arg1, string arg2)
         {
             MyConsoleLogger.Instance.ClassMethodLog(GetType(), MethodBase.GetCurrentMethod());
             Console.WriteLine(arg1 + " " + arg2 + " " + suffix);

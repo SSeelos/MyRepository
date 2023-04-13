@@ -1,4 +1,5 @@
 ﻿using MyConsoleAppProject.MyEventsAndDelegates;
+using MySystemExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -117,27 +118,42 @@ namespace MyConsoleAppProject
             var myObject = new MyClass();
             myObject.myAttribute = 2;
             myObject.MyMethod();
+            myObject.MyNewMethod();
             MyClass.MyStaticMethod();
             myObject.MyInterfaceAMethod();
             myObject.MyInterfaceBMethod();
-            
-            myObject.MyDuplicateMethod();
-            (myObject as IMyDuplicateA).MyDuplicateMethod();
-            (myObject as IMyDuplicateA).MyDuplicateMethod();
-
-            myObject.MyAbstractMethod();
+            myObject.MyPublicVirtualMethod();
+            myObject._MyPublicAbstractMethod();
+            myObject.MyMethodOfAbstractClass();
 
             //set property
-            myObject.myProperty = 5;
+            myObject.MyAutoProperty = 5;
             //get property
-            var str = myObject.myProperty;
+            var str = myObject.MyAutoProperty;
 
+
+            var myObjectB = new MyClassB("field");
+            myObjectB.MyPublicVirtualMethod();
+            myObjectB._MyPublicAbstractMethod();
+            myObjectB.MyMethodOfAbstractClass();
+
+            var derived = new MyDerivedClass();
+            derived.MyMethod();
 
 
             MyStaticClass.MyProperty = "static property";
 
+            var myEnumerable = new MyEnumerable();
+            foreach (var item in myEnumerable)
+            {
+                Console.WriteLine(typeof(MyEnumerable).Display());
+                Console.WriteLine(item);
+            }
+
             var immutable = new MyImmutableObject("immutable prop", "immutable auto prop");
             Console.WriteLine(immutable.ImmutableProperty + " " + immutable.MyGetterOnlyAutoProperty);
+
+
             #endregion
 
             #region reference or value
@@ -149,6 +165,7 @@ namespace MyConsoleAppProject
             b = (double)a;
             a = (int)b;
 
+
             Console.WriteLine($"a before reference method: {a}");
             ReferenceMethod(ref a);
             Console.WriteLine($"a after reference method: {a}");
@@ -156,6 +173,25 @@ namespace MyConsoleAppProject
             int c;
             OutMethod(out c);
 
+            MyStruct myValT = new MyStruct("Aref", "Bref");
+            MyStruct tempStruct;
+            //data will be copied
+            //(memory already beeing allocated)
+            tempStruct = myValT;
+            tempStruct.B = "neBAref";
+
+            Console.WriteLine(myValT.B);
+            Console.WriteLine(tempStruct.B);
+
+            //reference
+            string reference = "ref";
+            MyClass myRefT = new MyClass("value");
+            MyClass tempRefT = myRefT;
+            tempRefT.SetField("new value");
+
+            string newF = tempRefT.GetField();
+            Console.WriteLine(myRefT.GetField());
+            Console.WriteLine(newF);
 
             #endregion
 

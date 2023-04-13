@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyLibrary.MyDesignPrinciples.Facade
+namespace MyLibrary_DotNETstd_2_1.MyDesignPrinciples.Facade
 {
     class MyFacadeClient
     {
